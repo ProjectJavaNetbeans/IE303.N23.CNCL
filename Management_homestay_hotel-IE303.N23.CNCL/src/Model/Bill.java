@@ -26,7 +26,12 @@ public class Bill {
     /**
      * 
      */
-    private String billDate;
+    private int empId;
+
+    /**
+     * 
+     */
+    private String createDate;
 
     /**
      * 
@@ -36,11 +41,49 @@ public class Bill {
     /**
      * 
      */
-    private boolean paid;
+    private boolean paidStatus;
 
     /**
      * 
      */
-    private ArrayList<BillDetails> billDetails;
+    private ArrayList<Service> useSvList;
+    
+    public Bill(int billId, int cusId, int empId, String createDate, double totalAmount, boolean paidStatus) {
+        this.billId = billId;
+        this.cusId = cusId;
+        this.empId = empId;
+        this.createDate = createDate;
+        this.totalAmount = totalAmount;
+        this.paidStatus = paidStatus;
+        this.useSvList = new ArrayList<Service>();}
+
+    public int getBillId() {
+        return billId;
+    }
+
+    public int getCusId() {
+        return cusId;
+    }
+
+    public int getEmpId() {
+        return empId;
+    }
+
+    public String getCreateDate() {
+        return createDate;
+    }
+
+    public double getTotalAmount() {
+        return totalAmount;
+    }
+
+    public boolean isPaidStatus() {
+        return paidStatus;
+    }
+
+    public ArrayList<Service> getUseSvList() {
+        return useSvList;
+    }
+    
     
 }

@@ -21,7 +21,7 @@ public class DataConnection {
             Class.forName("com.mysql.cj.jdbc.Driver");
             
             // Ket noi database
-            Connection cn = DriverManager.getConnection(databaseUrl, "root", "root");
+            Connection cn = DriverManager.getConnection(databaseUrl, "root", "123456");
             System.out.println("Successful connection!");
             return cn;
             

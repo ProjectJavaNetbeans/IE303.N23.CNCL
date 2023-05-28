@@ -1,11 +1,11 @@
 package Model;
 
-public class BillDetails {
+public class BillDetail {
 
     /**
      * Default constructor
      */
-    public BillDetails() {
+    public BillDetail() {
     }
 
     /**
@@ -28,4 +28,27 @@ public class BillDetails {
      */
     private double unitPrice;
 
+    public BillDetail(int bdId, int svId, int billId) {
+        this.bdId = bdId;
+        this.svId = svId;
+        this.billId = billId;
+        
+    }
+
+    public int getBdId() {
+        return bdId;
+    }
+
+    public int getSvId() {
+        return svId;
+    }
+
+    public int getBillId() {
+        return billId;
+    }
+
+    public double getUnitPrice() {
+        return unitPrice;
+    }
+    
 }

@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.ArrayList;
+
 public class Service {
 
     /**
@@ -22,4 +24,14 @@ public class Service {
      * 
      */
     private double svPrice;
+
+    private ArrayList<Service> svList;
+    
+    public int getSvId() {
+        return svId;
+    }
+
+    public double getSvPrice() {
+        return svPrice;
+    }
 }
