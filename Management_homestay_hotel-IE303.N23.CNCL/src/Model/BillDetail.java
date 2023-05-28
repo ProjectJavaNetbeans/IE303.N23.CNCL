@@ -11,7 +11,7 @@ public class BillDetails {
     /**
      * Default constructor
      */
-    public BillDetails() {
+    public BillDetail() {
     }
 
     /**
@@ -34,14 +34,27 @@ public class BillDetails {
      */
     private double unitPrice;
 
-    /**
-     * @param bdId 
-     * @param svId 
-     * @param billId
-     */
-    public void BillDetails(int bdId, int svId, int billId) {
-        // TODO implement here
+    public BillDetail(int bdId, int svId, int billId) {
+        this.bdId = bdId;
+        this.svId = svId;
+        this.billId = billId;
+        
     }
 
+    public int getBdId() {
+        return bdId;
+    }
 
+    public int getSvId() {
+        return svId;
+    }
+
+    public int getBillId() {
+        return billId;
+    }
+
+    public double getUnitPrice() {
+        return unitPrice;
+    }
+    
 }
