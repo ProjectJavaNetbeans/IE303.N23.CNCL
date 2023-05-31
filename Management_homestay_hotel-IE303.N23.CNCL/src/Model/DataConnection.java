@@ -21,18 +21,17 @@ public class DataConnection {
      */
     public static Connection Connect()
     {
-        //Khai báo đối tượng kết nối
-        //Connection conn = null;
-            
+        String databaseUrl = "jdbc:mysql://localhost:3306/MANAGEMENTHOMESTAYHOTEL";
+        
         try {
  
             //Nạp driver của mysql vào để sử dụng
             Class.forName(JDBC_DRIVER);
             
-            //Thực hiện kết nối đến db
-            Connection conn = DriverManager.getConnection(DATABASE_LINK, "admin", "123456");
-            System.out.println("Kết nối thành công");
-            return conn;
+            // Ket noi database
+            Connection cn = DriverManager.getConnection(databaseUrl, "admin", "123456");
+            System.out.println("Successful connection!");
+            return cn;
             
         } catch (ClassNotFoundException ex) {
             System.err.println("Không tìm thấy driver. Chi tiết: " + ex.getMessage());
@@ -45,4 +44,5 @@ public class DataConnection {
         //Trả về kết nối
         //return conn;
     }
+
 }

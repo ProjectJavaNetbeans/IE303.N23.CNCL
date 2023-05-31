@@ -4,13 +4,15 @@
  */
 package Controller;
 
-import Model.Bill;
-import View.BillView;
-import Model.Service;
+import Model.*;
+import View.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.*;
 import javax.swing.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 /**
  *
@@ -23,125 +25,190 @@ public class BillController {
     public BillController(Bill model, BillView view) {
         this.model = model;
         this.view = view;
-    }
-    
-    public double calcTotalAmount(){
-        double total = 0;
-        for(Service sv : model.getUseSvList()){
-            total += sv.getSvPrice();
-        }
-        return total;
-    }
-    
-    public Service billDetailSearch(int svId){
-        for(Service sv : model.getUseSvList()){
-            if(sv.getSvId() == svId){
-                return sv;
+        
+        view.addBillBtnListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                addBillBtnActionPerformed(e);
             }
+        });
+        
+        view.delBillBtnListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                delBillBtnActionPerformed(e);
+            }
+        });
+        
+        view.updBillBtnListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                updBillBtnActionPerformed(e);
+            }
+        });
+
+          view.priBillBtnListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                priBillBtnActionPerformed(e);
+            }
+          });
+          
+        view.customerViewBtnListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                customerViewBtnActionPerformed(e);
+            }
+        });
+        view.roomViewBtnListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                roomViewBtnActionPerformed(e);
+            }
+        });
+        view.serviceViewBtnListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                serviceViewBtnActionPerformed(e);
+            }
+        });
+        view.bookingViewBtnListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                bookingViewBtnActionPerformed(e);
+            }
+        });
+        view.logoutViewBtnListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                logoutViewBtnActionPerformed(e);
+            }
+        });
+    }
+    
+    public double calcTotalAmount(int roomId, int svId){
+        double totalAmount = 0;
+        if(roomId > 0 && roomId < 3){
+            totalAmount += 100000;
         }
-        return null;
+        if(roomId > 2 && roomId < 8){
+            totalAmount += 250000;
+        }
+        if(roomId > 7 && roomId < 11){
+            totalAmount += 300000;
+        }
+        if(svId == 101) totalAmount += 40000;
+        if(svId == 102) totalAmount += 5000;
+        if(svId == 103) totalAmount += 10000;
+        return totalAmount;
     }
     
-    public void addUseService(Service sv){
-        model.getUseSvList().add(sv);
-    }
-    
-    // Them hoa don
-    public void addBill(int billId, int cusId, int empId, boolean paidStatus){
-        Connection cn = DataConnection.Connect();
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-            
+    private void addBillBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        List<Bill> bills = model.getBills();
+        int billId;
+        if(bills.size() <= 0) billId = 121; 
+        else {
+            int lastId = bills.get(bills.size() - 1).getBillId();
+            billId = lastId + 1;
+        } // Lay id moi nhat
+        
         LocalDateTime currentDateTime = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-        String createDate = currentDateTime.format(formatter); 
+        String createDate = currentDateTime.format(formatter);
         
-        String sqlInsert = "INSERT INTO BILL VALUES(?, ?, ?, ?, ?, ?)";
-        String selectAll = "SELECT * FROM BILL";
-        try
-        {            
-            ps =cn.prepareStatement(sqlInsert);
-            ps.setInt(1, billId);
-            ps.setInt(2, cusId);
-            ps.setInt(3, empId);
-            ps.setString(4, createDate);
-            ps.setDouble(5, calcTotalAmount());
-            ps.setBoolean(6, paidStatus);
-            ps.execute();
-            JOptionPane.showMessageDialog(null, "Successful insert!");
-            
-            ps = cn.prepareStatement(selectAll);
-            // Lay du lieu tu bang Booking
-            rs = ps.executeQuery();
-            // xuat du lieu
-            while (rs.next()) {
-                System.out.println(rs.getInt(1) + "  " + rs.getInt(2) + "  " + rs.getInt(3) + "  " + rs.getString(4) + "  " + rs.getDouble(5) + "  " + rs.getBoolean(6));
-            }
-            ps.close();
-            cn.close();
-            System.out.println("Closing DataBase!");
-        }
-        catch(SQLException ex)
-        {
-            System.out.println(ex);
-            JOptionPane.showMessageDialog(null, "Unsccessful insert!");
-        }
+        int cusId = Integer.parseInt(view.getCusId());
+        int roomId = Integer.parseInt(view.getRoomId());
+        int svId = Integer.parseInt(view.getSvId());
+        double totalAmount = calcTotalAmount(roomId, svId);
+        boolean paidStatus = view.getPaidStatus();
+
+        model.addBill(billId, cusId, roomId, svId, createDate, totalAmount,paidStatus);
+
+        // Cap nhat table
+        view.displayBills(model.getBills());
+        view.setVisible(true);
     }
     
-    // Xoa hoa don
-    public void deleteBill(int billId){
-        Connection cn = DataConnection.Connect();
-        PreparedStatement ps = null;
+    private void priBillBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        int billId = Integer.parseInt(view.getBillId());
+
+        model.priBill(billId);
         
-        try {
-            String sqlDelete = "DELETE FROM BILL WHERE billId = ?";
-
-            ps = cn.prepareStatement(sqlDelete);
-            ps.setInt(1, billId);
-
-            int rowsAffected = ps.executeUpdate();
-
-            if (rowsAffected > 0) {
-                JOptionPane.showMessageDialog(null, "Successful delete!");
-            } else {
-                JOptionPane.showMessageDialog(null, "No matching record found!");
-            }
-            ps.close();
-            cn.close();
-            System.out.println("Closing DataBase!");
-        } catch (SQLException ex) {
-            System.out.println(ex);
-            JOptionPane.showMessageDialog(null, "Unsuccessful delete!");
-        } 
+        // Cap nhat table
+        view.displayBills(model.getBills());
+        view.setVisible(true);
     }
     
-    // Sua hoa don
-    public void updateBill(int billId, int cusId, boolean paidStatus){
-        Connection cn = DataConnection.Connect();
-        PreparedStatement ps = null;
-        
-        try {
-            String sqlUpdate = "UPDATE BILL SET cusId = ?, totalAmount = ?, paidStatus = ? WHERE billId = ?";
+    private void delBillBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        int billId = Integer.parseInt(view.getBillId());
 
-            ps = cn.prepareStatement(sqlUpdate);
-            ps.setInt(1, cusId);
-            ps.setDouble(2, calcTotalAmount());
-            ps.setBoolean(3, paidStatus);
-            ps.setInt(4, billId);
+        model.deleteBill(billId);
 
-            int rowsAffected = ps.executeUpdate();
+        // Cap nhat table
+        view.displayBills(model.getBills());
+        view.setVisible(true);
+    }
+    
+    private void updBillBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        int billId = Integer.parseInt(view.getBillId());
+        int cusId = Integer.parseInt(view.getCusId());
+        int roomId = Integer.parseInt(view.getRoomId());
+        int svId = Integer.parseInt(view.getSvId());
+        double totalAmount = calcTotalAmount(roomId, svId);
+        boolean paidStatus = view.getPaidStatus();
 
-            if (rowsAffected > 0) {
-                JOptionPane.showMessageDialog(null, "Successful update!");
-            } else {
-                JOptionPane.showMessageDialog(null, "No matching record found!");
-            }
-            ps.close();
-            cn.close();
-            System.out.println("Closing DataBase!");
-        } catch (SQLException ex) {
-            System.out.println(ex);
-            JOptionPane.showMessageDialog(null, "Unsuccessful update!");
-        }
+        model.updateBill(billId, cusId, roomId, svId, totalAmount, paidStatus);
+
+        view.displayBills(model.getBills());
+        view.setVisible(true);
+    }
+    
+    private void bookingViewBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        view.setVisible(false);
+
+        BookingView view = new BookingView();
+        Booking model = new Booking();
+
+        BookingController controller = new BookingController(model,view);
+
+        controller.displayBookingView();
+    }
+    private void roomViewBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        view.setVisible(false);
+
+        RoomView roomView = new RoomView();
+        roomView.setVisible(true);
+    }
+    
+    private void serviceViewBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        view.setVisible(false);
+
+        ServiceView serviceView = new ServiceView();
+        serviceView.setVisible(true);
+    }
+    private void customerViewBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        view.setVisible(false);
+
+        CustomerView view = new CustomerView();
+        Customer model = new Customer();
+
+        CustomerController controller = new CustomerController(model,view);
+
+        controller.displayCustomerView();
+    }
+    private void logoutViewBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        view.setVisible(false);
+
+        LoginView view = new LoginView();
+        Login model = new Login();
+
+        LoginController controller = new LoginController(model,view);
+
+        controller.displayLoginView();
+    }
+    
+    public void displayBillView() {
+        view.displayBills(model.getBills());
+        view.setVisible(true);
     }
 }

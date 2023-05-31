@@ -3,7 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package View;
-
+import Model.Booking;
+import Controller.*;
+import java.awt.event.ActionListener;
+import javax.swing.*;
+import java.sql.*;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Nhattruong
@@ -15,6 +21,8 @@ public class BookingView extends javax.swing.JFrame {
      */
     public BookingView() {
         initComponents();
+        frame = new JFrame("Booking Management");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     /**
@@ -26,36 +34,193 @@ public class BookingView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        logoutViewBtn = new javax.swing.JButton();
+        billViewBtn = new javax.swing.JButton();
+        serviceViewBtn = new javax.swing.JButton();
+        customerViewBtn = new javax.swing.JButton();
+        roomViewBtn = new javax.swing.JButton();
+        bookingViewBtn = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        RoomsTable = new javax.swing.JTable();
+        addBookingBtn = new javax.swing.JButton();
+        cusIdTF = new javax.swing.JTextField();
+        roomIdTF = new javax.swing.JTextField();
+        ckinDateTF = new javax.swing.JTextField();
+        ckoutDateTF = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        logoutViewBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/icon logout.png"))); // NOI18N
+        logoutViewBtn.setBorder(null);
+        logoutViewBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutViewBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(logoutViewBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 4, -1, -1));
+
+        billViewBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/icon bill.png"))); // NOI18N
+        billViewBtn.setBorder(null);
+        billViewBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                billViewBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(billViewBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(613, 4, -1, -1));
+
+        serviceViewBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/icon service.png"))); // NOI18N
+        serviceViewBtn.setBorder(null);
+        serviceViewBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                serviceViewBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(serviceViewBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(486, 5, -1, -1));
+
+        customerViewBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/icon customer.png"))); // NOI18N
+        customerViewBtn.setBorder(null);
+        customerViewBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                customerViewBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(customerViewBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 4, -1, -1));
+
+        roomViewBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/icon room.png"))); // NOI18N
+        roomViewBtn.setBorder(null);
+        roomViewBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                roomViewBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(roomViewBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 4, -1, -1));
+
+        bookingViewBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/icon booking.png"))); // NOI18N
+        bookingViewBtn.setBorder(null);
+        getContentPane().add(bookingViewBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 4, -1, -1));
+
+        RoomsTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Room Name", "Type", "Price", "Status"
+            }
+        ));
+        jScrollPane1.setViewportView(RoomsTable);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 320, 480, 370));
+
+        addBookingBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        addBookingBtn.setForeground(new java.awt.Color(0, 204, 0));
+        addBookingBtn.setText("Add");
+        addBookingBtn.setBorder(null);
+        addBookingBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addBookingBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(addBookingBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(134, 665, 70, 20));
+
+        cusIdTF.setBorder(null);
+        getContentPane().add(cusIdTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 302, 235, 30));
+
+        roomIdTF.setBorder(null);
+        getContentPane().add(roomIdTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 394, 235, 30));
+
+        ckinDateTF.setBorder(null);
+        getContentPane().add(ckinDateTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 487, 235, 30));
+
+        ckoutDateTF.setBorder(null);
+        getContentPane().add(ckoutDateTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 578, 235, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/Booking.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1481, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1443, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(32, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1036, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-        );
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    public String[][] dataTransfer(List<Booking> bookings){
+        int i =0 ;
+        String data[][] = new String[bookings.size()][5];
+        for(Booking booking : bookings){
+            data[i][0] = String.valueOf(booking.getBookingId());
+            data[i][1] = String.valueOf(booking.getCusId());
+            data[i][2] = String.valueOf(booking.getRoomId());
+            data[i][3] = booking.getBookingDate();
+            data[i][4] = booking.getCheckInDate();
+            data[i][5] = booking.getCheckOutDate();
+            i++;
+        }
+        return data;
+    }
+    
+    public void displayCustomers(List<Booking> bookings) {
+        String[][] data = dataTransfer(bookings);
+        String[] column = {"ID", "Room Name", "Type", "Price", "Status"};
+        DefaultTableModel dataModel = new DefaultTableModel(data, column);
+        RoomsTable.setModel(dataModel);
+        frame.setVisible(true);
+    }
+
+    public void addCusBtnListener(ActionListener listener) {
+        addBookingBtn.addActionListener(listener);
+    }
+    public void customerViewBtnListener(ActionListener listener) {
+        customerViewBtn.addActionListener(listener);
+    }
+    public void roomViewBtnListener(ActionListener listener) {
+        roomViewBtn.addActionListener(listener);
+    }
+    public void serviceViewBtnListener(ActionListener listener) {
+        serviceViewBtn.addActionListener(listener);
+    }
+    public void billViewBtnListener(ActionListener listener) {
+       billViewBtn.addActionListener(listener);
+    }
+    public void logoutViewBtnListener(ActionListener listener) {
+        logoutViewBtn.addActionListener(listener);
+    }
+    
+    private void addBookingBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBookingBtnActionPerformed
+        if (addBookingBtnListener != null) {
+            addBookingBtnListener.actionPerformed(evt);
+        }
+    }//GEN-LAST:event_addBookingBtnActionPerformed
+
+    private void roomViewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roomViewBtnActionPerformed
+        if (roomViewBtnListener != null) {
+            roomViewBtnListener.actionPerformed(evt);
+        }
+    }//GEN-LAST:event_roomViewBtnActionPerformed
+
+    private void customerViewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerViewBtnActionPerformed
+        if (customerViewBtnListener != null) {
+            customerViewBtnListener.actionPerformed(evt);
+        }
+    }//GEN-LAST:event_customerViewBtnActionPerformed
+
+    private void serviceViewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serviceViewBtnActionPerformed
+        if (serviceViewBtnListener != null) {
+            serviceViewBtnListener.actionPerformed(evt);
+        }
+    }//GEN-LAST:event_serviceViewBtnActionPerformed
+
+    private void billViewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_billViewBtnActionPerformed
+        if (billViewBtnListener != null) {
+            billViewBtnListener.actionPerformed(evt);
+        }
+    }//GEN-LAST:event_billViewBtnActionPerformed
+
+    private void logoutViewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutViewBtnActionPerformed
+        if (logoutViewBtnListener != null) {
+            logoutViewBtnListener.actionPerformed(evt);
+        }
+    }//GEN-LAST:event_logoutViewBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -92,7 +257,29 @@ public class BookingView extends javax.swing.JFrame {
         });
     }
 
+    private JFrame frame;
+    private ActionListener addBookingBtnListener;
+    private ActionListener delBookingBtnListener;
+    private ActionListener updBookingBtnListener;
+    private ActionListener customerViewBtnListener;
+    private ActionListener roomViewBtnListener;
+    private ActionListener serviceViewBtnListener;
+    private ActionListener billViewBtnListener;
+    private ActionListener logoutViewBtnListener;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable RoomsTable;
+    private javax.swing.JButton addBookingBtn;
+    private javax.swing.JButton billViewBtn;
+    private javax.swing.JButton bookingViewBtn;
+    private javax.swing.JTextField ckinDateTF;
+    private javax.swing.JTextField ckoutDateTF;
+    private javax.swing.JTextField cusIdTF;
+    private javax.swing.JButton customerViewBtn;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton logoutViewBtn;
+    private javax.swing.JTextField roomIdTF;
+    private javax.swing.JButton roomViewBtn;
+    private javax.swing.JButton serviceViewBtn;
     // End of variables declaration//GEN-END:variables
 }

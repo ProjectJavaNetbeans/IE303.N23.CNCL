@@ -4,13 +4,17 @@
  */
 package Controller;
 
-import Model.Booking;
+import Model.*;
+import View.*;
 import java.sql.*;
 import javax.swing.*;
 import com.toedter.calendar.JDateChooser;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 /**
  *
@@ -18,110 +22,107 @@ import java.time.format.DateTimeFormatter;
  */
 public class BookingController {
     
-    // Them don dat phong
-    public void addBooking(int bookingId, int cusId, int roomId, JDateChooser checkInDate, JDateChooser checkOutDate){
-        Connection cn = DataConnection.Connect();
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-            
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-        String checkinDate = dateFormat.format(checkInDate.getDate());
-        String checkoutDate = dateFormat.format(checkOutDate.getDate());
+    private Booking model;
+    private BookingView view;
+    
+    public BookingController(Booking model, BookingView view){
+        this.model = model;
+        this.view = view;
+        
+        view.addBookingBtnListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                addBookingBtnActionPerformed(e);
+            }
+        });
+        view.customerViewBtnListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                customerViewBtnActionPerformed(e);
+            }
+        });
+        view.roomViewBtnListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                roomViewBtnActionPerformed(e);
+            }
+        });
+        view.serviceViewBtnListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                serviceViewBtnActionPerformed(e);
+            }
+        });
+        view.billViewBtnListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                billViewBtnActionPerformed(e);
+            }
+        });
+        view.logoutViewBtnListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                logoutViewBtnActionPerformed(e);
+            }
+        });
+    }
+    
+    public void displayBookingView() {
+        view.displayBookings(model.getBookings());
+        view.setVisible(true);
+
+    }
+    
+    private void addBookingBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        List<Booking> bookings = model.getBookings();
+        int lastId = bookings.get(bookings.size() - 1).getBookingId(); // Lay id moi nhat
+        int bookingId = lastId + 1;
+        
         LocalDateTime currentDateTime = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-        String bookingDate = currentDateTime.format(formatter); 
+        String bookingDate = currentDateTime.format(formatter);
         
-        System.out.println(checkinDate);
-        System.out.println(checkoutDate);
-        
-        String sqlInsert = "INSERT INTO BOOKING VALUES(?, ?, ?, ?, ?, ?)";
-        String selectAll = "SELECT * FROM BOOKING";
-        try
-        {            
-            ps =cn.prepareStatement(sqlInsert);
-            ps.setInt(1, bookingId);
-            ps.setInt(2, cusId);
-            ps.setInt(3, roomId);
-            ps.setString(4, bookingDate);
-            ps.setString(5, checkinDate);
-            ps.setString(6, checkoutDate);
-            ps.execute();
-            JOptionPane.showMessageDialog(null, "Successful insert!");
-            
-            ps = cn.prepareStatement(selectAll);
-            // Lay du lieu tu bang Booking
-            rs = ps.executeQuery();
-            // xuat du lieu
-            while (rs.next()) {
-                System.out.println(rs.getInt(1) + "  " + rs.getInt(2) + "  " + rs.getInt(3) + "  " + rs.getString(4) + "  " + rs.getString(5) + "  " + rs.getString(6));
-            }
-            ps.close();
-            cn.close();
-            System.out.println("Closing DataBase!");
-        }
-        catch(SQLException ex)
-        {
-            System.out.println(ex);
-            JOptionPane.showMessageDialog(null, "Unsccessful insert!");
-        }
+        String cusName = view.getBookingId();
+        String cusEmail = view.getCusEmail();
+        String cusPhone = view.getCusPhone();
+        String cusAddress = view.getCusAddress();
+
+        model.addCustomer(cusId, cusName, cusEmail, cusPhone, cusAddress);
+
+        // Cap nhat table
+        view.displayCustomers(model.getCustomers());
+        view.setVisible(true);
     }
     
-    // Xoa don dat phong
-    public void deleteBooking(int bookingId){
-        Connection cn = DataConnection.Connect();
-        PreparedStatement ps = null;
-        
-        try {
-            String sqlDelete = "DELETE FROM BOOKING WHERE bookingId = ?";
+    private void customerViewBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        view.setVisible(false);
 
-            ps = cn.prepareStatement(sqlDelete);
-            ps.setInt(1, bookingId);
+        CustomerView customerView = new CustomerView();
+        customerView.setVisible(true);
+    }
+    private void roomViewBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        view.setVisible(false);
 
-            int rowsAffected = ps.executeUpdate();
-
-            if (rowsAffected > 0) {
-                JOptionPane.showMessageDialog(null, "Successful delete!");
-            } else {
-                JOptionPane.showMessageDialog(null, "No matching record found!");
-            }
-            ps.close();
-            cn.close();
-            System.out.println("Closing DataBase!");
-        } catch (SQLException ex) {
-            System.out.println(ex);
-            JOptionPane.showMessageDialog(null, "Unsuccessful delete!");
-        } 
+        RoomView roomView = new RoomView();
+        roomView.setVisible(true);
     }
     
-    // Sua don dat phong
-    public void updateBooking(int bookingId, int cusId, int roomId, Date checkInDate, Date checkOutDate){
-        Connection cn = DataConnection.Connect();
-        PreparedStatement ps = null;
-        
-        try {
-            String sqlUpdate = "UPDATE BOOKING SET cusId = ?, roomId = ?, checkInDate = ?, checkOutDate = ? WHERE bookingId = ?";
+    private void serviceViewBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        view.setVisible(false);
 
-            ps = cn.prepareStatement(sqlUpdate);
-            ps.setInt(1, cusId);
-            ps.setInt(2, roomId);
-            ps.setDate(3, new java.sql.Date(checkInDate.getTime()));
-            ps.setDate(4, new java.sql.Date(checkOutDate.getTime()));
-            ps.setInt(5, bookingId);
-
-            int rowsAffected = ps.executeUpdate();
-
-            if (rowsAffected > 0) {
-                JOptionPane.showMessageDialog(null, "Successful update!");
-            } else {
-                JOptionPane.showMessageDialog(null, "No matching record found!");
-            }
-            ps.close();
-            cn.close();
-            System.out.println("Closing DataBase!");
-        } catch (SQLException ex) {
-            System.out.println(ex);
-            JOptionPane.showMessageDialog(null, "Unsuccessful update!");
-        }
+        ServiceView serviceView = new ServiceView();
+        serviceView.setVisible(true);
     }
-    
+    private void billViewBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        view.setVisible(false);
+
+        BillView billView = new BillView();
+        billView.setVisible(true);
+    }
+    private void logoutViewBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        view.setVisible(false);
+
+        loginView loginView = new loginView();
+        loginView.setVisible(true);
+    }
 }
