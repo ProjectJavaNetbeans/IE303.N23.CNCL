@@ -21,6 +21,7 @@ CREATE TABLE ROOM (
 CREATE TABLE CUSTOMER (
 	cus_id INT PRIMARY KEY AUTO_INCREMENT,
     cus_name VARCHAR(20),
+    cus_email VARCHAR(50),
     cus_phone VARCHAR(20),
     cus_address VARCHAR(50)
 );
@@ -62,6 +63,9 @@ CREATE TABLE SERVICE (
 	sv_name VARCHAR(20),
 	sv_price DOUBLE	
 );
+
+CREATE USER 'admin'@'localhost' IDENTIFIED BY '123456';
+GRANT ALL PRIVILEGES ON QLKSHS.* TO 'admin'@'localhost';
 
 
 ALTER TABLE BOOKING
@@ -107,13 +111,13 @@ VALUES
 (21, 'A0', 'Common room', 300000, false, 222),
 (22, 'A1', 'Master room', 380000, false, 222);
 
-INSERT INTO CUSTOMER (cus_id, cus_name, cus_phone, cus_address)
+INSERT INTO CUSTOMER (cus_id, cus_name, cus_email, cus_phone, cus_address)
 VALUES 
-(120101, 'Pham Van A', 0339857456, 'TP Nha Trang'),
-(120102, 'Pham Thi B', 0339145368, 'TP Ninh Binh'),
-(120103, 'Nguyen Van C', 0339471045, 'TP Long An'),
-(120104, 'Tran Van D', 0371257456, 'TP Ho Chi Minh'),
-(120105, 'Pham Nhat E', 0814257456, 'TP Quang Ngai');
+(120101, 'Pham Van A', 'pva@gmail.com', '0339857456', 'TP Nha Trang'),
+(120102, 'Pham Thi B', 'ptb@gmail.com', '0339145368', 'TP Ninh Binh'),
+(120103, 'Nguyen Van C', 'nvc@gmail.com', '0339471045', 'TP Long An'),
+(120104, 'Tran Van D', 'tvd@gmail.com', '0371257456', 'TP Ho Chi Minh'),
+(120105, 'Pham Nhat E', 'pne@gmail.com', '0814257456', 'TP Quang Ngai');
 
 INSERT INTO BOOKING (booking_id, cus_id, room_id, booking_date, check_in_date, check_out_date)
 VALUES 

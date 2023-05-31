@@ -4,9 +4,13 @@
  */
 package Controller;
 
-import Model.Customer;
+import Model.*;
+import View.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.*;
-import javax.swing.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -14,96 +18,146 @@ import javax.swing.*;
  */
 public class CustomerController {
     
-    // Them khach hang
-    public void addCustomer(int cusId, String cusName, long cusPhone, String cusAddress){
-        Connection cn = DataConnection.Connect();
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-            
-        String sqlInsert = "INSERT INTO CUSTOMER VALUES(?, ?, ?, ?)";
-        String selectAll = "SELECT * FROM CUSTOMER";
-        try
-        {            
-            ps =cn.prepareStatement(sqlInsert);
-            ps.setInt(1, cusId);
-            ps.setString(2, cusName);
-            ps.setLong(3, cusPhone);
-            ps.setString(4, cusAddress);
-            ps.execute();
-            JOptionPane.showMessageDialog(null, "Successful insert!");
-            
-            ps = cn.prepareStatement(selectAll);
-            // Lay du lieu tu bang Customer
-            rs = ps.executeQuery();
-            // xuat du lieu
-            while (rs.next()) {
-                System.out.println(rs.getInt(1) + "  " + rs.getString(2) + "  " + rs.getLong(3) + "  " + rs.getString(4));
+    private Customer model;
+    private CustomerView view;
+
+    public CustomerController(Customer model, CustomerView view) {
+        this.model = model;
+        this.view = view;
+        
+        view.addCusBtnListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                addCusBtnActionPerformed(e);
             }
-            ps.close();
-            cn.close();
-            System.out.println("Closing DataBase!");
-        }
-        catch(SQLException ex)
-        {
-            System.out.println(ex);
-            JOptionPane.showMessageDialog(null, "Unsccessful insert!");
-        }
+        });
+        view.delCusBtnListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                delCusBtnActionPerformed(e);
+            }
+        });
+        view.updCusBtnListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                updCusBtnActionPerformed(e);
+            }
+        });
+        view.bookingViewBtnListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                bookingViewBtnActionPerformed(e);
+            }
+        });
+        view.roomViewBtnListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                roomViewBtnActionPerformed(e);
+            }
+        });
+        view.serviceViewBtnListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                serviceViewBtnActionPerformed(e);
+            }
+        });
+        view.billViewBtnListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                billViewBtnActionPerformed(e);
+            }
+        });
+        view.logoutViewBtnListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                logoutViewBtnActionPerformed(e);
+            }
+        });
     }
     
-    // Xoa khach hang
-    public void deleteCustomer(int cusId){
-        Connection cn = DataConnection.Connect();
-        PreparedStatement ps = null;
-        
-        try {
-            String sqlDelete = "DELETE FROM CUSTOMER WHERE cusId = ?";
+    public void displayCustomerView() {
+        view.displayCustomers(model.getCustomers());
+        view.setVisible(true);
 
-            ps = cn.prepareStatement(sqlDelete);
-            ps.setInt(1, cusId);
-
-            int rowsAffected = ps.executeUpdate();
-
-            if (rowsAffected > 0) {
-                JOptionPane.showMessageDialog(null, "Successful delete!");
-            } else {
-                JOptionPane.showMessageDialog(null, "No matching record found!");
-            }
-            ps.close();
-            cn.close();
-            System.out.println("Closing DataBase!");
-        } catch (SQLException ex) {
-            System.out.println(ex);
-            JOptionPane.showMessageDialog(null, "Unsuccessful delete!");
-        } 
     }
     
-    // Sua khach hang
-    public void updateBooking(int cusId, String cusName, long cusPhone, String cusAddress){
-        Connection cn = DataConnection.Connect();
-        PreparedStatement ps = null;
-        
-        try {
-            String sqlUpdate = "UPDATE BOOKING SET cusId = ?, roomId = ?, checkInDate = ?, checkOutDate = ? WHERE bookingId = ?";
+    private void addCusBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        List<Customer> customers = model.getCustomers();
+        int lastId = customers.get(customers.size() - 1).getCusId(); // Lay id moi nhat
+        int cusId = lastId + 1;
+        String cusName = view.getCusName();
+        String cusEmail = view.getCusEmail();
+        String cusPhone = view.getCusPhone();
+        String cusAddress = view.getCusAddress();
 
-            ps = cn.prepareStatement(sqlUpdate);
-            ps.setInt(1, cusId);
-            ps.setString(2, cusName);
-            ps.setLong(3, cusPhone);
-            ps.setString(4, cusAddress);
+        model.addCustomer(cusId, cusName, cusEmail, cusPhone, cusAddress);
 
-            int rowsAffected = ps.executeUpdate();
+        // Cap nhat table
+        view.displayCustomers(model.getCustomers());
+        view.setVisible(true);
+    }
+    
+    private void delCusBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        int cusId = Integer.parseInt(view.getCusId());
 
-            if (rowsAffected > 0) {
-                JOptionPane.showMessageDialog(null, "Successful update!");
-            } else {
-                JOptionPane.showMessageDialog(null, "No matching record found!");
-            }
-            ps.close();
-            cn.close();
-            System.out.println("Closing DataBase!");
-        } catch (SQLException ex) {
-            System.out.println(ex);
-            JOptionPane.showMessageDialog(null, "Unsuccessful update!");
-        }
+        model.deleteCustomer(cusId);
+
+        // Cap nhat table
+        view.displayCustomers(model.getCustomers());
+        view.setVisible(true);
+    }
+    
+    private void updCusBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        int cusId = Integer.parseInt(view.getCusId());
+        String cusName = view.getCusName();
+        String cusEmail = view.getCusEmail();
+        String cusPhone = view.getCusPhone();
+        String cusAddress = view.getCusAddress();
+
+        model.updateCustomer(cusId, cusName, cusEmail, cusPhone, cusAddress);
+
+        // Cap nhat table
+        view.displayCustomers(model.getCustomers());
+        view.setVisible(true);
+    }
+    
+    private void bookingViewBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        view.setVisible(false);
+
+        BookingView view = new BookingView();
+        Booking model = new Booking();
+
+        BookingController controller = new BookingController(model,view);
+
+        controller.displayBookingView();
+    }
+    private void roomViewBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        view.setVisible(false);
+
+        RoomView roomView = new RoomView();
+        roomView.setVisible(true);
+    }
+    
+    private void serviceViewBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        view.setVisible(false);
+
+        ServiceView serviceView = new ServiceView();
+        serviceView.setVisible(true);
+    }
+    private void billViewBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        view.setVisible(false);
+
+        BillView view = new BillView();
+        Bill model = new Bill();
+
+        BillController controller = new BillController(model,view);
+
+        controller.displayBillView();
+    }
+    private void logoutViewBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        view.setVisible(false);
+
+        loginView loginView = new loginView();
+        loginView.setVisible(true);
     }
 }
