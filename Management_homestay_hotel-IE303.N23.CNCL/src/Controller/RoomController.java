@@ -49,12 +49,7 @@ public class RoomController {
                 btnBookingActionPerformed(e);
             }
         });
-        view.roomViewBtnListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                btnRoomActionPerformed(e);
-            }
-        });
+        
         view.CusViewBtnListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -82,57 +77,51 @@ public class RoomController {
     }
     
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {                                          
-        List<Room> rooms = model.getRooms();
-        int lastId = rooms.get(rooms.size() - 1).getRoomId(); // Lay id moi nhat
+        ArrayList<Room> rooms = model.getRooms();
+        int lastId = rooms.get(rooms.size() - 1).getRoomId(); 
         int RoomId = lastId + 1;
         String Name = view.getRoomName();
         String type = view.getRoomType();
         String rates = view.getRoomRates();
-        String ht_id = view.getHTID();
-        String status = view.getStatus();
+        int ht_id = 111;
+        boolean status = view.getStatus();
 
-        model.insertRoom(new Room(RoomId, Name, type, Double.valueOf(rates), Boolean.getBoolean(status), Integer.valueOf(ht_id)));
+        model.insertRoom(new Room(RoomId, Name, type, Double.parseDouble(rates), status, ht_id));
 
-        // Cap nhat table
         view.displayRoom(model.getRooms());
         view.setVisible(true);
     }
+    
     private void btnDelActionPerformed(java.awt.event.ActionEvent evt) {                                          
-        int roomId = Integer.parseInt(view.getRoomID());
+        int roomId = Integer.parseInt(view.getRoomId());
 
         model.deleteRoom(roomId);
 
-        // Cap nhat table
         view.displayRoom(model.getRooms());
         view.setVisible(true);
     }
     
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {                                          
-        int RoomId = Integer.parseInt(view.getRoomID());
+        int RoomId = Integer.parseInt(view.getRoomId());
         String Name = view.getRoomName();
         String type = view.getRoomType();
         String rates = view.getRoomRates();
-        String ht_id = view.getHTID();
-        String status = view.getStatus();
+        int ht_id = 111;
+        boolean status = view.getStatus();
 
-        model.updateRoom(new Room(RoomId, Name, type, Double.valueOf(rates), Boolean.getBoolean(status), Integer.valueOf(ht_id)));
+        model.updateRoom(new Room(RoomId, Name, type, Double.parseDouble(rates), status, ht_id));
 
-        // Cap nhat table
         view.displayRoom(model.getRooms());
         view.setVisible(true);
     }
+    
     private void btnBookingActionPerformed(java.awt.event.ActionEvent evt) {                                          
         view.setVisible(false);
 
         BookingView bookingView = new BookingView();
         bookingView.setVisible(true);
     }
-    private void btnRoomActionPerformed(java.awt.event.ActionEvent evt) {                                          
-        view.setVisible(false);
-
-        RoomView roomView = new RoomView();
-        roomView.setVisible(true);
-    }
+    
     private void btnCusActionPerformed(java.awt.event.ActionEvent evt) {                                          
         view.setVisible(false);
 
@@ -156,5 +145,10 @@ public class RoomController {
 
         loginView loginView = new loginView();
         loginView.setVisible(true);
+    }
+    
+    public void displayRoomView() {
+        view.displayRoom(model.getRooms());
+        view.setVisible(true);
     }
 }

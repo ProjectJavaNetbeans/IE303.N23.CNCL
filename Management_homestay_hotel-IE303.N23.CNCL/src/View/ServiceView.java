@@ -5,11 +5,12 @@
 package View;
 import Model.Service;
 import Controller.*;
+import Model.Employee;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 import java.sql.*;
-import java.util.List;
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -25,6 +26,7 @@ public class ServiceView extends javax.swing.JFrame {
         frame = new JFrame("Service Management");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+    
     public String getSvId() {
         return svIDText.getText();
     }
@@ -47,7 +49,8 @@ public class ServiceView extends javax.swing.JFrame {
     }
     public void bookingViewBtnListener(ActionListener listener) {
         btnBooking.addActionListener(listener);
-    }public void roomViewBtnListener(ActionListener listener) {
+    }
+    public void roomViewBtnListener(ActionListener listener) {
         btnRoom.addActionListener(listener);
     }
     public void CusViewBtnListener(ActionListener listener) {
@@ -63,7 +66,7 @@ public class ServiceView extends javax.swing.JFrame {
         btnLogout.addActionListener(listener);
     }
     
-     public String[][] dataTransfer(List<Service> services){
+     public String[][] dataTransfer(ArrayList<Service> services){
         int i =0 ;
         String data[][] = new String[services.size()][3];
         for(Service sv : services){
@@ -75,14 +78,32 @@ public class ServiceView extends javax.swing.JFrame {
         return data;
      }
     
-    public void displayService(List<Service> svs) {
-        String[][] data = dataTransfer(svs);
-        String[] column = {"Service ID", "Name", "Prices"};
-        DefaultTableModel dataModel = new DefaultTableModel(data, column);
-        tbSV.setModel(dataModel);
+    public void displayService(ArrayList<Service> svs, ArrayList<Employee> emps) {
+        String[][] data1 = dataTransfer(svs);
+        String[] column1 = {"Service ID", "Name", "Prices"};
+        DefaultTableModel dataModel1 = new DefaultTableModel(data1, column1);
+        serviceTB.setModel(dataModel1);
+        
+        String[][] data2 = dataTransferEmp(emps);
+        String[] column2 = {"ID", "Name", "Shift"};
+        DefaultTableModel dataModel2 = new DefaultTableModel(data2, column2);
+        EmpTB.setModel(dataModel2);
+        
         frame.setVisible(true);
     }
      
+    public String[][] dataTransferEmp(ArrayList<Employee> emps){
+        int i = 0 ;
+        String data[][] = new String[emps.size()][3];
+        for(Employee emp : emps){
+            data[i][0] = String.valueOf(emp.getEmpId());
+            data[i][1] = emp.getEmpName();
+            data[i][2] = String.valueOf(emp.getShift());
+            i++;
+        }
+        return data;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -92,158 +113,174 @@ public class ServiceView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel2 = new javax.swing.JLabel();
         btnBooking = new javax.swing.JButton();
         btnRoom = new javax.swing.JButton();
         btnCus = new javax.swing.JButton();
         btnSv = new javax.swing.JButton();
         btnBill = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
-        btnReload = new javax.swing.JButton();
         btnAdd = new javax.swing.JButton();
         btnDel = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
         svPriceText = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbSV = new javax.swing.JTable();
+        serviceTB = new javax.swing.JTable();
         svNameText = new javax.swing.JTextField();
         svIDText = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        EmpTB = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnBooking.setIcon(new javax.swing.ImageIcon(getClass().getResource("/figma/icon home.png"))); // NOI18N
-        btnBooking.setText("jButton5");
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setText("ID:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(355, 435, -1, -1));
+
+        btnBooking.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/icon booking.png"))); // NOI18N
+        btnBooking.setBorder(null);
         btnBooking.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBookingActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBooking, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 70, 70));
+        getContentPane().add(btnBooking, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 4, -1, -1));
 
-        btnRoom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/figma/icon room.png"))); // NOI18N
-        btnRoom.setText("jButton5");
+        btnRoom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/icon room.png"))); // NOI18N
+        btnRoom.setBorder(null);
         btnRoom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRoomActionPerformed(evt);
             }
         });
-        getContentPane().add(btnRoom, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 80, 70));
+        getContentPane().add(btnRoom, new org.netbeans.lib.awtextra.AbsoluteConstraints(216, 4, -1, -1));
 
-        btnCus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/figma/image 7.png"))); // NOI18N
-        btnCus.setText("jButton5");
+        btnCus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/icon customer.png"))); // NOI18N
+        btnCus.setBorder(null);
         btnCus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCusActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCus, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 80, 70));
+        getContentPane().add(btnCus, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 4, -1, -1));
 
-        btnSv.setIcon(new javax.swing.ImageIcon(getClass().getResource("/figma/image 4.png"))); // NOI18N
-        btnSv.setText("jButton5");
+        btnSv.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/icon booking.png"))); // NOI18N
+        btnSv.setBorder(null);
         btnSv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSvActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSv, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, 80, -1));
+        getContentPane().add(btnSv, new org.netbeans.lib.awtextra.AbsoluteConstraints(486, 4, -1, -1));
 
-        btnBill.setIcon(new javax.swing.ImageIcon(getClass().getResource("/figma/image 8.png"))); // NOI18N
-        btnBill.setText("jButton5");
+        btnBill.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/icon bill.png"))); // NOI18N
+        btnBill.setBorder(null);
         btnBill.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBillActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBill, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, 80, -1));
+        getContentPane().add(btnBill, new org.netbeans.lib.awtextra.AbsoluteConstraints(613, 4, -1, -1));
 
-        btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/figma/image 3.png"))); // NOI18N
-        btnLogout.setText("jButton5");
+        btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/icon logout.png"))); // NOI18N
+        btnLogout.setBorder(null);
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogoutActionPerformed(evt);
             }
         });
-        getContentPane().add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 0, 80, 70));
-
-        btnReload.setBackground(new java.awt.Color(236, 200, 108));
-        btnReload.setForeground(new java.awt.Color(51, 51, 51));
-        btnReload.setText("Reload");
-        btnReload.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReloadActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnReload, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 620, 80, 50));
+        getContentPane().add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 4, -1, -1));
 
         btnAdd.setBackground(new java.awt.Color(111, 236, 108));
-        btnAdd.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        btnAdd.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnAdd.setText("Add");
+        btnAdd.setBorder(null);
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 620, 60, 60));
+        getContentPane().add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 432, 60, 25));
 
         btnDel.setBackground(new java.awt.Color(236, 108, 108));
-        btnDel.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        btnDel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnDel.setText("Delete");
+        btnDel.setBorder(null);
         btnDel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDelActionPerformed(evt);
             }
         });
-        getContentPane().add(btnDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 620, 90, 60));
+        getContentPane().add(btnDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(757, 437, 90, 25));
 
         btnUpdate.setBackground(new java.awt.Color(236, 200, 108));
-        btnUpdate.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        btnUpdate.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnUpdate.setText("Update");
+        btnUpdate.setBorder(null);
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
             }
         });
-        getContentPane().add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 620, 80, 60));
+        getContentPane().add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 432, 80, 25));
 
+        svPriceText.setBorder(null);
         svPriceText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 svPriceTextActionPerformed(evt);
             }
         });
-        getContentPane().add(svPriceText, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 520, 210, 40));
+        getContentPane().add(svPriceText, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 369, 210, 30));
 
-        tbSV.setModel(new javax.swing.table.DefaultTableModel(
+        serviceTB.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Service name", "Price"
             }
         ));
-        jScrollPane1.setViewportView(tbSV);
+        jScrollPane1.setViewportView(serviceTB);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, 500, 300));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 480, 150));
 
+        svNameText.setBorder(null);
         svNameText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 svNameTextActionPerformed(evt);
             }
         });
-        getContentPane().add(svNameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 430, 210, 40));
+        getContentPane().add(svNameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 295, 210, 30));
 
         svIDText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 svIDTextActionPerformed(evt);
             }
         });
-        getContentPane().add(svIDText, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 210, 40));
+        getContentPane().add(svIDText, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 430, 100, 30));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/figma/Service.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 740));
+        EmpTB.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "ID", "Name", "Shift"
+            }
+        ));
+        jScrollPane2.setViewportView(EmpTB);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 567, 740, 130));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/Service.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -289,10 +326,6 @@ public class ServiceView extends javax.swing.JFrame {
             logoutViewBtnListener.actionPerformed(evt);
         }
     }//GEN-LAST:event_btnLogoutActionPerformed
-
-    private void btnReloadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReloadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnReloadActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
@@ -372,21 +405,23 @@ public class ServiceView extends javax.swing.JFrame {
     private ActionListener billViewBtnListener;
     private ActionListener logoutViewBtnListener;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable EmpTB;
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnBill;
     private javax.swing.JButton btnBooking;
     private javax.swing.JButton btnCus;
     private javax.swing.JButton btnDel;
     private javax.swing.JButton btnLogout;
-    private javax.swing.JButton btnReload;
     private javax.swing.JButton btnRoom;
     private javax.swing.JButton btnSv;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable serviceTB;
     private javax.swing.JTextField svIDText;
     private javax.swing.JTextField svNameText;
     private javax.swing.JTextField svPriceText;
-    private javax.swing.JTable tbSV;
     // End of variables declaration//GEN-END:variables
 }

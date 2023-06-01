@@ -3,24 +3,24 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Controller;
-import Model.Service;
-import Model.DataConnection;
+import Model.*;
 import View.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
 /**
  *
  * @author Hồ Thống
  */
 public class ServiceController {
-    private Service model;
+    private Service svModel;
+    private Employee empModel;
     private ServiceView view;
     
-    public ServiceController(Service model, ServiceView view) {
-        this.model = model;
+    public ServiceController(Service svModel, Employee empModel, ServiceView view) {
+        this.svModel = svModel;
+        this.empModel = empModel;
         this.view = view;
         
         view.addBtnListener(new ActionListener() {
@@ -80,26 +80,25 @@ public class ServiceController {
     }
     
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {                                          
-        List<Service> svs = model.getSvs();
+        ArrayList<Service> svs = svModel.getServices();
         int lastId = svs.get(svs.size() - 1).getSvId(); // Lay id moi nhat
         int SvId = lastId + 1;
         String Name = view.getSvName();
-        double price = Double.valueOf(view.getSvPrice());
+        double price = Double.parseDouble(view.getSvPrice());
         
 
-        model.addService(new Service(SvId, Name,price ));
+        svModel.addService(new Service(SvId, Name,price ));
 
-        // Cap nhat table
-        view.displayService(model.getSvs());
+        view.displayService(svModel.getServices(), empModel.getEmps());
         view.setVisible(true);
     }
     private void btnDelActionPerformed(java.awt.event.ActionEvent evt) {                                          
         int svId = Integer.parseInt(view.getSvId());
 
-        model.deleteService(svId);
+        svModel.deleteService(svId);
 
         // Cap nhat table
-        view.displayService(model.getSvs());
+        view.displayService(svModel.getServices(), empModel.getEmps());
         view.setVisible(true);
     }
     
@@ -109,10 +108,10 @@ public class ServiceController {
         String price = view.getSvPrice();
         
 
-        model.updateService(new Service(svId, Name, Double.valueOf(price)));
+        svModel.updateService(new Service(svId, Name, Double.valueOf(price)));
 
         // Cap nhat table
-        view.displayService(model.getSvs());
+        view.displayService(svModel.getServices(), empModel.getEmps());
         view.setVisible(true);
     }
     private void btnBookingActionPerformed(java.awt.event.ActionEvent evt) {                                          
@@ -150,5 +149,10 @@ public class ServiceController {
 
         loginView loginView = new loginView();
         loginView.setVisible(true);
+    }
+    
+    public void displayServiceView() {
+        view.displayService(svModel.getServices(), empModel.getEmps());
+        view.setVisible(true);
     }
 }
