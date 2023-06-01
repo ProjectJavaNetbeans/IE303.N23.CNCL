@@ -13,7 +13,7 @@ import javax.swing.*;
 public class DataConnection {
     private final static String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
     //Khai báo tên db cần làm việc cần thây thế
-    private final static String DATABASE_LINK = "jdbc:mysql://localhost:3306/QLKSHS";
+    private final static String DATABASE_LINK = "jdbc:mysql://localhost:3306/MANAGEMENTHOMESTAYHOTEL";
     
     /**
      * Hàm kết nối đến db trong MySQL cần làm việc
@@ -30,7 +30,7 @@ public class DataConnection {
             Class.forName(JDBC_DRIVER);
             
             //Thực hiện kết nối đến db
-            Connection conn = DriverManager.getConnection(DATABASE_LINK, "root", "root");
+            Connection conn = DriverManager.getConnection(DATABASE_LINK, "admin", "123456");
             System.out.println("Kết nối thành công");
             return conn;
             

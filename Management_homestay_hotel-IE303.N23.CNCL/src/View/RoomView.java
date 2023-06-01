@@ -28,9 +28,6 @@ public class RoomView extends javax.swing.JFrame {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     
-    public String getRoomID() {
-        return textID.getText();
-    }
     public String getRoomName() {
         return textName.getText();
     }
@@ -43,14 +40,13 @@ public class RoomView extends javax.swing.JFrame {
         return textRates.getText();
     }
     
-    public String getHTID() {
-        return textHTID.getText();
+    public boolean getStatus(){
+        return checkStatus.isSelected();
     }
     
-    public String getStatus(){
-        return String.valueOf(checkStatus.isSelected());
+    public String getRoomId() {
+        return textId.getText();
     }
-    
     
     public void addBtnListener(ActionListener listener) {
         btnAdd.addActionListener(listener);
@@ -63,9 +59,6 @@ public class RoomView extends javax.swing.JFrame {
     }
     public void bookingViewBtnListener(ActionListener listener) {
         btnBooking.addActionListener(listener);   
-    }
-    public void roomViewBtnListener(ActionListener listener) {
-        btnRoom.addActionListener(listener);
     }
     public void CusViewBtnListener(ActionListener listener) {
         btnCus.addActionListener(listener);
@@ -88,17 +81,17 @@ public class RoomView extends javax.swing.JFrame {
             data[i][1] = room.getRoomName();
             data[i][2] = room.getRoomType();
             data[i][3] = String.valueOf(room.getRoomRates());
-            data[i][4] = String.valueOf(room.getHtID());
-            data[i][5] = String.valueOf(room.isRoomStatus());
+            data[i][4] = String.valueOf(room.isRoomStatus());
+            data[i][5] = String.valueOf(room.getHtId());
             i++;
         }
         return data;
     }
         public void displayRoom(List<Room> rooms) {
         String[][] data = dataTransfer(rooms);
-        String[] column = {"Room ID", "Name", "Type", "Rates", "Ht ID", "Status"};
+        String[] column = {"Room ID", "Room Name", "Type", "Price", "Status", "HT/HS ID"};
         DefaultTableModel dataModel = new DefaultTableModel(data, column);
-        roomtb.setModel(dataModel);
+        roomTB.setModel(dataModel);
         frame.setVisible(true);
     }
 
@@ -117,178 +110,171 @@ public class RoomView extends javax.swing.JFrame {
         btnSv = new javax.swing.JButton();
         btnBill = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
-        textID = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        textId = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        roomTB = new javax.swing.JTable();
         textName = new javax.swing.JTextField();
         textType = new javax.swing.JTextField();
         textRates = new javax.swing.JTextField();
-        textHTID = new javax.swing.JTextField();
         checkStatus = new javax.swing.JCheckBox();
-        btnReload = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
         btnDel = new javax.swing.JButton();
         btnAdd = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        roomtb = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnBooking.setIcon(new javax.swing.ImageIcon(getClass().getResource("/figma/icon home.png"))); // NOI18N
-        btnBooking.setText("jButton5");
+        btnBooking.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/icon booking.png"))); // NOI18N
+        btnBooking.setBorder(null);
         btnBooking.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBookingActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBooking, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 70, 70));
+        getContentPane().add(btnBooking, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 4, -1, -1));
 
-        btnRoom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/figma/icon room.png"))); // NOI18N
-        btnRoom.setText("jButton5");
+        btnRoom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/icon room.png"))); // NOI18N
+        btnRoom.setBorder(null);
         btnRoom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRoomActionPerformed(evt);
             }
         });
-        getContentPane().add(btnRoom, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 80, 70));
+        getContentPane().add(btnRoom, new org.netbeans.lib.awtextra.AbsoluteConstraints(216, 4, -1, -1));
 
-        btnCus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/figma/image 7.png"))); // NOI18N
-        btnCus.setText("jButton5");
+        btnCus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/icon customer.png"))); // NOI18N
+        btnCus.setBorder(null);
         btnCus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCusActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCus, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 80, 70));
+        getContentPane().add(btnCus, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 4, -1, -1));
 
-        btnSv.setIcon(new javax.swing.ImageIcon(getClass().getResource("/figma/image 4.png"))); // NOI18N
-        btnSv.setText("jButton5");
+        btnSv.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/icon service.png"))); // NOI18N
+        btnSv.setBorder(null);
         btnSv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSvActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSv, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, 80, -1));
+        getContentPane().add(btnSv, new org.netbeans.lib.awtextra.AbsoluteConstraints(484, 4, -1, -1));
 
-        btnBill.setIcon(new javax.swing.ImageIcon(getClass().getResource("/figma/image 8.png"))); // NOI18N
-        btnBill.setText("jButton5");
+        btnBill.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/icon bill.png"))); // NOI18N
+        btnBill.setBorder(null);
         btnBill.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBillActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBill, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, 80, -1));
+        getContentPane().add(btnBill, new org.netbeans.lib.awtextra.AbsoluteConstraints(613, 4, -1, -1));
 
-        btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/figma/image 3.png"))); // NOI18N
-        btnLogout.setText("jButton5");
+        btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/icon logout.png"))); // NOI18N
+        btnLogout.setBorder(null);
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogoutActionPerformed(evt);
             }
         });
-        getContentPane().add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 0, 80, 70));
+        getContentPane().add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 4, -1, -1));
 
-        textID.addActionListener(new java.awt.event.ActionListener() {
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel2.setText("ID: ");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 325, -1, -1));
+
+        textId.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        textId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textIDActionPerformed(evt);
+                textIdActionPerformed(evt);
             }
         });
-        getContentPane().add(textID, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 210, 30));
+        getContentPane().add(textId, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 320, 100, 25));
 
+        roomTB.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Name", "Type", "Price", "Status", "HT/HS ID"
+            }
+        ));
+        jScrollPane2.setViewportView(roomTB);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 360, 480, 300));
+
+        textName.setBorder(null);
         textName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textNameActionPerformed(evt);
             }
         });
-        getContentPane().add(textName, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 210, 30));
+        getContentPane().add(textName, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 351, 210, 30));
 
+        textType.setBorder(null);
         textType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textTypeActionPerformed(evt);
             }
         });
-        getContentPane().add(textType, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 430, 210, 30));
+        getContentPane().add(textType, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 440, 210, 30));
 
+        textRates.setBorder(null);
         textRates.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textRatesActionPerformed(evt);
             }
         });
-        getContentPane().add(textRates, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, 210, 40));
-
-        textHTID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textHTIDActionPerformed(evt);
-            }
-        });
-        getContentPane().add(textHTID, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 580, 210, 30));
+        getContentPane().add(textRates, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 528, 210, 32));
 
         checkStatus.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        checkStatus.setText("Available");
+        checkStatus.setText("Not available");
         checkStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkStatusActionPerformed(evt);
             }
         });
-        getContentPane().add(checkStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 620, 110, -1));
-
-        btnReload.setBackground(new java.awt.Color(236, 200, 108));
-        btnReload.setForeground(new java.awt.Color(51, 51, 51));
-        btnReload.setText("Reload");
-        btnReload.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReloadActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnReload, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 630, 80, 50));
+        getContentPane().add(checkStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 575, 130, -1));
 
         btnUpdate.setBackground(new java.awt.Color(236, 200, 108));
-        btnUpdate.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        btnUpdate.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnUpdate.setText("Update");
+        btnUpdate.setBorder(null);
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
             }
         });
-        getContentPane().add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 660, 80, 60));
+        getContentPane().add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 642, 75, 25));
 
         btnDel.setBackground(new java.awt.Color(236, 108, 108));
-        btnDel.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        btnDel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnDel.setText("Delete");
+        btnDel.setBorder(null);
         btnDel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDelActionPerformed(evt);
             }
         });
-        getContentPane().add(btnDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 660, 90, 60));
+        getContentPane().add(btnDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 642, 75, 25));
 
         btnAdd.setBackground(new java.awt.Color(111, 236, 108));
-        btnAdd.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        btnAdd.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnAdd.setText("Add");
+        btnAdd.setBorder(null);
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 660, 60, 60));
+        getContentPane().add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 642, 55, 25));
 
-        roomtb.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Room ID", "Name", "Type", "Rates", "ht ID", "Status"
-            }
-        ));
-        jScrollPane1.setViewportView(roomtb);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 230, 500, 380));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/figma/Room (1).png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/Room.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -301,10 +287,6 @@ public class RoomView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBookingActionPerformed
 
     private void btnRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRoomActionPerformed
-        // TODO add your handling code here:
-        if (roomViewBtnListener != null) {
-            roomViewBtnListener.actionPerformed(evt);
-        }
     }//GEN-LAST:event_btnRoomActionPerformed
 
     private void btnCusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCusActionPerformed
@@ -335,11 +317,6 @@ public class RoomView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnLogoutActionPerformed
 
-    private void textIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textIDActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_textIDActionPerformed
-
     private void textNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNameActionPerformed
         // TODO add your handling code here:
         
@@ -355,18 +332,9 @@ public class RoomView extends javax.swing.JFrame {
         
     }//GEN-LAST:event_textRatesActionPerformed
 
-    private void textHTIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textHTIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textHTIDActionPerformed
-
     private void checkStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkStatusActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_checkStatusActionPerformed
-
-    private void btnReloadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReloadActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_btnReloadActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
@@ -388,6 +356,10 @@ public class RoomView extends javax.swing.JFrame {
             addBtnListener.actionPerformed(evt);
         }
     }//GEN-LAST:event_btnAddActionPerformed
+
+    private void textIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textIdActionPerformed
 
     /**
      * @param args the command line arguments
@@ -430,7 +402,6 @@ public class RoomView extends javax.swing.JFrame {
     private ActionListener delBtnListener;
     private ActionListener updBtnListener;
     private ActionListener bookingViewBtnListener;
-    private ActionListener roomViewBtnListener;
     private ActionListener CusViewBtnListener;
     private ActionListener serviceViewBtnListener;
     private ActionListener billViewBtnListener;
@@ -442,18 +413,19 @@ public class RoomView extends javax.swing.JFrame {
     private javax.swing.JButton btnCus;
     private javax.swing.JButton btnDel;
     private javax.swing.JButton btnLogout;
-    private javax.swing.JButton btnReload;
     private javax.swing.JButton btnRoom;
     private javax.swing.JButton btnSv;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JCheckBox checkStatus;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable roomtb;
-    private javax.swing.JTextField textHTID;
-    private javax.swing.JTextField textID;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable roomTB;
+    private javax.swing.JTextField textId;
     private javax.swing.JTextField textName;
     private javax.swing.JTextField textRates;
     private javax.swing.JTextField textType;
     // End of variables declaration//GEN-END:variables
+
+    
 }
