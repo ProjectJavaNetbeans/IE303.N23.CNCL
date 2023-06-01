@@ -1,5 +1,11 @@
 package Model;
 
+
+import java.util.*;
+
+/**
+ * 
+ */
 public class BillDetails {
 
     /**
@@ -27,5 +33,15 @@ public class BillDetails {
      * 
      */
     private double unitPrice;
+
+    /**
+     * @param bdId 
+     * @param svId 
+     * @param billId
+     */
+    public void BillDetails(int bdId, int svId, int billId) {
+        // TODO implement here
+    }
+
 
 }
