@@ -1,6 +1,8 @@
 package Model;
 
-import java.util.ArrayList;
+
+import java.util.*;
+
 /**
  * 
  */
@@ -41,4 +43,22 @@ public class Booking {
      * 
      */
     private long checkOutDate;
+
+    /**
+     * @param bookingId 
+     * @param bookingDate 
+     * @param checInDate 
+     * @param checkOutDate
+     */
+    public Booking(int bookingId, Customer customer, ArrayList<Room> rooms, long bookingDate, long checkInDate, long checkOutDate) {
+        this.bookingId = bookingId;
+        this.customer = customer;
+        this.rooms = rooms;
+        this.bookingDate = bookingDate;
+        this.checkInDate = checkInDate;
+        this.checkOutDate = checkOutDate;
+    }
+
+
+
 }
