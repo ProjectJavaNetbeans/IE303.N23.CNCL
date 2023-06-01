@@ -153,7 +153,6 @@ public class Customer {
             }
             ps.close();
             cn.close();
-            System.out.println("Closing DataBase!");
         }
         catch(SQLException ex)
         {
@@ -219,6 +218,5 @@ public class Customer {
             JOptionPane.showMessageDialog(null, "Unsuccessful update!");
         }
     }
-
 
 }
