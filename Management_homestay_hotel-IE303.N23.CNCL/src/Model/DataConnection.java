@@ -5,28 +5,20 @@
 package Model;
 
 import java.sql.*;
-import javax.swing.*;
+
 /**
  *
- * @author Hồ Thống
+ * @author ADMIN
  */
 public class DataConnection {
-    private final static String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-    //Khai báo tên db cần làm việc cần thây thế
-    private final static String DATABASE_LINK = "jdbc:mysql://localhost:3306/MANAGEMENTHOMESTAYHOTEL";
     
-    /**
-     * Hàm kết nối đến db trong MySQL cần làm việc
-     * @return 
-     */
     public static Connection Connect()
     {
         String databaseUrl = "jdbc:mysql://localhost:3306/MANAGEMENTHOMESTAYHOTEL";
         
         try {
- 
-            //Nạp driver của mysql vào để sử dụng
-            Class.forName(JDBC_DRIVER);
+            // Su dung driver
+            Class.forName("com.mysql.cj.jdbc.Driver");
             
             // Ket noi database
             Connection cn = DriverManager.getConnection(databaseUrl, "admin", "123456");
@@ -34,15 +26,12 @@ public class DataConnection {
             return cn;
             
         } catch (ClassNotFoundException ex) {
-            System.err.println("Không tìm thấy driver. Chi tiết: " + ex.getMessage());
+            System.err.println("Driver not found! Err: " + ex.getMessage());
             return null;
         } catch (SQLException ex) {
-            System.err.println("Không kết nối được đến MySQL. Chi tiết: " + ex.getMessage());
+            System.err.println("Unsuccessful connection! Err: " + ex.getMessage());
             return null;
         }
-        
-        //Trả về kết nối
-        //return conn;
     }
 
 }
