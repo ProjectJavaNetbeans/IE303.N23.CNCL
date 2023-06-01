@@ -8,7 +8,7 @@ import java.sql.*;
 
 /**
  *
- * @author ADMIN
+ * @author Nhattruong
  */
 public class DataConnection {
     

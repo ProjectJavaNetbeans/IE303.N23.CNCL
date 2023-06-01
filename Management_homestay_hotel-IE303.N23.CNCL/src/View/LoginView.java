@@ -35,14 +35,14 @@ public class LoginView extends javax.swing.JFrame {
 
         loginBtn = new javax.swing.JButton();
         userNameTF = new javax.swing.JTextField();
-        passTF = new javax.swing.JTextField();
+        passTF = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        loginBtn.setBackground(new java.awt.Color(236, 200, 108));
         loginBtn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        loginBtn.setForeground(new java.awt.Color(255, 153, 51));
         loginBtn.setText("Login");
         loginBtn.setBorder(null);
         loginBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -120,7 +120,7 @@ public class LoginView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton loginBtn;
-    private javax.swing.JTextField passTF;
+    private javax.swing.JPasswordField passTF;
     private javax.swing.JTextField userNameTF;
     // End of variables declaration//GEN-END:variables
 }

@@ -32,17 +32,15 @@ public class LoginController {
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
         String username = view.getUserName();
         String password = view.getPassword();
-             System.out.println("222");
 
         boolean loginSuccess = login(username, password);
-             System.out.println("222");
 
         if (loginSuccess) {
             view.setVisible(false);
 
-            CustomerView view = new CustomerView();
-            Customer model = new Customer();
-            CustomerController controller = new CustomerController(model,view);
+            CustomerView cview = new CustomerView();
+            Customer cmodel = new Customer();
+            CustomerController controller = new CustomerController(cmodel,cview);
 
             controller.displayCustomerView();
 
@@ -83,5 +81,9 @@ public class LoginController {
         }
     }
         return false;
+    }
+    
+    public void displayLoginView() {
+        view.setVisible(true);
     }
 }

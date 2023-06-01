@@ -249,7 +249,7 @@ public class RoomView extends javax.swing.JFrame {
                 btnUpdateActionPerformed(evt);
             }
         });
-        getContentPane().add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 642, 75, 25));
+        getContentPane().add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(208, 642, 70, 25));
 
         btnDel.setBackground(new java.awt.Color(236, 108, 108));
         btnDel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -260,7 +260,7 @@ public class RoomView extends javax.swing.JFrame {
                 btnDelActionPerformed(evt);
             }
         });
-        getContentPane().add(btnDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 642, 75, 25));
+        getContentPane().add(btnDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 642, 65, 25));
 
         btnAdd.setBackground(new java.awt.Color(111, 236, 108));
         btnAdd.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -271,7 +271,7 @@ public class RoomView extends javax.swing.JFrame {
                 btnAddActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 642, 55, 25));
+        getContentPane().add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 642, 45, 25));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/Room.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));

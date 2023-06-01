@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package View;
-import Model.*;
 import Controller.*;
 /**
  *
@@ -15,11 +14,9 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Service svmodel =  new Service();
-        Employee emmodel =  new Employee();
-        ServiceView view = new ServiceView();
-        ServiceController ctron = new ServiceController(svmodel,emmodel ,view);
-        ctron.displayServiceView();
+        LoginView loginView = new LoginView();
+        LoginController loginController = new LoginController(loginView);
+        loginController.displayLoginView();
     }
     
 }

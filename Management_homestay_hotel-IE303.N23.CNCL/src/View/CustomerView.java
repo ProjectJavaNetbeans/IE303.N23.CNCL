@@ -167,8 +167,8 @@ public class CustomerView extends javax.swing.JFrame {
         jPanel1.add(idLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 280, -1, -1));
         jPanel1.add(idTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, 120, -1));
 
+        delCusBtn.setBackground(new java.awt.Color(236, 108, 108));
         delCusBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        delCusBtn.setForeground(new java.awt.Color(255, 51, 51));
         delCusBtn.setText("Delete");
         delCusBtn.setBorder(null);
         delCusBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -178,8 +178,8 @@ public class CustomerView extends javax.swing.JFrame {
         });
         jPanel1.add(delCusBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 671, 75, 20));
 
+        updCusBtn.setBackground(new java.awt.Color(236, 200, 108));
         updCusBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        updCusBtn.setForeground(new java.awt.Color(255, 102, 0));
         updCusBtn.setText("Update");
         updCusBtn.setBorder(null);
         updCusBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -189,8 +189,8 @@ public class CustomerView extends javax.swing.JFrame {
         });
         jPanel1.add(updCusBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(208, 671, 75, 20));
 
+        addCusBtn.setBackground(new java.awt.Color(111, 236, 108));
         addCusBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        addCusBtn.setForeground(new java.awt.Color(0, 102, 51));
         addCusBtn.setText("Add");
         addCusBtn.setBorder(null);
         addCusBtn.addActionListener(new java.awt.event.ActionListener() {

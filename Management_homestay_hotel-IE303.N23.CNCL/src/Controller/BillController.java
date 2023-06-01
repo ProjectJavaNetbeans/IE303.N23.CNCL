@@ -166,10 +166,10 @@ public class BillController {
     private void bookingViewBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
         view.setVisible(false);
 
-        BookingView view = new BookingView();
-        Booking model = new Booking();
-
-        BookingController controller = new BookingController(model,view);
+        BookingView bkView = new BookingView();
+        Booking bkModel = new Booking();
+        Room roomModel = new Room();
+        BookingController controller = new BookingController(bkModel, roomModel, bkView);
 
         controller.displayBookingView();
     }
@@ -177,33 +177,36 @@ public class BillController {
         view.setVisible(false);
 
         RoomView roomView = new RoomView();
-        roomView.setVisible(true);
+        Room roomModel = new Room();
+        RoomController controller = new RoomController(roomModel,roomView);
+
+        controller.displayRoomView();
     }
     
     private void serviceViewBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
         view.setVisible(false);
 
-        ServiceView serviceView = new ServiceView();
-        serviceView.setVisible(true);
+        ServiceView svView = new ServiceView();
+        Service svModel = new Service();
+        Employee empModel = new Employee();
+        ServiceController controller = new ServiceController(svModel, empModel,svView);
+
+        controller.displayServiceView();
     }
     private void customerViewBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
         view.setVisible(false);
 
-        CustomerView view = new CustomerView();
-        Customer model = new Customer();
-
-        CustomerController controller = new CustomerController(model,view);
+        CustomerView cusView = new CustomerView();
+        Customer cusModel = new Customer();
+        CustomerController controller = new CustomerController(cusModel,cusView);
 
         controller.displayCustomerView();
     }
     private void logoutViewBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
         view.setVisible(false);
 
-        LoginView view = new LoginView();
-        Login model = new Login();
-
-        LoginController controller = new LoginController(model,view);
-
+        LoginView liview = new LoginView();
+        LoginController controller = new LoginController(liview);
         controller.displayLoginView();
     }
     

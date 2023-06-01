@@ -59,12 +59,7 @@ public class ServiceController {
                 btnCusActionPerformed(e);
             }
         });
-        view.serviceViewBtnListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                btnSvActionPerformed(e);
-            }
-        });
+        
         view.billViewBtnListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -114,41 +109,53 @@ public class ServiceController {
         view.displayService(svModel.getServices(), empModel.getEmps());
         view.setVisible(true);
     }
+
     private void btnBookingActionPerformed(java.awt.event.ActionEvent evt) {                                          
         view.setVisible(false);
 
-        BookingView bookingView = new BookingView();
-        bookingView.setVisible(true);
+        BookingView bkView = new BookingView();
+        Booking bkModel = new Booking();
+        Room roomModel = new Room();
+        BookingController controller = new BookingController(bkModel, roomModel, bkView);
+
+        controller.displayBookingView();
     }
+    
     private void btnRoomActionPerformed(java.awt.event.ActionEvent evt) {                                          
         view.setVisible(false);
 
         RoomView roomView = new RoomView();
-        roomView.setVisible(true);
+        Room roomModel = new Room();
+        RoomController controller = new RoomController(roomModel,roomView);
+
+        controller.displayRoomView();
     }
+    
     private void btnCusActionPerformed(java.awt.event.ActionEvent evt) {                                          
         view.setVisible(false);
 
         CustomerView cusView = new CustomerView();
-        cusView.setVisible(true);
-    }
-    private void btnSvActionPerformed(java.awt.event.ActionEvent evt) {                                          
-        view.setVisible(false);
+        Customer cusModel = new Customer();
+        CustomerController controller = new CustomerController(cusModel,cusView);
 
-        ServiceView serviceView = new ServiceView();
-        serviceView.setVisible(true);
+        controller.displayCustomerView();
     }
+   
     private void btnBillActionPerformed(java.awt.event.ActionEvent evt) {                                          
         view.setVisible(false);
 
         BillView billView = new BillView();
-        billView.setVisible(true);
+        Bill billModel = new Bill();
+        BillController controller = new BillController(billModel,billView);
+
+        controller.displayBillView();
     }
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {                                          
         view.setVisible(false);
 
-        loginView loginView = new loginView();
-        loginView.setVisible(true);
+        LoginView liview = new LoginView();
+        LoginController controller = new LoginController(liview);
+        controller.displayLoginView();
     }
     
     public void displayServiceView() {

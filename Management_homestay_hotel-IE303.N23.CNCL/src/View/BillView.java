@@ -152,8 +152,8 @@ public class BillView extends javax.swing.JFrame {
         cusIdTF.setBorder(null);
         jPanel1.add(cusIdTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, 360, 30));
 
+        delBillBtn.setBackground(new java.awt.Color(236, 108, 108));
         delBillBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        delBillBtn.setForeground(new java.awt.Color(255, 51, 51));
         delBillBtn.setText("Delete");
         delBillBtn.setBorder(null);
         delBillBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -163,8 +163,8 @@ public class BillView extends javax.swing.JFrame {
         });
         jPanel1.add(delBillBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(704, 325, 130, 30));
 
+        updBillBtn.setBackground(new java.awt.Color(236, 200, 108));
         updBillBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        updBillBtn.setForeground(new java.awt.Color(255, 153, 0));
         updBillBtn.setText("Update");
         updBillBtn.setBorder(null);
         updBillBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -174,6 +174,7 @@ public class BillView extends javax.swing.JFrame {
         });
         jPanel1.add(updBillBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(689, 395, 140, 30));
 
+        printBillBtn.setBackground(new java.awt.Color(236, 200, 108));
         printBillBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         printBillBtn.setText("Print");
         printBillBtn.setBorder(null);
@@ -184,8 +185,8 @@ public class BillView extends javax.swing.JFrame {
         });
         jPanel1.add(printBillBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 697, 83, 20));
 
+        addBillBtn.setBackground(new java.awt.Color(111, 236, 108));
         addBillBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        addBillBtn.setForeground(new java.awt.Color(0, 153, 0));
         addBillBtn.setText("Add");
         addBillBtn.setBorder(null);
         addBillBtn.addActionListener(new java.awt.event.ActionListener() {

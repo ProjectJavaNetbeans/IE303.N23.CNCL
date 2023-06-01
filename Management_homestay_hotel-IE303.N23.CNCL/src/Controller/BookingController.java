@@ -14,6 +14,7 @@ import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,17 +23,31 @@ import java.util.List;
  */
 public class BookingController {
     
-    private Booking model;
+    private Booking bkModel;
+    private Room roomModel;
     private BookingView view;
     
-    public BookingController(Booking model, BookingView view){
-        this.model = model;
+    public BookingController(Booking bkModel, Room roomModel, BookingView view){
+        this.bkModel = bkModel;
+        this.roomModel = roomModel;
         this.view = view;
         
         view.addBookingBtnListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
                 addBookingBtnActionPerformed(e);
+            }
+        });
+        view.updBookingBtnListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                updBookingBtnActionPerformed(e);
+            }
+        });
+        view.delBookingBtnListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                delBookingBtnActionPerformed(e);
             }
         });
         view.customerViewBtnListener(new ActionListener() {
@@ -68,61 +83,103 @@ public class BookingController {
     }
     
     public void displayBookingView() {
-        view.displayBookings(model.getBookings());
+        view.displayBookings(bkModel.getBookings(), roomModel.getRooms());
         view.setVisible(true);
-
     }
     
     private void addBookingBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
-        List<Booking> bookings = model.getBookings();
-        int lastId = bookings.get(bookings.size() - 1).getBookingId(); // Lay id moi nhat
-        int bookingId = lastId + 1;
+        ArrayList<Booking> bookings = bkModel.getBookings();
+        int bookingId;
+        if(bookings.size()<=0) bookingId = 1;
+        else{
+            int lastId = bookings.get(bookings.size() - 1).getBookingId();
+            bookingId = lastId + 1;
+        }
+        
         
         LocalDateTime currentDateTime = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         String bookingDate = currentDateTime.format(formatter);
         
-        String cusName = view.getBookingId();
-        String cusEmail = view.getCusEmail();
-        String cusPhone = view.getCusPhone();
-        String cusAddress = view.getCusAddress();
+        int cusId = Integer.parseInt(view.getCusId());
+        int roomId = Integer.parseInt(view.getRoomId());
+        String checkInDate = view.getCheckInDate();
+        String checkOutDate = view.getCheckOutDate();
 
-        model.addCustomer(cusId, cusName, cusEmail, cusPhone, cusAddress);
+        bkModel.addBooking(bookingId, cusId, roomId, bookingDate, checkInDate, checkOutDate);
 
         // Cap nhat table
-        view.displayCustomers(model.getCustomers());
+        view.displayBookings(bkModel.getBookings(), roomModel.getRooms());
+        view.setVisible(true);
+    }
+    
+    private void delBookingBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        int bkId = Integer.parseInt(view.getBookingId());
+
+        bkModel.deleteBooking(bkId);
+
+        // Cap nhat table
+        view.displayBookings(bkModel.getBookings(), roomModel.getRooms());
+        view.setVisible(true);
+    }
+    
+    private void updBookingBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        int bkId = Integer.parseInt(view.getBookingId());
+        int cusId = Integer.parseInt(view.getCusId());
+        int roomId = Integer.parseInt(view.getRoomId());
+        String checkInDate = view.getCheckInDate();
+        String checkOutDate = view.getCheckOutDate();
+
+        bkModel.updateBooking(bkId, cusId, roomId, checkInDate, checkOutDate);
+
+        // Cap nhat table
+        view.displayBookings(bkModel.getBookings(), roomModel.getRooms());
         view.setVisible(true);
     }
     
     private void customerViewBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
         view.setVisible(false);
 
-        CustomerView customerView = new CustomerView();
-        customerView.setVisible(true);
+        CustomerView cusView = new CustomerView();
+        Customer cusModel = new Customer();
+        CustomerController controller = new CustomerController(cusModel,cusView);
+
+        controller.displayCustomerView();
     }
     private void roomViewBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
         view.setVisible(false);
 
         RoomView roomView = new RoomView();
-        roomView.setVisible(true);
+        Room roomModel = new Room();
+        RoomController controller = new RoomController(roomModel,roomView);
+
+        controller.displayRoomView();
     }
     
     private void serviceViewBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
         view.setVisible(false);
 
-        ServiceView serviceView = new ServiceView();
-        serviceView.setVisible(true);
+        ServiceView svView = new ServiceView();
+        Service svModel = new Service();
+        Employee empModel = new Employee();
+        ServiceController controller = new ServiceController(svModel, empModel,svView);
+
+        controller.displayServiceView();
     }
     private void billViewBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
         view.setVisible(false);
 
         BillView billView = new BillView();
-        billView.setVisible(true);
+        Bill billModel = new Bill();
+        BillController controller = new BillController(billModel,billView);
+
+        controller.displayBillView();
     }
     private void logoutViewBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
         view.setVisible(false);
 
-        loginView loginView = new loginView();
-        loginView.setVisible(true);
+        LoginView liview = new LoginView();
+        LoginController controller = new LoginController(liview);
+        controller.displayLoginView();
     }
 }

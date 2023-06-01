@@ -5,16 +5,19 @@
 package View;
 import Model.Booking;
 import Controller.*;
+import Model.Room;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 import java.sql.*;
-import java.util.List;
 import javax.swing.table.DefaultTableModel;
+import java.util.ArrayList;
 /**
  *
  * @author Nhattruong
  */
 public class BookingView extends javax.swing.JFrame {
+
+    private JPanel contentPane;
 
     /**
      * Creates new form BookingView
@@ -25,6 +28,26 @@ public class BookingView extends javax.swing.JFrame {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
+    public String getCusId() {
+        return cusIdTF.getText();
+    }
+    
+    public String getRoomId() {
+        return roomIdTF.getText();
+    }
+
+    public String getBookingId() {
+        return idTF.getText();
+    }
+
+    public String getCheckInDate() {
+        return ckinDateTF.getDateFormatString();
+    }
+    
+    public String getCheckOutDate() {
+        return ckoutDateTF.getDateFormatString();
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,23 +57,30 @@ public class BookingView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        ckoutDateTF = new com.toedter.calendar.JDateChooser();
         logoutViewBtn = new javax.swing.JButton();
         billViewBtn = new javax.swing.JButton();
         serviceViewBtn = new javax.swing.JButton();
         customerViewBtn = new javax.swing.JButton();
         roomViewBtn = new javax.swing.JButton();
         bookingViewBtn = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        idTF = new javax.swing.JTextField();
+        delBookingBtn = new javax.swing.JButton();
+        updBookingBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         RoomsTable = new javax.swing.JTable();
         addBookingBtn = new javax.swing.JButton();
+        ckinDateTF = new com.toedter.calendar.JDateChooser();
         cusIdTF = new javax.swing.JTextField();
         roomIdTF = new javax.swing.JTextField();
-        ckinDateTF = new javax.swing.JTextField();
-        ckoutDateTF = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        bookingsTB = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(ckoutDateTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 576, 235, 30));
 
         logoutViewBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/icon logout.png"))); // NOI18N
         logoutViewBtn.setBorder(null);
@@ -101,6 +131,33 @@ public class BookingView extends javax.swing.JFrame {
         bookingViewBtn.setBorder(null);
         getContentPane().add(bookingViewBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 4, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setText("ID:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 693, -1, -1));
+        getContentPane().add(idTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 693, 100, -1));
+
+        delBookingBtn.setBackground(new java.awt.Color(236, 108, 108));
+        delBookingBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        delBookingBtn.setText("Delete");
+        delBookingBtn.setBorder(null);
+        delBookingBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                delBookingBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(delBookingBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(773, 693, 75, 20));
+
+        updBookingBtn.setBackground(new java.awt.Color(236, 200, 108));
+        updBookingBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        updBookingBtn.setText("Update");
+        updBookingBtn.setBorder(null);
+        updBookingBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updBookingBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(updBookingBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 662, 90, 20));
+
         RoomsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -114,10 +171,10 @@ public class BookingView extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(RoomsTable);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 320, 480, 370));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, 490, 210));
 
-        addBookingBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        addBookingBtn.setForeground(new java.awt.Color(0, 204, 0));
+        addBookingBtn.setBackground(new java.awt.Color(111, 236, 108));
+        addBookingBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         addBookingBtn.setText("Add");
         addBookingBtn.setBorder(null);
         addBookingBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -125,28 +182,38 @@ public class BookingView extends javax.swing.JFrame {
                 addBookingBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(addBookingBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(134, 665, 70, 20));
+        getContentPane().add(addBookingBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 662, 70, 20));
+        getContentPane().add(ckinDateTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 490, 235, 30));
 
         cusIdTF.setBorder(null);
-        getContentPane().add(cusIdTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 302, 235, 30));
+        getContentPane().add(cusIdTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 315, 235, 30));
 
         roomIdTF.setBorder(null);
-        getContentPane().add(roomIdTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 394, 235, 30));
+        getContentPane().add(roomIdTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 400, 235, 30));
 
-        ckinDateTF.setBorder(null);
-        getContentPane().add(ckinDateTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 487, 235, 30));
+        bookingsTB.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Booking ID", "Customer ID", "Room ID", "Booking date", "Check in date", "Check out date"
+            }
+        ));
+        jScrollPane2.setViewportView(bookingsTB);
 
-        ckoutDateTF.setBorder(null);
-        getContentPane().add(ckoutDateTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 578, 235, 30));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 507, 490, 160));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/Booking.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    public String[][] dataTransfer(List<Booking> bookings){
+    public String[][] dataTransfer(ArrayList<Booking> bookings){
         int i =0 ;
-        String data[][] = new String[bookings.size()][5];
+        String data[][] = new String[bookings.size()][6];
         for(Booking booking : bookings){
             data[i][0] = String.valueOf(booking.getBookingId());
             data[i][1] = String.valueOf(booking.getCusId());
@@ -159,16 +226,43 @@ public class BookingView extends javax.swing.JFrame {
         return data;
     }
     
-    public void displayCustomers(List<Booking> bookings) {
-        String[][] data = dataTransfer(bookings);
-        String[] column = {"ID", "Room Name", "Type", "Price", "Status"};
-        DefaultTableModel dataModel = new DefaultTableModel(data, column);
-        RoomsTable.setModel(dataModel);
+    public void displayBookings(ArrayList<Booking> bookings, ArrayList<Room> rooms) {
+        String[][] data1 = dataTransfer(bookings);
+        String[] column1 = {"Booking ID", "Customer ID", "Room ID", "Booking date", "Check in date", "Check out date"};
+        DefaultTableModel dataModel1 = new DefaultTableModel(data1, column1);
+        RoomsTable.setModel(dataModel1);
+        
+        String[][] data2 = dataTransferRoom(rooms);
+        String[] column2 = {"Room ID", "Room Name", "Type", "Price", "Status", "HT/HS ID"};
+        DefaultTableModel dataModel2 = new DefaultTableModel(data2, column2);
+        RoomsTable.setModel(dataModel2);
+        
         frame.setVisible(true);
     }
 
-    public void addCusBtnListener(ActionListener listener) {
+    public String[][] dataTransferRoom(ArrayList<Room> rooms){
+        int i =0 ;
+        String data[][] = new String[rooms.size()][6];
+        for(Room room : rooms){
+            data[i][0] = String.valueOf(room.getRoomId());
+            data[i][1] = room.getRoomName();
+            data[i][2] = room.getRoomType();
+            data[i][3] = String.valueOf(room.getRoomRates());
+            data[i][4] = String.valueOf(room.isRoomStatus());
+            data[i][5] = String.valueOf(room.getHtId());
+            i++;
+        }
+        return data;
+    }
+    
+    public void addBookingBtnListener(ActionListener listener) {
         addBookingBtn.addActionListener(listener);
+    }
+    public void updBookingBtnListener(ActionListener listener) {
+        updBookingBtn.addActionListener(listener);
+    }
+    public void delBookingBtnListener(ActionListener listener) {
+        delBookingBtn.addActionListener(listener);
     }
     public void customerViewBtnListener(ActionListener listener) {
         customerViewBtn.addActionListener(listener);
@@ -222,6 +316,18 @@ public class BookingView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_logoutViewBtnActionPerformed
 
+    private void updBookingBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updBookingBtnActionPerformed
+        if (updBookingBtnListener != null) {
+            updBookingBtnListener.actionPerformed(evt);
+        }
+    }//GEN-LAST:event_updBookingBtnActionPerformed
+
+    private void delBookingBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delBookingBtnActionPerformed
+        if (delBookingBtnListener != null) {
+            delBookingBtnListener.actionPerformed(evt);
+        }
+    }//GEN-LAST:event_delBookingBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -271,15 +377,21 @@ public class BookingView extends javax.swing.JFrame {
     private javax.swing.JButton addBookingBtn;
     private javax.swing.JButton billViewBtn;
     private javax.swing.JButton bookingViewBtn;
-    private javax.swing.JTextField ckinDateTF;
-    private javax.swing.JTextField ckoutDateTF;
+    private javax.swing.JTable bookingsTB;
+    private com.toedter.calendar.JDateChooser ckinDateTF;
+    private com.toedter.calendar.JDateChooser ckoutDateTF;
     private javax.swing.JTextField cusIdTF;
     private javax.swing.JButton customerViewBtn;
+    private javax.swing.JButton delBookingBtn;
+    private javax.swing.JTextField idTF;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton logoutViewBtn;
     private javax.swing.JTextField roomIdTF;
     private javax.swing.JButton roomViewBtn;
     private javax.swing.JButton serviceViewBtn;
+    private javax.swing.JButton updBookingBtn;
     // End of variables declaration//GEN-END:variables
 }

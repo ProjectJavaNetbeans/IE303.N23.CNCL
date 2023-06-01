@@ -8,7 +8,6 @@ import com.toedter.calendar.JDateChooser;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 
 /**
  * 
@@ -109,8 +108,8 @@ public class Booking {
     }
     
     // Lay danh sach don dat phong
-    public List<Booking> getBookings() {
-        List<Booking> Bookings = new ArrayList<>();
+    public ArrayList<Booking> getBookings() {
+        ArrayList<Booking> Bookings = new ArrayList<>();
         Connection cn = DataConnection.Connect();
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -119,14 +118,14 @@ public class Booking {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                int bookingId = rs.getInt("booking_id");
-                int cusId = rs.getInt("cus_id");
-                int roomId = rs.getInt("room_id");
-                String bookingDate = rs.getString("booking_date");
-                String checkInDate = rs.getString("check_in_date");
-                String checkOutDate = rs.getString("check_out_date");
+                int bookingID = rs.getInt("booking_id");
+                int cusID = rs.getInt("cus_id");
+                int roomID = rs.getInt("room_id");
+                String bookingDATE = rs.getString("booking_date");
+                String checkInDATE = rs.getString("check_in_date");
+                String checkOutDATE = rs.getString("check_out_date");
 
-                Booking booking = new Booking(bookingId, cusId, roomId, bookingDate, checkInDate, checkOutDate);
+                Booking booking = new Booking(bookingID, cusID, roomID, bookingDATE, checkInDATE, checkOutDATE);
                 Bookings.add(booking);
             }
         } catch (SQLException ex) {
@@ -149,15 +148,11 @@ public class Booking {
     }
     
     // Them don dat phong
-    public void addBooking(int bookingId, int cusId, int roomId, String bookingDate, JDateChooser checkInDate, JDateChooser checkOutDate){
+    public void addBooking(int bookingId, int cusId, int roomId, String bookingDate, String checkInDate, String checkOutDate){
         Connection cn = DataConnection.Connect();
         PreparedStatement ps = null;
         ResultSet rs = null;
             
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-        String checkinDate = dateFormat.format(checkInDate.getDate());
-        String checkoutDate = dateFormat.format(checkOutDate.getDate());
-        
         String sqlInsert = "INSERT INTO BOOKING VALUES(?, ?, ?, ?, ?, ?)";
         String selectAll = "SELECT * FROM BOOKING";
         try
@@ -167,18 +162,15 @@ public class Booking {
             ps.setInt(2, cusId);
             ps.setInt(3, roomId);
             ps.setString(4, bookingDate);
-            ps.setString(5, checkinDate);
-            ps.setString(6, checkoutDate);
+            ps.setString(5, checkInDate);
+            ps.setString(6, checkOutDate);
             ps.execute();
             JOptionPane.showMessageDialog(null, "Successful insert!");
             
             ps = cn.prepareStatement(selectAll);
             // Lay du lieu tu bang Booking
             rs = ps.executeQuery();
-            // xuat du lieu
-            while (rs.next()) {
-                System.out.println(rs.getInt(1) + "  " + rs.getInt(2) + "  " + rs.getInt(3) + "  " + rs.getString(4) + "  " + rs.getString(5) + "  " + rs.getString(6));
-            }
+            
             ps.close();
             cn.close();
             System.out.println("Closing DataBase!");
@@ -218,7 +210,7 @@ public class Booking {
     }
     
     // Sua don dat phong
-    public void updateBooking(int bookingId, int cusId, int roomId, Date checkInDate, Date checkOutDate){
+    public void updateBooking(int bookingId, int cusId, int roomId, String checkInDate, String checkOutDate){
         Connection cn = DataConnection.Connect();
         PreparedStatement ps = null;
         
@@ -228,8 +220,8 @@ public class Booking {
             ps = cn.prepareStatement(sqlUpdate);
             ps.setInt(1, cusId);
             ps.setInt(2, roomId);
-            ps.setDate(3, new java.sql.Date(checkInDate.getTime()));
-            ps.setDate(4, new java.sql.Date(checkOutDate.getTime()));
+            ps.setString(3, checkInDate);
+            ps.setString(4, checkOutDate);
             ps.setInt(5, bookingId);
 
             int rowsAffected = ps.executeUpdate();
