@@ -86,20 +86,18 @@ public class BillController {
         });
     }
     
-    public double calcTotalAmount(int roomId, int svId){
+    public double calcTotalAmount(int cus_id, int roomId, int svId){
         double totalAmount = 0;
+        double svPrice = model.getServicePrice(cus_id);
         if(roomId > 0 && roomId < 3){
-            totalAmount += 100000;
+            totalAmount += 100000 + svPrice;
         }
         if(roomId > 2 && roomId < 8){
-            totalAmount += 250000;
+            totalAmount += 250000 + svPrice;
         }
         if(roomId > 7 && roomId < 11){
-            totalAmount += 300000;
+            totalAmount += 300000 + svPrice;
         }
-        if(svId == 101) totalAmount += 40000;
-        if(svId == 102) totalAmount += 5000;
-        if(svId == 103) totalAmount += 10000;
         return totalAmount;
     }
     
@@ -119,7 +117,7 @@ public class BillController {
         int cusId = Integer.parseInt(view.getCusId());
         int roomId = Integer.parseInt(view.getRoomId());
         int svId = Integer.parseInt(view.getSvId());
-        double totalAmount = calcTotalAmount(roomId, svId);
+        double totalAmount = calcTotalAmount(cusId, roomId, svId);
         boolean paidStatus = view.getPaidStatus();
 
         model.addBill(billId, cusId, roomId, svId, createDate, totalAmount,paidStatus);
@@ -130,9 +128,9 @@ public class BillController {
     }
     
     private void priBillBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
-        int billId = Integer.parseInt(view.getBillId());
+        int cusId = Integer.parseInt(view.getCusIdSearch());
 
-        model.priBill(billId);
+        model.priBill(cusId);
         
         // Cap nhat table
         view.displayBills(model.getBills());
@@ -154,7 +152,7 @@ public class BillController {
         int cusId = Integer.parseInt(view.getCusId());
         int roomId = Integer.parseInt(view.getRoomId());
         int svId = Integer.parseInt(view.getSvId());
-        double totalAmount = calcTotalAmount(roomId, svId);
+        double totalAmount = calcTotalAmount(cusId, roomId, svId);
         boolean paidStatus = view.getPaidStatus();
 
         model.updateBill(billId, cusId, roomId, svId, totalAmount, paidStatus);

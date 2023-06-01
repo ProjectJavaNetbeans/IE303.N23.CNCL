@@ -89,7 +89,7 @@ public class BillView extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        bookingViewBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/icon booking.png"))); // NOI18N
+        bookingViewBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Figma/icon booking.png"))); // NOI18N
         bookingViewBtn.setBorder(null);
         bookingViewBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,7 +98,7 @@ public class BillView extends javax.swing.JFrame {
         });
         jPanel1.add(bookingViewBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 4, -1, -1));
 
-        roomViewBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/icon room.png"))); // NOI18N
+        roomViewBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Figma/icon room.png"))); // NOI18N
         roomViewBtn.setBorder(null);
         roomViewBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,7 +107,7 @@ public class BillView extends javax.swing.JFrame {
         });
         jPanel1.add(roomViewBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 4, -1, -1));
 
-        customerViewBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/icon customer.png"))); // NOI18N
+        customerViewBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Figma/icon customer.png"))); // NOI18N
         customerViewBtn.setBorder(null);
         customerViewBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,7 +116,7 @@ public class BillView extends javax.swing.JFrame {
         });
         jPanel1.add(customerViewBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 4, -1, -1));
 
-        serviceViewBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/icon service.png"))); // NOI18N
+        serviceViewBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Figma/icon service.png"))); // NOI18N
         serviceViewBtn.setBorder(null);
         serviceViewBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,7 +125,7 @@ public class BillView extends javax.swing.JFrame {
         });
         jPanel1.add(serviceViewBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(484, 4, -1, -1));
 
-        billViewBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/icon bill.png"))); // NOI18N
+        billViewBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Figma/icon bill.png"))); // NOI18N
         billViewBtn.setBorder(null);
         billViewBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -134,7 +134,7 @@ public class BillView extends javax.swing.JFrame {
         });
         jPanel1.add(billViewBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(613, 4, -1, -1));
 
-        logoutViewBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/icon logout.png"))); // NOI18N
+        logoutViewBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Figma/icon logout.png"))); // NOI18N
         logoutViewBtn.setBorder(null);
         logoutViewBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -223,7 +223,7 @@ public class BillView extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 530, 780, 140));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/Bill.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Figma/Bill.png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

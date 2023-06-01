@@ -232,34 +232,66 @@ public class Bill {
     
     // In hoa don
     public void priBill(int cusId) {
+        try (
+            Connection cn = DataConnection.Connect();
+            PreparedStatement psSearch = cn.prepareStatement("SELECT SUM(total_amount) AS total_amount_sum, room_id FROM BILL WHERE cus_id = ? GROUP BY room_id");
+            PreparedStatement psUpdateBill = cn.prepareStatement("UPDATE BILL SET paid_status = true WHERE cus_id = ?");
+            PreparedStatement psUpdateRoom = cn.prepareStatement("UPDATE ROOM SET room_status = false WHERE room_id = ?")) {
+
+            psSearch.setInt(1, cusId);
+            psSearch.execute();
+
+            try (ResultSet rs = psSearch.executeQuery()) {
+                if (rs.next()) {
+                    Double totalAmountSum = rs.getDouble("total_amount_sum");
+                    int roomID = rs.getInt("room_id");
+                    JOptionPane.showMessageDialog(null, "Customer ID: " + cusId + "\nTotal Amount: " + totalAmountSum);
+
+                    psUpdateBill.setInt(1, cusId);
+                    psUpdateBill.execute();
+
+                    psUpdateRoom.setInt(1, roomID);
+                    psUpdateRoom.execute();
+                }
+            }
+
+            System.out.println("Closing DataBase!");
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            JOptionPane.showMessageDialog(null, "Unsuccessful print bill!");
+        }
+    }
+
+    public double getServicePrice(int svId) {
         Connection cn = DataConnection.Connect();
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        String sqlSearch =  "SELECT SUM(total_amount) AS total_amount_sum FROM BILL WHERE cus_id = ?";
-        String sqlUpdate =  "UPDATE BILL SET paid_status = true WHERE cus_id = ?";
+        String sqlGetServicePrice = "SELECT sv_price FROM SERVICE WHERE sv_id = ?";
+
+        double svPrice = 0.0;
+
         try {            
-            ps = cn.prepareStatement(sqlSearch);
-            ps.setInt(1, cusId);
-            
+            ps = cn.prepareStatement(sqlGetServicePrice);
+            ps.setInt(1, svId);
+
             ps.execute();
 
             rs = ps.executeQuery();
+            
             if (rs.next()) {
-                Double totalAmountSum = rs.getDouble("total_amount_sum");
-                JOptionPane.showMessageDialog(null, "Customer ID: " + cusId + "\nTotal Amount: " + totalAmountSum);
+                svPrice = rs.getDouble("sv_price");
+                JOptionPane.showMessageDialog(null, "Service Price: " + svPrice);
             }
 
-            ps = cn.prepareStatement(sqlUpdate);
-            ps.setInt(1, cusId);
-            ps.execute();
-            
             ps.close();
             cn.close();
             System.out.println("Closing DataBase!");
         } catch(SQLException ex) {
-            System.out.println(ex);
-            JOptionPane.showMessageDialog(null, "Unsccessful insert!");
+            System.out.println("Failed get price! Err: " + ex);
         }
+
+        return svPrice;
     }
+
 }

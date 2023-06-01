@@ -107,7 +107,8 @@ public class BookingController {
         String checkOutDate = view.getCheckOutDate();
 
         bkModel.addBooking(bookingId, cusId, roomId, bookingDate, checkInDate, checkOutDate);
-
+        bkModel.updateRoomStatus(roomId);
+        
         // Cap nhat table
         view.displayBookings(bkModel.getBookings(), roomModel.getRooms());
         view.setVisible(true);

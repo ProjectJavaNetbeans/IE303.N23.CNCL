@@ -126,7 +126,7 @@ public class RoomView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnBooking.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/icon booking.png"))); // NOI18N
+        btnBooking.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Figma/icon booking.png"))); // NOI18N
         btnBooking.setBorder(null);
         btnBooking.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,7 +135,7 @@ public class RoomView extends javax.swing.JFrame {
         });
         getContentPane().add(btnBooking, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 4, -1, -1));
 
-        btnRoom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/icon room.png"))); // NOI18N
+        btnRoom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Figma/icon room.png"))); // NOI18N
         btnRoom.setBorder(null);
         btnRoom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,7 +144,7 @@ public class RoomView extends javax.swing.JFrame {
         });
         getContentPane().add(btnRoom, new org.netbeans.lib.awtextra.AbsoluteConstraints(216, 4, -1, -1));
 
-        btnCus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/icon customer.png"))); // NOI18N
+        btnCus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Figma/icon customer.png"))); // NOI18N
         btnCus.setBorder(null);
         btnCus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,7 +153,7 @@ public class RoomView extends javax.swing.JFrame {
         });
         getContentPane().add(btnCus, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 4, -1, -1));
 
-        btnSv.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/icon service.png"))); // NOI18N
+        btnSv.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Figma/icon service.png"))); // NOI18N
         btnSv.setBorder(null);
         btnSv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -162,7 +162,7 @@ public class RoomView extends javax.swing.JFrame {
         });
         getContentPane().add(btnSv, new org.netbeans.lib.awtextra.AbsoluteConstraints(484, 4, -1, -1));
 
-        btnBill.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/icon bill.png"))); // NOI18N
+        btnBill.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Figma/icon bill.png"))); // NOI18N
         btnBill.setBorder(null);
         btnBill.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -171,7 +171,7 @@ public class RoomView extends javax.swing.JFrame {
         });
         getContentPane().add(btnBill, new org.netbeans.lib.awtextra.AbsoluteConstraints(613, 4, -1, -1));
 
-        btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/icon logout.png"))); // NOI18N
+        btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Figma/icon logout.png"))); // NOI18N
         btnLogout.setBorder(null);
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -273,7 +273,7 @@ public class RoomView extends javax.swing.JFrame {
         });
         getContentPane().add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 642, 45, 25));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/Room.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Figma/Room.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();

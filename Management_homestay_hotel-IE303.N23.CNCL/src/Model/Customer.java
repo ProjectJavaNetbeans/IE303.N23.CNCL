@@ -87,8 +87,8 @@ public class Customer {
     }
 
     // Lay danh sach khach hang
-    public List<Customer> getCustomers() {
-        List<Customer> customers = new ArrayList<>();
+    public ArrayList<Customer> getCustomers() {
+        ArrayList<Customer> customers = new ArrayList<>();
         Connection cn = DataConnection.Connect();
         PreparedStatement ps = null;
         ResultSet rs = null;

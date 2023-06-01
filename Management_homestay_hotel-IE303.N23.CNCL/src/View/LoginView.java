@@ -58,7 +58,7 @@ public class LoginView extends javax.swing.JFrame {
         passTF.setBorder(null);
         getContentPane().add(passTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 466, 320, 40));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/Login.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Figma/Login.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();

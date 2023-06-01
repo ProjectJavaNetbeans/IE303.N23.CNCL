@@ -11,6 +11,8 @@ import javax.swing.*;
 import java.sql.*;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 /**
  *
  * @author Nhattruong
@@ -41,11 +43,17 @@ public class BookingView extends javax.swing.JFrame {
     }
 
     public String getCheckInDate() {
-        return ckinDateTF.getDateFormatString();
+        Date selectedDate = ckinDateTF.getDate();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        String formattedDate = dateFormat.format(selectedDate);
+        return formattedDate;
     }
     
     public String getCheckOutDate() {
-        return ckoutDateTF.getDateFormatString();
+        Date selectedDate = ckoutDateTF.getDate();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        String formattedDate = dateFormat.format(selectedDate);
+        return formattedDate;
     }
     
     /**
@@ -82,7 +90,7 @@ public class BookingView extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(ckoutDateTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 576, 235, 30));
 
-        logoutViewBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/icon logout.png"))); // NOI18N
+        logoutViewBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Figma/icon logout.png"))); // NOI18N
         logoutViewBtn.setBorder(null);
         logoutViewBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,7 +99,7 @@ public class BookingView extends javax.swing.JFrame {
         });
         getContentPane().add(logoutViewBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 4, -1, -1));
 
-        billViewBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/icon bill.png"))); // NOI18N
+        billViewBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Figma/icon bill.png"))); // NOI18N
         billViewBtn.setBorder(null);
         billViewBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,7 +108,7 @@ public class BookingView extends javax.swing.JFrame {
         });
         getContentPane().add(billViewBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(613, 4, -1, -1));
 
-        serviceViewBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/icon service.png"))); // NOI18N
+        serviceViewBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Figma/icon service.png"))); // NOI18N
         serviceViewBtn.setBorder(null);
         serviceViewBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,7 +117,7 @@ public class BookingView extends javax.swing.JFrame {
         });
         getContentPane().add(serviceViewBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(486, 5, -1, -1));
 
-        customerViewBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/icon customer.png"))); // NOI18N
+        customerViewBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Figma/icon customer.png"))); // NOI18N
         customerViewBtn.setBorder(null);
         customerViewBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,7 +126,7 @@ public class BookingView extends javax.swing.JFrame {
         });
         getContentPane().add(customerViewBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 4, -1, -1));
 
-        roomViewBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/icon room.png"))); // NOI18N
+        roomViewBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Figma/icon room.png"))); // NOI18N
         roomViewBtn.setBorder(null);
         roomViewBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,7 +135,7 @@ public class BookingView extends javax.swing.JFrame {
         });
         getContentPane().add(roomViewBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 4, -1, -1));
 
-        bookingViewBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/icon booking.png"))); // NOI18N
+        bookingViewBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Figma/icon booking.png"))); // NOI18N
         bookingViewBtn.setBorder(null);
         getContentPane().add(bookingViewBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 4, -1, -1));
 
@@ -206,7 +214,7 @@ public class BookingView extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 507, 490, 160));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uiImage/Booking.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Figma/Booking.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
@@ -230,7 +238,7 @@ public class BookingView extends javax.swing.JFrame {
         String[][] data1 = dataTransfer(bookings);
         String[] column1 = {"Booking ID", "Customer ID", "Room ID", "Booking date", "Check in date", "Check out date"};
         DefaultTableModel dataModel1 = new DefaultTableModel(data1, column1);
-        RoomsTable.setModel(dataModel1);
+        bookingsTB.setModel(dataModel1);
         
         String[][] data2 = dataTransferRoom(rooms);
         String[] column2 = {"Room ID", "Room Name", "Type", "Price", "Status", "HT/HS ID"};

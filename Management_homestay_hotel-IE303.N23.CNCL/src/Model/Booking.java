@@ -215,7 +215,7 @@ public class Booking {
         PreparedStatement ps = null;
         
         try {
-            String sqlUpdate = "UPDATE BOOKING SET booking_id = ?, room_id = ?, check_in_date = ?, check_out_date = ? WHERE booking_id = ?";
+            String sqlUpdate = "UPDATE BOOKING SET cus_id = ?, room_id = ?, check_in_date = ?, check_out_date = ? WHERE booking_id = ?";
 
             ps = cn.prepareStatement(sqlUpdate);
             ps.setInt(1, cusId);
@@ -228,6 +228,33 @@ public class Booking {
 
             if (rowsAffected > 0) {
                 JOptionPane.showMessageDialog(null, "Successful update!");
+            } else {
+                JOptionPane.showMessageDialog(null, "No matching record found!");
+            }
+            ps.close();
+            cn.close();
+            System.out.println("Closing DataBase!");
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            JOptionPane.showMessageDialog(null, "Unsuccessful update!");
+        }
+    }
+    
+    public void updateRoomStatus(int roomId){
+        Connection cn = DataConnection.Connect();
+        PreparedStatement ps = null;
+        
+        try {
+            String sqlUpdate = "UPDATE ROOM SET room_status = ? WHERE room_id = ?";
+
+            ps = cn.prepareStatement(sqlUpdate);
+            ps.setBoolean(1, true);
+            ps.setInt(2, roomId);
+
+            int rowsAffected = ps.executeUpdate();
+
+            if (rowsAffected > 0) {
+                JOptionPane.showMessageDialog(null, "Successful update room status!");
             } else {
                 JOptionPane.showMessageDialog(null, "No matching record found!");
             }

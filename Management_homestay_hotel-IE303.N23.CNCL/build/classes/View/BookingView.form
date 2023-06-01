@@ -35,7 +35,7 @@
     <Component class="javax.swing.JButton" name="logoutViewBtn">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/uiImage/icon logout.png"/>
+          <Image iconType="3" name="/Figma/icon logout.png"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
@@ -53,7 +53,7 @@
     <Component class="javax.swing.JButton" name="billViewBtn">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/uiImage/icon bill.png"/>
+          <Image iconType="3" name="/Figma/icon bill.png"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
@@ -71,7 +71,7 @@
     <Component class="javax.swing.JButton" name="serviceViewBtn">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/uiImage/icon service.png"/>
+          <Image iconType="3" name="/Figma/icon service.png"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
@@ -89,7 +89,7 @@
     <Component class="javax.swing.JButton" name="customerViewBtn">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/uiImage/icon customer.png"/>
+          <Image iconType="3" name="/Figma/icon customer.png"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
@@ -107,7 +107,7 @@
     <Component class="javax.swing.JButton" name="roomViewBtn">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/uiImage/icon room.png"/>
+          <Image iconType="3" name="/Figma/icon room.png"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
@@ -125,7 +125,7 @@
     <Component class="javax.swing.JButton" name="bookingViewBtn">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/uiImage/icon booking.png"/>
+          <Image iconType="3" name="/Figma/icon booking.png"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
@@ -381,7 +381,7 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/uiImage/Booking.png"/>
+          <Image iconType="3" name="/Figma/Booking.png"/>
         </Property>
       </Properties>
       <Constraints>
