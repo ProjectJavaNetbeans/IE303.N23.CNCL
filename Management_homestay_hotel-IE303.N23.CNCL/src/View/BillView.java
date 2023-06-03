@@ -176,7 +176,7 @@ public class BillView extends javax.swing.JFrame {
 
         printBillBtn.setBackground(new java.awt.Color(236, 200, 108));
         printBillBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        printBillBtn.setText("Print");
+        printBillBtn.setText("Calculate");
         printBillBtn.setBorder(null);
         printBillBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
