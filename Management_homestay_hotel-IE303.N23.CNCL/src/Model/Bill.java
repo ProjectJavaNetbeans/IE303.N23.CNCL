@@ -3,6 +3,7 @@ package Model;
 
 import java.util.*;
 import View.BillView;
+import View.StatisticView;
 import java.sql.*;
 import javax.swing.*;
 import java.time.LocalDateTime;

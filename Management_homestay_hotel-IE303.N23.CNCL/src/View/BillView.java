@@ -83,6 +83,7 @@ public class BillView extends javax.swing.JFrame {
         roomIdTF = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         BillTable = new javax.swing.JTable();
+        upstatistic = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -172,7 +173,7 @@ public class BillView extends javax.swing.JFrame {
                 updBillBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(updBillBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(689, 395, 140, 30));
+        jPanel1.add(updBillBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 400, 140, 20));
 
         printBillBtn.setBackground(new java.awt.Color(236, 200, 108));
         printBillBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -222,6 +223,17 @@ public class BillView extends javax.swing.JFrame {
         jScrollPane1.setViewportView(BillTable);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 530, 780, 140));
+
+        upstatistic.setBackground(new java.awt.Color(236, 200, 108));
+        upstatistic.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        upstatistic.setText("Statistics ");
+        upstatistic.setBorder(null);
+        upstatistic.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                upstatisticActionPerformed(evt);
+            }
+        });
+        jPanel1.add(upstatistic, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 690, 140, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Figma/Bill.png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -290,6 +302,9 @@ public class BillView extends javax.swing.JFrame {
     public void logoutViewBtnListener(ActionListener listener) {
         logoutViewBtn.addActionListener(listener);
     }
+    public void statisticsBtnListener(ActionListener listener) {
+        upstatistic.addActionListener(listener);
+    }
     private void addBillBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBillBtnActionPerformed
         if (addBillBtnListener != null) {
             addBillBtnListener.actionPerformed(evt);
@@ -347,6 +362,13 @@ public class BillView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_logoutViewBtnActionPerformed
 
+    private void upstatisticActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upstatisticActionPerformed
+        // TODO add your handling code here:
+        if (statisticsBtnListener != null) {
+            statisticsBtnListener.actionPerformed(evt);
+        }
+    }//GEN-LAST:event_upstatisticActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -391,6 +413,7 @@ public class BillView extends javax.swing.JFrame {
     private ActionListener serviceViewBtnListener;
     private ActionListener customerViewBtnListener;
     private ActionListener logoutViewBtnListener;
+    private ActionListener statisticsBtnListener;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable BillTable;
     private javax.swing.JButton addBillBtn;
@@ -413,6 +436,7 @@ public class BillView extends javax.swing.JFrame {
     private javax.swing.JButton serviceViewBtn;
     private javax.swing.JTextField svIdTF;
     private javax.swing.JButton updBillBtn;
+    private javax.swing.JButton upstatistic;
     // End of variables declaration//GEN-END:variables
 
 }
