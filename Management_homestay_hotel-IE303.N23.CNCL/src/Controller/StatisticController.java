@@ -50,10 +50,15 @@ public class StatisticController {
         String year = view.getYear();
         List<Bill> bills = model.getBills();
         for(Bill b: bills){
-            if(b.getPaidStatus() && (b.getCreateDate().substring(b.getCreateDate().length() - 4) == year)){
+            if(b.getPaidStatus() && (b.getCreateDate().substring(0,4).equals(year))){
                 result += b.getTotalAmount();
             }
         }
         view.setResult(String.valueOf(result));
+    }
+    
+    public void displayStatisticView() {
+        view.displayBills(model.getBills());
+        view.setVisible(true);
     }
 }

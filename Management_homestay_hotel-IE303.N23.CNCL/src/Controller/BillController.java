@@ -84,6 +84,12 @@ public class BillController {
                 logoutViewBtnActionPerformed(e);
             }
         });
+        view.statisticsBtnListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                statisticsBtnActionPerformed(e);
+            }
+        });
     }
     
     public double calcTotalAmount(int cus_id, int roomId, int svId){
@@ -206,6 +212,14 @@ public class BillController {
         LoginView liview = new LoginView();
         LoginController controller = new LoginController(liview);
         controller.displayLoginView();
+    }
+    private void statisticsBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        view.setVisible(false);
+
+        StatisticView staView = new StatisticView();
+        Bill billModel = new Bill();
+        StatisticController controller = new StatisticController(billModel,staView);
+        controller.displayStatisticView();
     }
     
     public void displayBillView() {
