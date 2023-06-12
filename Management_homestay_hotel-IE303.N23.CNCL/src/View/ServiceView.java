@@ -136,7 +136,7 @@ public class ServiceView extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setText("ID:");
+        jLabel2.setText("Service ID search:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(355, 435, -1, -1));
 
         btnBooking.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Figma/icon booking.png"))); // NOI18N
@@ -262,7 +262,7 @@ public class ServiceView extends javax.swing.JFrame {
                 svIDTextActionPerformed(evt);
             }
         });
-        getContentPane().add(svIDText, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 430, 100, 30));
+        getContentPane().add(svIDText, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 430, 100, 30));
 
         EmpTB.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

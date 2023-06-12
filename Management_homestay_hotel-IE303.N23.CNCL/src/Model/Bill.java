@@ -26,17 +26,17 @@ public class Bill {
     /**
      * 
      */
-    private int cusId;
+    private String cusPhone;
 
     /**
      * 
      */
-    private int roomId;
+    private String roomName;
 
     /**
      * 
      */
-    private int svId;
+    private String svName;
     
     /**
      * 
@@ -53,11 +53,11 @@ public class Bill {
      */
     private boolean paidStatus;
 
-    public Bill(int billId, int cusId, int roomId, int svId, String createDate, double totalAmount, boolean paidStatus) {
+    public Bill(int billId, String cusPhone, String roomName, String svName, String createDate, double totalAmount, boolean paidStatus) {
         this.billId = billId;
-        this.cusId = cusId;
-        this.roomId = roomId;
-        this.svId = svId;
+        this.cusPhone = cusPhone;
+        this.roomName = roomName;
+        this.svName = svName;
         this.createDate = createDate;
         this.totalAmount = totalAmount;
         this.paidStatus = paidStatus;
@@ -67,16 +67,16 @@ public class Bill {
         return billId;
     }
 
-    public int getCusId() {
-        return cusId;
+    public String getCusPhone() {
+        return cusPhone;
     }
 
-    public int getRoomId() {
-        return roomId;
+    public String getRoomName() {
+        return roomName;
     }
 
-    public int getSvId() {
-        return svId;
+    public String getSvName() {
+        return svName;
     }
 
     public String getCreateDate() {
@@ -103,14 +103,14 @@ public class Bill {
 
             while (rs.next()) {
                 int billId = rs.getInt("bill_id");
-                int cusId = rs.getInt("cus_id");
-                int roomId = rs.getInt("room_id");
-                int svId = rs.getInt("sv_id");
+                String cusPhone = rs.getString("cus_phone");
+                String roomName = rs.getString("room_name");
+                String svName = rs.getString("sv_name");
                 String createDate = rs.getString("create_date");
                 Double totalAmount = rs.getDouble("total_amount");
                 Boolean paidStatus = rs.getBoolean("paid_status");
 
-                Bill bill = new Bill(billId, cusId, roomId, svId, createDate, totalAmount, paidStatus);
+                Bill bill = new Bill(billId, cusPhone, roomName, svName, createDate, totalAmount, paidStatus);
                 bills.add(bill);
             }
         } catch (SQLException ex) {
@@ -133,7 +133,7 @@ public class Bill {
     }
     
     // Them hoa don
-    public void addBill(int billId, int cusId, int roomId, int svId, String createDate, double totalAmount, boolean paidStatus){
+    public void addBill(int billId, String cusPhone, String roomName, String svName, String createDate, double totalAmount, boolean paidStatus){
         Connection cn = DataConnection.Connect();
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -144,9 +144,9 @@ public class Bill {
         {            
             ps =cn.prepareStatement(sqlInsert);
             ps.setInt(1, billId);
-            ps.setInt(2, cusId);
-            ps.setInt(3, roomId);
-            ps.setInt(4, svId);
+            ps.setString(2, cusPhone);
+            ps.setString(3, roomName);
+            ps.setString(4, svName);
             ps.setString(5, createDate);
             ps.setDouble(6, totalAmount);
             ps.setBoolean(7, paidStatus);
@@ -156,10 +156,7 @@ public class Bill {
             ps = cn.prepareStatement(selectAll);
             // Lay du lieu tu bang Booking
             rs = ps.executeQuery();
-            // xuat du lieu
-            while (rs.next()) {
-                System.out.println(rs.getInt(1) + "  " + rs.getInt(2) + "  " + rs.getInt(3) + "  " + rs.getInt(4) + "  " + rs.getString(5) + "  " + rs.getDouble(6) + "  " + rs.getBoolean(7));
-            }
+            
             ps.close();
             cn.close();
             System.out.println("Closing DataBase!");
@@ -199,17 +196,17 @@ public class Bill {
     }
     
     // Sua hoa don
-    public void updateBill(int billId, int cusId, int roomId, int svId, double totalAmount, boolean paidStatus){
+    public void updateBill(int billId, String cusPhone, String roomName, String svName, double totalAmount, boolean paidStatus){
         Connection cn = DataConnection.Connect();
         PreparedStatement ps = null;
         
         try {
-            String sqlUpdate = "UPDATE BILL SET cus_id = ?, room_id = ?, sv_id = ?, total_amount = ?, paid_status = ? WHERE bill_id = ?";
+            String sqlUpdate = "UPDATE BILL SET cus_phone = ?, room_name = ?, sv_name = ?, total_amount = ?, paid_status = ? WHERE bill_id = ?";
 
             ps = cn.prepareStatement(sqlUpdate);
-            ps.setInt(1, cusId);
-            ps.setInt(2, roomId);
-            ps.setInt(3, svId);
+            ps.setString(1, cusPhone);
+            ps.setString(2, roomName);
+            ps.setString(3, svName);
             ps.setDouble(4, totalAmount);
             ps.setBoolean(5, paidStatus);
             ps.setInt(6, billId);
@@ -231,26 +228,26 @@ public class Bill {
     }
     
     // In hoa don
-    public void priBill(int cusId) {
+    public void priBill(String cusPhone) {
         try (
             Connection cn = DataConnection.Connect();
-            PreparedStatement psSearch = cn.prepareStatement("SELECT SUM(total_amount) AS total_amount_sum, room_id FROM BILL WHERE cus_id = ? GROUP BY room_id");
-            PreparedStatement psUpdateBill = cn.prepareStatement("UPDATE BILL SET paid_status = true WHERE cus_id = ?");
-            PreparedStatement psUpdateRoom = cn.prepareStatement("UPDATE ROOM SET room_status = false WHERE room_id = ?")) {
+            PreparedStatement psSearch = cn.prepareStatement("SELECT SUM(total_amount) AS total_amount_sum, room_name FROM BILL WHERE cus_phone = ? GROUP BY room_name");
+            PreparedStatement psUpdateBill = cn.prepareStatement("UPDATE BILL SET paid_status = true WHERE cus_phone = ?");
+            PreparedStatement psUpdateRoom = cn.prepareStatement("UPDATE ROOM SET room_status = false WHERE room_name = ?")) {
 
-            psSearch.setInt(1, cusId);
+            psSearch.setString(1, cusPhone);
             psSearch.execute();
 
             try (ResultSet rs = psSearch.executeQuery()) {
                 if (rs.next()) {
                     Double totalAmountSum = rs.getDouble("total_amount_sum");
-                    int roomID = rs.getInt("room_id");
-                    JOptionPane.showMessageDialog(null, "Customer ID: " + cusId + "\nTotal Amount: " + totalAmountSum);
+                    String roomNAME = rs.getString("room_name");
+                    JOptionPane.showMessageDialog(null, "Customer Phone: " + cusPhone + "\nTotal Amount: " + totalAmountSum);
 
-                    psUpdateBill.setInt(1, cusId);
+                    psUpdateBill.setString(1, cusPhone);
                     psUpdateBill.execute();
 
-                    psUpdateRoom.setInt(1, roomID);
+                    psUpdateRoom.setString(1, roomNAME);
                     psUpdateRoom.execute();
                 }
             }
@@ -262,18 +259,18 @@ public class Bill {
         }
     }
 
-    public double getServicePrice(int svId) {
+    public double getServicePrice(String svName) {
         Connection cn = DataConnection.Connect();
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        String sqlGetServicePrice = "SELECT sv_price FROM SERVICE WHERE sv_id = ?";
+        String sqlGetServicePrice = "SELECT sv_price FROM SERVICE WHERE sv_name = ?";
 
         double svPrice = 0.0;
 
         try {            
             ps = cn.prepareStatement(sqlGetServicePrice);
-            ps.setInt(1, svId);
+            ps.setString(1, svName);
 
             ps.execute();
 
@@ -281,7 +278,7 @@ public class Bill {
             
             if (rs.next()) {
                 svPrice = rs.getDouble("sv_price");
-                JOptionPane.showMessageDialog(null, "Service Price: " + svPrice);
+                JOptionPane.showMessageDialog(null, "Service (" + svName + ") :" + svPrice + "đ");
             }
 
             ps.close();

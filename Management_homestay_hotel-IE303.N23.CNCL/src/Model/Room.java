@@ -197,20 +197,20 @@ public class Room {
         }
     } 
      
-    public void deleteRoom(int roomId){
+    public void deleteRoom(String roomName){
         Connection cn = DataConnection.Connect();
         PreparedStatement ps = null;
         
         try {
-            String sqlDelete = "DELETE FROM ROOM WHERE room_id = ?";
+            String sqlDelete = "DELETE FROM ROOM WHERE room_name = ?";
 
             ps = cn.prepareStatement(sqlDelete);
-            ps.setInt(1, roomId);
+            ps.setString(1, roomName);
 
             int rowsAffected = ps.executeUpdate();
 
             if (rowsAffected > 0) {
-                JOptionPane.showMessageDialog(null, "Successful delete!");
+                JOptionPane.showMessageDialog(null, "Successful delete room!");
             } else {
                 JOptionPane.showMessageDialog(null, "No matching record found!");
             }
@@ -223,15 +223,15 @@ public class Room {
         } 
     }
     
-    public void updateRoom(Room room)
+    public void updateRoom(String roomNameSearch, String roomName, String roomType, double roomRates, boolean roomStatus, int htId)
     {
         try {
             String updateQuery = "UPDATE ROOM SET room_name = '"
-                    +room.getRoomName() + "' , room_type = '"
-                    +room.getRoomType() + "' , room_rates = "
-                    +room.getRoomRates() + " , room_status= "
-                    +boolToString(room.isRoomStatus()) + " ,  ht_id = "
-                    +room.getHtId() + " WHERE room_id = " + room.getRoomId();
+                    +roomName + "' , room_type = '"
+                    +roomType + "' , room_rates = "
+                    +roomRates + " , room_status= "
+                    +boolToString(roomStatus) + " ,  ht_id = "
+                    +htId + " WHERE room_name = " + roomNameSearch;
 
             System.out.println(">>>>>>>>>> "+ updateQuery);
             ps = cn.prepareStatement(updateQuery);

@@ -101,13 +101,13 @@ public class BookingController {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         String bookingDate = currentDateTime.format(formatter);
         
-        int cusId = Integer.parseInt(view.getCusId());
-        int roomId = Integer.parseInt(view.getRoomId());
+        String cusPhone = view.getCusPhone();
+        String roomName = view.getRoomName();
         String checkInDate = view.getCheckInDate();
         String checkOutDate = view.getCheckOutDate();
 
-        bkModel.addBooking(bookingId, cusId, roomId, bookingDate, checkInDate, checkOutDate);
-        bkModel.updateRoomStatus(roomId);
+        bkModel.addBooking(bookingId, cusPhone, roomName, bookingDate, checkInDate, checkOutDate);
+        bkModel.updateRoomStatus(roomName);
         
         // Cap nhat table
         view.displayBookings(bkModel.getBookings(), roomModel.getRooms());
@@ -126,12 +126,12 @@ public class BookingController {
     
     private void updBookingBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
         int bkId = Integer.parseInt(view.getBookingId());
-        int cusId = Integer.parseInt(view.getCusId());
-        int roomId = Integer.parseInt(view.getRoomId());
+        String cusPhone = view.getCusPhone();
+        String roomName = view.getRoomName();
         String checkInDate = view.getCheckInDate();
         String checkOutDate = view.getCheckOutDate();
 
-        bkModel.updateBooking(bkId, cusId, roomId, checkInDate, checkOutDate);
+        bkModel.updateBooking(bkId, cusPhone, roomName, checkInDate, checkOutDate);
 
         // Cap nhat table
         view.displayBookings(bkModel.getBookings(), roomModel.getRooms());

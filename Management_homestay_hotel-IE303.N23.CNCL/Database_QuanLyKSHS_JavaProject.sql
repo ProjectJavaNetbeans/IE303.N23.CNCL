@@ -9,7 +9,7 @@ CREATE TABLE HOTELHOMESTAY (
 );
 
 CREATE TABLE ROOM (
-	room_id INT PRIMARY KEY AUTO_INCREMENT,
+	room_id INT PRIMARY KEY,
     room_name VARCHAR(20),
     room_type VARCHAR(40),
     room_rates DOUBLE,
@@ -19,7 +19,7 @@ CREATE TABLE ROOM (
 );
 
 CREATE TABLE CUSTOMER (
-	cus_id INT PRIMARY KEY AUTO_INCREMENT,
+	cus_id INT PRIMARY KEY,
     cus_name VARCHAR(20),
     cus_email VARCHAR(50),
     cus_phone VARCHAR(20),
@@ -28,13 +28,11 @@ CREATE TABLE CUSTOMER (
 
 CREATE TABLE BOOKING (
 	booking_id INT PRIMARY KEY AUTO_INCREMENT,
-    cus_id INT,
-    room_id INT,
+    cus_phone VARCHAR(20),
+    room_name VARCHAR(20),
     booking_date DATETIME,
     check_in_date DATE,
-    check_out_date DATE,
-    FOREIGN KEY (cus_id) REFERENCES CUSTOMER(cus_id),
-    FOREIGN KEY (room_id) REFERENCES ROOM(room_id)
+    check_out_date DATE
 );
 
 CREATE TABLE EMPLOYEE (
@@ -48,22 +46,19 @@ CREATE TABLE EMPLOYEE (
 );
 
 CREATE TABLE SERVICE (
-	sv_id INT PRIMARY KEY AUTO_INCREMENT,
+	sv_id INT PRIMARY KEY,
 	sv_name VARCHAR(20),
 	sv_price DOUBLE	
 );
 
 CREATE TABLE BILL (
 	bill_id INT PRIMARY KEY AUTO_INCREMENT,
-	cus_id INT,
-    room_id INT,
-    sv_id INT,
+	cus_phone VARCHAR(20),
+    room_name VARCHAR(20),
+    sv_name VARCHAR(20),
 	create_date DATETIME,
     total_amount DOUBLE,
-	paid_status BOOLEAN DEFAULT FALSE,
-    FOREIGN KEY (cus_id) REFERENCES CUSTOMER(cus_id),
-    FOREIGN KEY (room_id) REFERENCES ROOM(room_id),
-    FOREIGN KEY (sv_id) REFERENCES SERVICE(sv_id)
+	paid_status BOOLEAN DEFAULT FALSE
 );
 
 ALTER TABLE BOOKING
@@ -79,7 +74,7 @@ BEGIN
 
     SELECT room_status INTO roomstatus
     FROM ROOM
-    WHERE room_id = NEW.room_id;
+    WHERE room_name = NEW.room_name;
 
     IF roomstatus = true THEN
         SIGNAL SQLSTATE '45000'
@@ -99,10 +94,10 @@ VALUES
 (01, 'P01', 'Single bed room', 100000, false, 111),
 (02, 'P02', 'Single bed room', 100000, true, 111),
 (03, 'P03', 'Twin bed room', 250000, false, 111),
-(04, 'P04', 'Twin bed room ', 250000, true, 111),
+(04, 'P04', 'Twin bed room ', 250000, false, 111),
 (05, 'P05', 'Double bed room', 250000, false, 111),
-(06, 'P06', 'Double bed room', 250000, true, 111),
-(07, 'P07', 'Double bed room', 250000, true, 111),
+(06, 'P06', 'Double bed room', 250000, false, 111),
+(07, 'P07', 'Double bed room', 250000, false, 111),
 (08, 'P08', 'Triple bed room', 300000, false, 111),
 (09, 'P09', 'Triple bed room', 300000, false, 111),
 (10, 'P10', 'Triple bed room', 300000, false, 111),
@@ -117,13 +112,13 @@ VALUES
 (120104, 'Tran Van D', 'tvd@gmail.com', '0371257456', 'TP Ho Chi Minh'),
 (120105, 'Pham Nhat E', 'pne@gmail.com', '0814257456', 'TP Quang Ngai');
 
-INSERT INTO BOOKING (booking_id, cus_id, room_id, booking_date, check_in_date, check_out_date)
+INSERT INTO BOOKING (booking_id, cus_phone, room_name, booking_date, check_in_date, check_out_date)
 VALUES 
-(1001, 120101, 03, '2023-02-12 10:30:00', '2023-02-14', '2023-02-16'),
-(1002, 120102, 05, '2023-02-12 10:30:00', '2023-02-14', '2023-02-16'),
-(1003, 120103, 08, '2023-02-12 10:30:00', '2023-02-14', '2023-02-16'),
-(1004, 120104, 09, '2023-02-12 10:30:00', '2023-02-14', '2023-02-16'),
-(1005, 120105, 10, '2023-02-12 10:30:00', '2023-02-14', '2023-02-16');
+(1001, '0339857456', 'P03', '2023-02-12 10:30:00', '2023-02-14', '2023-02-16'),
+(1002, '0339145368', 'P02', '2023-02-12 10:30:00', '2023-02-14', '2023-06-16'),
+(1003, '0339471045', 'P08', '2023-02-12 10:30:00', '2023-02-14', '2023-02-16'),
+(1004, '0371257456', 'P09', '2023-02-12 10:30:00', '2023-02-14', '2023-02-16'),
+(1005, '0814257456', 'P10', '2023-02-12 10:30:00', '2023-02-14', '2023-02-16');
 
 INSERT INTO EMPLOYEE (emp_id, emp_name, shift, emp_phone, emp_address, emp_acc, emp_pass)
 VALUES 
@@ -136,9 +131,9 @@ VALUES
 (102, 'Dua don', 5000),
 (103, 'Ho boi', 10000);
 
-INSERT INTO BILL (bill_id, cus_id, room_id, sv_id, create_date, total_amount, paid_status)
+INSERT INTO BILL (bill_id, cus_phone, room_name, sv_name, create_date, total_amount, paid_status)
 VALUES 
-(121, 120104, 02, 101, '2023-02-12 10:30:00', 140000, true);
+(121, '0339145368', 'P02', 'Bua an', '2023-02-12 10:30:00', 140000, true);
 
 CREATE USER 'admin'@'localhost' IDENTIFIED BY '123456';
 GRANT ALL PRIVILEGES ON QLKSHS.* TO 'admin'@'localhost';

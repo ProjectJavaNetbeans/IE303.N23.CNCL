@@ -147,7 +147,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JTextField" name="cusIdSearchTF">
+        <Component class="javax.swing.JTextField" name="cusPhoneSearchTF">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -161,7 +161,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JTextField" name="svIdTF">
+        <Component class="javax.swing.JTextField" name="svNameTF">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -173,7 +173,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JTextField" name="cusIdTF">
+        <Component class="javax.swing.JTextField" name="cusPhoneTF">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -278,11 +278,11 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Bill ID:"/>
+            <Property name="text" type="java.lang.String" value="Bill ID search:"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="700" y="205" width="-1" height="-1"/>
+              <AbsoluteConstraints x="665" y="205" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -298,15 +298,15 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Customer ID:"/>
+            <Property name="text" type="java.lang.String" value="Customer Phone:"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="500" y="700" width="-1" height="-1"/>
+              <AbsoluteConstraints x="480" y="700" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JTextField" name="roomIdTF">
+        <Component class="javax.swing.JTextField" name="roomNameTF">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -335,10 +335,10 @@
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="7" rowCount="4">
                     <Column editable="true" title="Bill ID" type="java.lang.Object"/>
-                    <Column editable="true" title="Customer ID" type="java.lang.Object"/>
-                    <Column editable="true" title="Room ID" type="java.lang.Object"/>
-                    <Column editable="true" title="Service ID" type="java.lang.Object"/>
-                    <Column editable="true" title="Create date" type="java.lang.Object"/>
+                    <Column editable="true" title="Customer Phone" type="java.lang.Object"/>
+                    <Column editable="true" title="Room Name" type="java.lang.Object"/>
+                    <Column editable="true" title="Service Name" type="java.lang.Object"/>
+                    <Column editable="true" title="Create Date" type="java.lang.Object"/>
                     <Column editable="true" title="Total Amount" type="java.lang.Object"/>
                     <Column editable="true" title="Paid Status" type="java.lang.Object"/>
                   </Table>

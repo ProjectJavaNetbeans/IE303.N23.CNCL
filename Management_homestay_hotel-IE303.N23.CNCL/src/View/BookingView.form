@@ -142,7 +142,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="ID:"/>
+        <Property name="text" type="java.lang.String" value="Booking ID search:"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -153,7 +153,7 @@
     <Component class="javax.swing.JTextField" name="idTF">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="385" y="693" width="100" height="-1"/>
+          <AbsoluteConstraints x="490" y="693" width="100" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -289,7 +289,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="cusIdTF">
+    <Component class="javax.swing.JTextField" name="cusPhoneTF">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
@@ -301,7 +301,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="roomIdTF">
+    <Component class="javax.swing.JTextField" name="roomNameTF">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
@@ -330,8 +330,8 @@
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="6" rowCount="4">
                 <Column editable="true" title="Booking ID" type="java.lang.Object"/>
-                <Column editable="true" title="Customer ID" type="java.lang.Object"/>
-                <Column editable="true" title="Room ID" type="java.lang.Object"/>
+                <Column editable="true" title="Customer Phone" type="java.lang.Object"/>
+                <Column editable="true" title="Room Name" type="java.lang.Object"/>
                 <Column editable="true" title="Booking date" type="java.lang.Object"/>
                 <Column editable="true" title="Check in date" type="java.lang.Object"/>
                 <Column editable="true" title="Check out date" type="java.lang.Object"/>

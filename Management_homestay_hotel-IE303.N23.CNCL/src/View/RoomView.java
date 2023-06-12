@@ -44,8 +44,8 @@ public class RoomView extends javax.swing.JFrame {
         return checkStatus.isSelected();
     }
     
-    public String getRoomId() {
-        return textId.getText();
+    public String getRoomNameSearch() {
+        return textRoomNameSearch.getText();
     }
     
     public void addBtnListener(ActionListener listener) {
@@ -111,7 +111,7 @@ public class RoomView extends javax.swing.JFrame {
         btnBill = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        textId = new javax.swing.JTextField();
+        textRoomNameSearch = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         roomTB = new javax.swing.JTable();
         textName = new javax.swing.JTextField();
@@ -181,16 +181,16 @@ public class RoomView extends javax.swing.JFrame {
         getContentPane().add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 4, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel2.setText("ID: ");
+        jLabel2.setText("Search room name:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 325, -1, -1));
 
-        textId.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        textId.addActionListener(new java.awt.event.ActionListener() {
+        textRoomNameSearch.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        textRoomNameSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textIdActionPerformed(evt);
+                textRoomNameSearchActionPerformed(evt);
             }
         });
-        getContentPane().add(textId, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 320, 100, 25));
+        getContentPane().add(textRoomNameSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 320, 150, 25));
 
         roomTB.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -357,9 +357,9 @@ public class RoomView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAddActionPerformed
 
-    private void textIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textIdActionPerformed
+    private void textRoomNameSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textRoomNameSearchActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textIdActionPerformed
+    }//GEN-LAST:event_textRoomNameSearchActionPerformed
 
     /**
      * @param args the command line arguments
@@ -421,9 +421,9 @@ public class RoomView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable roomTB;
-    private javax.swing.JTextField textId;
     private javax.swing.JTextField textName;
     private javax.swing.JTextField textRates;
+    private javax.swing.JTextField textRoomNameSearch;
     private javax.swing.JTextField textType;
     // End of variables declaration//GEN-END:variables
 

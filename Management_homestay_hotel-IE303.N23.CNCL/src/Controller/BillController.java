@@ -86,16 +86,16 @@ public class BillController {
         });
     }
     
-    public double calcTotalAmount(int cus_id, int roomId, int svId){
+    public double calcTotalAmount(String cusPhone, String roomName, String svName){
         double totalAmount = 0;
-        double svPrice = model.getServicePrice(cus_id);
-        if(roomId > 0 && roomId < 3){
+        double svPrice = model.getServicePrice(svName);
+        if(roomName.equals("P01") || roomName.equals("P02")){
             totalAmount += 100000 + svPrice;
         }
-        if(roomId > 2 && roomId < 8){
+        if(roomName.equals("P03") || roomName.equals("P04") || roomName.equals("P05") || roomName.equals("P06") || roomName.equals("P07")){
             totalAmount += 250000 + svPrice;
         }
-        if(roomId > 7 && roomId < 11){
+        if(roomName.equals("P08") || roomName.equals("P09") || roomName.equals("P10")){
             totalAmount += 300000 + svPrice;
         }
         return totalAmount;
@@ -114,13 +114,13 @@ public class BillController {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         String createDate = currentDateTime.format(formatter);
         
-        int cusId = Integer.parseInt(view.getCusId());
-        int roomId = Integer.parseInt(view.getRoomId());
-        int svId = Integer.parseInt(view.getSvId());
-        double totalAmount = calcTotalAmount(cusId, roomId, svId);
+        String cusPhone = view.getCusPhone();
+        String roomName = view.getRoomName();
+        String svName = view.getSvName();
+        double totalAmount = calcTotalAmount(cusPhone, roomName, svName);
         boolean paidStatus = view.getPaidStatus();
 
-        model.addBill(billId, cusId, roomId, svId, createDate, totalAmount,paidStatus);
+        model.addBill(billId, cusPhone, roomName, svName, createDate, totalAmount,paidStatus);
 
         // Cap nhat table
         view.displayBills(model.getBills());
@@ -128,9 +128,7 @@ public class BillController {
     }
     
     private void priBillBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
-        int cusId = Integer.parseInt(view.getCusIdSearch());
-
-        model.priBill(cusId);
+        model.priBill(view.getCusPhoneSearch());
         
         // Cap nhat table
         view.displayBills(model.getBills());
@@ -149,13 +147,13 @@ public class BillController {
     
     private void updBillBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
         int billId = Integer.parseInt(view.getBillId());
-        int cusId = Integer.parseInt(view.getCusId());
-        int roomId = Integer.parseInt(view.getRoomId());
-        int svId = Integer.parseInt(view.getSvId());
-        double totalAmount = calcTotalAmount(cusId, roomId, svId);
+        String cusPhone = view.getCusPhone();
+        String roomName = view.getRoomName();
+        String svName = view.getSvName();
+        double totalAmount = calcTotalAmount(cusPhone, roomName, svName);
         boolean paidStatus = view.getPaidStatus();
 
-        model.updateBill(billId, cusId, roomId, svId, totalAmount, paidStatus);
+        model.updateBill(billId, cusPhone, roomName, svName, totalAmount, paidStatus);
 
         view.displayBills(model.getBills());
         view.setVisible(true);

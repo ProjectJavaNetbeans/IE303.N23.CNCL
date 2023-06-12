@@ -30,20 +30,20 @@ public class BillView extends javax.swing.JFrame {
         return billIdTF.getText();
     }
     
-    public String getCusId() {
-        return cusIdTF.getText();
+    public String getCusPhone() {
+        return cusPhoneTF.getText();
     }
     
-    public String getRoomId() {
-        return roomIdTF.getText();
+    public String getRoomName() {
+        return roomNameTF.getText();
     }
 
-    public String getSvId() {
-        return svIdTF.getText();
+    public String getSvName() {
+        return svNameTF.getText();
     }
 
-    public String getCusIdSearch() {
-        return cusIdSearchTF.getText();
+    public String getCusPhoneSearch() {
+        return cusPhoneSearchTF.getText();
     }
     
     public boolean getPaidStatus() {
@@ -51,7 +51,7 @@ public class BillView extends javax.swing.JFrame {
     }
         
     public void setCusId(String cusId) {
-        cusIdTF.setText(cusId);
+        cusPhoneTF.setText(cusId);
     }
     
     /**
@@ -70,9 +70,9 @@ public class BillView extends javax.swing.JFrame {
         serviceViewBtn = new javax.swing.JButton();
         billViewBtn = new javax.swing.JButton();
         logoutViewBtn = new javax.swing.JButton();
-        cusIdSearchTF = new javax.swing.JTextField();
-        svIdTF = new javax.swing.JTextField();
-        cusIdTF = new javax.swing.JTextField();
+        cusPhoneSearchTF = new javax.swing.JTextField();
+        svNameTF = new javax.swing.JTextField();
+        cusPhoneTF = new javax.swing.JTextField();
         delBillBtn = new javax.swing.JButton();
         updBillBtn = new javax.swing.JButton();
         printBillBtn = new javax.swing.JButton();
@@ -80,7 +80,7 @@ public class BillView extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         billIdTF = new javax.swing.JTextField();
         cusIdLable = new javax.swing.JLabel();
-        roomIdTF = new javax.swing.JTextField();
+        roomNameTF = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         BillTable = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
@@ -143,14 +143,14 @@ public class BillView extends javax.swing.JFrame {
         });
         jPanel1.add(logoutViewBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 4, -1, -1));
 
-        cusIdSearchTF.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jPanel1.add(cusIdSearchTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 697, 120, 25));
+        cusPhoneSearchTF.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel1.add(cusPhoneSearchTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 697, 120, 25));
 
-        svIdTF.setBorder(null);
-        jPanel1.add(svIdTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 400, 360, 30));
+        svNameTF.setBorder(null);
+        jPanel1.add(svNameTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 400, 360, 30));
 
-        cusIdTF.setBorder(null);
-        jPanel1.add(cusIdTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, 360, 30));
+        cusPhoneTF.setBorder(null);
+        jPanel1.add(cusPhoneTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, 360, 30));
 
         delBillBtn.setBackground(new java.awt.Color(236, 108, 108));
         delBillBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -197,16 +197,16 @@ public class BillView extends javax.swing.JFrame {
         jPanel1.add(addBillBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(734, 255, 100, 30));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel1.setText("Bill ID:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 205, -1, -1));
+        jLabel1.setText("Bill ID search:");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(665, 205, -1, -1));
         jPanel1.add(billIdTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(745, 200, 100, -1));
 
         cusIdLable.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        cusIdLable.setText("Customer ID:");
-        jPanel1.add(cusIdLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 700, -1, -1));
+        cusIdLable.setText("Customer Phone:");
+        jPanel1.add(cusIdLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 700, -1, -1));
 
-        roomIdTF.setBorder(null);
-        jPanel1.add(roomIdTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 330, 360, 30));
+        roomNameTF.setBorder(null);
+        jPanel1.add(roomNameTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 330, 360, 30));
 
         BillTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -216,7 +216,7 @@ public class BillView extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Bill ID", "Customer ID", "Room ID", "Service ID", "Create date", "Total Amount", "Paid Status"
+                "Bill ID", "Customer Phone", "Room Name", "Service Name", "Create Date", "Total Amount", "Paid Status"
             }
         ));
         jScrollPane1.setViewportView(BillTable);
@@ -244,9 +244,9 @@ public class BillView extends javax.swing.JFrame {
         String data[][] = new String[bills.size()][7];
         for(Bill bill : bills){
             data[i][0] = String.valueOf(bill.getBillId());
-            data[i][1] = String.valueOf(bill.getCusId());
-            data[i][2] = String.valueOf(bill.getRoomId());
-            data[i][3] = String.valueOf(bill.getSvId());
+            data[i][1] = String.valueOf(bill.getCusPhone());
+            data[i][2] = String.valueOf(bill.getRoomName());
+            data[i][3] = String.valueOf(bill.getSvName());
             data[i][4] = bill.getCreateDate();
             data[i][5] = String.valueOf(bill.getTotalAmount());
             data[i][6] = String.valueOf(bill.getPaidStatus());
@@ -257,7 +257,7 @@ public class BillView extends javax.swing.JFrame {
     
     public void displayBills(List<Bill> bills) {
         String[][] data = dataTransfer(bills);
-        String[] column = {"Bill ID", "Customer ID", "Room ID", "Service ID", "Create Date", "Total Amount", "Paid Status"};
+        String[] column = {"Bill ID", "Customer Phone", "Room Name", "Service Name", "Create Date", "Total Amount", "Paid Status"};
         DefaultTableModel dataModel = new DefaultTableModel(data, column);
         BillTable.setModel(dataModel);
         frame.setVisible(true);
@@ -398,8 +398,8 @@ public class BillView extends javax.swing.JFrame {
     private javax.swing.JButton billViewBtn;
     private javax.swing.JButton bookingViewBtn;
     private javax.swing.JLabel cusIdLable;
-    private javax.swing.JTextField cusIdSearchTF;
-    private javax.swing.JTextField cusIdTF;
+    private javax.swing.JTextField cusPhoneSearchTF;
+    private javax.swing.JTextField cusPhoneTF;
     private javax.swing.JButton customerViewBtn;
     private javax.swing.JButton delBillBtn;
     private javax.swing.JLabel jLabel1;
@@ -408,10 +408,10 @@ public class BillView extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton logoutViewBtn;
     private javax.swing.JButton printBillBtn;
-    private javax.swing.JTextField roomIdTF;
+    private javax.swing.JTextField roomNameTF;
     private javax.swing.JButton roomViewBtn;
     private javax.swing.JButton serviceViewBtn;
-    private javax.swing.JTextField svIdTF;
+    private javax.swing.JTextField svNameTF;
     private javax.swing.JButton updBillBtn;
     // End of variables declaration//GEN-END:variables
 

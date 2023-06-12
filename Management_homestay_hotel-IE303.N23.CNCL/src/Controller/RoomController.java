@@ -94,23 +94,21 @@ public class RoomController {
     }
     
     private void btnDelActionPerformed(java.awt.event.ActionEvent evt) {                                          
-        int roomId = Integer.parseInt(view.getRoomId());
-
-        model.deleteRoom(roomId);
+        model.deleteRoom(view.getRoomNameSearch());
 
         view.displayRoom(model.getRooms());
         view.setVisible(true);
     }
     
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {                                          
-        int RoomId = Integer.parseInt(view.getRoomId());
+        String nameSearch = view.getRoomNameSearch();
         String Name = view.getRoomName();
         String type = view.getRoomType();
         String rates = view.getRoomRates();
         int ht_id = 111;
         boolean status = view.getStatus();
 
-        model.updateRoom(new Room(RoomId, Name, type, Double.parseDouble(rates), status, ht_id));
+        model.updateRoom(nameSearch, Name, type, Double.parseDouble(rates), status, ht_id);
 
         view.displayRoom(model.getRooms());
         view.setVisible(true);

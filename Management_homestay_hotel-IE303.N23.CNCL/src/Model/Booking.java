@@ -28,12 +28,12 @@ public class Booking {
     /**
      * 
      */
-    private int cusId;
+    private String cusPhone;
 
     /**
      * 
      */
-    private int roomId;
+    private String roomName;
 
     /**
      * 
@@ -50,10 +50,10 @@ public class Booking {
      */
     private String checkOutDate;
 
-    public Booking(int bookingId, int cusId, int roomId, String bookingDate, String checkInDate, String checkOutDate) {
+    public Booking(int bookingId, String cusPhone, String roomName, String bookingDate, String checkInDate, String checkOutDate) {
         this.bookingId = bookingId;
-        this.cusId = cusId;
-        this.roomId = roomId;
+        this.cusPhone = cusPhone;
+        this.roomName = roomName;
         this.bookingDate = bookingDate;
         this.checkInDate = checkInDate;
         this.checkOutDate = checkOutDate;
@@ -63,12 +63,12 @@ public class Booking {
         return bookingId;
     }
 
-    public int getCusId() {
-        return cusId;
+    public String getCusPhone() {
+        return cusPhone;
     }
 
-    public int getRoomId() {
-        return roomId;
+    public String getRoomName() {
+        return roomName;
     }
 
     public String getBookingDate() {
@@ -85,14 +85,6 @@ public class Booking {
 
     public void setBookingId(int bookingId) {
         this.bookingId = bookingId;
-    }
-
-    public void setCusId(int cusId) {
-        this.cusId = cusId;
-    }
-
-    public void setRoomId(int roomId) {
-        this.roomId = roomId;
     }
 
     public void setBookingDate(String bookingDate) {
@@ -119,13 +111,13 @@ public class Booking {
 
             while (rs.next()) {
                 int bookingID = rs.getInt("booking_id");
-                int cusID = rs.getInt("cus_id");
-                int roomID = rs.getInt("room_id");
+                String cusPHONE = rs.getString("cus_phone");
+                String roomNAME = rs.getString("room_name");
                 String bookingDATE = rs.getString("booking_date");
                 String checkInDATE = rs.getString("check_in_date");
                 String checkOutDATE = rs.getString("check_out_date");
 
-                Booking booking = new Booking(bookingID, cusID, roomID, bookingDATE, checkInDATE, checkOutDATE);
+                Booking booking = new Booking(bookingID, cusPHONE, roomNAME, bookingDATE, checkInDATE, checkOutDATE);
                 Bookings.add(booking);
             }
         } catch (SQLException ex) {
@@ -148,7 +140,7 @@ public class Booking {
     }
     
     // Them don dat phong
-    public void addBooking(int bookingId, int cusId, int roomId, String bookingDate, String checkInDate, String checkOutDate){
+    public void addBooking(int bookingId, String cusPhone, String roomName, String bookingDate, String checkInDate, String checkOutDate){
         Connection cn = DataConnection.Connect();
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -159,8 +151,8 @@ public class Booking {
         {            
             ps =cn.prepareStatement(sqlInsert);
             ps.setInt(1, bookingId);
-            ps.setInt(2, cusId);
-            ps.setInt(3, roomId);
+            ps.setString(2, cusPhone);
+            ps.setString(3, roomName);
             ps.setString(4, bookingDate);
             ps.setString(5, checkInDate);
             ps.setString(6, checkOutDate);
@@ -210,16 +202,16 @@ public class Booking {
     }
     
     // Sua don dat phong
-    public void updateBooking(int bookingId, int cusId, int roomId, String checkInDate, String checkOutDate){
+    public void updateBooking(int bookingId, String cusPhone, String roomName, String checkInDate, String checkOutDate){
         Connection cn = DataConnection.Connect();
         PreparedStatement ps = null;
         
         try {
-            String sqlUpdate = "UPDATE BOOKING SET cus_id = ?, room_id = ?, check_in_date = ?, check_out_date = ? WHERE booking_id = ?";
+            String sqlUpdate = "UPDATE BOOKING SET cus_phone = ?, room_name = ?, check_in_date = ?, check_out_date = ? WHERE booking_id = ?";
 
             ps = cn.prepareStatement(sqlUpdate);
-            ps.setInt(1, cusId);
-            ps.setInt(2, roomId);
+            ps.setString(1, cusPhone);
+            ps.setString(2, roomName);
             ps.setString(3, checkInDate);
             ps.setString(4, checkOutDate);
             ps.setInt(5, bookingId);
@@ -240,16 +232,16 @@ public class Booking {
         }
     }
     
-    public void updateRoomStatus(int roomId){
+    public void updateRoomStatus(String roomName){
         Connection cn = DataConnection.Connect();
         PreparedStatement ps = null;
         
         try {
-            String sqlUpdate = "UPDATE ROOM SET room_status = ? WHERE room_id = ?";
+            String sqlUpdate = "UPDATE ROOM SET room_status = ? WHERE room_name = ?";
 
             ps = cn.prepareStatement(sqlUpdate);
             ps.setBoolean(1, true);
-            ps.setInt(2, roomId);
+            ps.setString(2, roomName);
 
             int rowsAffected = ps.executeUpdate();
 

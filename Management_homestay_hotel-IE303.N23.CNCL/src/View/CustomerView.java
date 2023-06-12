@@ -43,8 +43,8 @@ public class CustomerView extends javax.swing.JFrame {
         return addressTF.getText();
     }
     
-    public String getCusId() {
-        return idTF.getText();
+    public String getPhoneNumSearch() {
+        return phoneNumTF.getText();
     }
     
     public void setCusName(String name) {
@@ -84,7 +84,7 @@ public class CustomerView extends javax.swing.JFrame {
         bookingViewBtn = new javax.swing.JButton();
         roomViewBtn = new javax.swing.JButton();
         idLabel = new javax.swing.JLabel();
-        idTF = new javax.swing.JTextField();
+        phoneNumTF = new javax.swing.JTextField();
         delCusBtn = new javax.swing.JButton();
         updCusBtn = new javax.swing.JButton();
         addCusBtn = new javax.swing.JButton();
@@ -163,9 +163,9 @@ public class CustomerView extends javax.swing.JFrame {
         jPanel1.add(roomViewBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 4, -1, 67));
 
         idLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        idLabel.setText("ID:");
+        idLabel.setText("Search phone number:");
         jPanel1.add(idLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 280, -1, -1));
-        jPanel1.add(idTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, 120, -1));
+        jPanel1.add(phoneNumTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, 180, -1));
 
         delCusBtn.setBackground(new java.awt.Color(236, 108, 108));
         delCusBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -382,12 +382,12 @@ public class CustomerView extends javax.swing.JFrame {
     private javax.swing.JButton delCusBtn;
     private javax.swing.JTextField emailTF;
     private javax.swing.JLabel idLabel;
-    private javax.swing.JTextField idTF;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton logoutViewBtn;
     private javax.swing.JTextField nameTF;
+    private javax.swing.JTextField phoneNumTF;
     private javax.swing.JTextField phoneTF;
     private javax.swing.JButton roomViewBtn;
     private javax.swing.JButton serviceViewBtn;

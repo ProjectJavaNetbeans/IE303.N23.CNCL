@@ -98,9 +98,7 @@ public class CustomerController {
     }
     
     private void delCusBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
-        int cusId = Integer.parseInt(view.getCusId());
-
-        model.deleteCustomer(cusId);
+        model.deleteCustomer(view.getPhoneNumSearch());
 
         // Cap nhat table
         view.displayCustomers(model.getCustomers());
@@ -108,13 +106,13 @@ public class CustomerController {
     }
     
     private void updCusBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
-        int cusId = Integer.parseInt(view.getCusId());
+        String cusPhoneNumSearch = view.getPhoneNumSearch();
         String cusName = view.getCusName();
         String cusEmail = view.getCusEmail();
         String cusPhone = view.getCusPhone();
         String cusAddress = view.getCusAddress();
 
-        model.updateCustomer(cusId, cusName, cusEmail, cusPhone, cusAddress);
+        model.updateCustomer(cusPhoneNumSearch, cusName, cusEmail, cusPhone, cusAddress);
 
         // Cap nhat table
         view.displayCustomers(model.getCustomers());

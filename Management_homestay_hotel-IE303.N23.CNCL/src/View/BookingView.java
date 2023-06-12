@@ -30,12 +30,12 @@ public class BookingView extends javax.swing.JFrame {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    public String getCusId() {
-        return cusIdTF.getText();
+    public String getCusPhone() {
+        return cusPhoneTF.getText();
     }
     
-    public String getRoomId() {
-        return roomIdTF.getText();
+    public String getRoomName() {
+        return roomNameTF.getText();
     }
 
     public String getBookingId() {
@@ -80,8 +80,8 @@ public class BookingView extends javax.swing.JFrame {
         RoomsTable = new javax.swing.JTable();
         addBookingBtn = new javax.swing.JButton();
         ckinDateTF = new com.toedter.calendar.JDateChooser();
-        cusIdTF = new javax.swing.JTextField();
-        roomIdTF = new javax.swing.JTextField();
+        cusPhoneTF = new javax.swing.JTextField();
+        roomNameTF = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         bookingsTB = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
@@ -140,9 +140,9 @@ public class BookingView extends javax.swing.JFrame {
         getContentPane().add(bookingViewBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 4, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setText("ID:");
+        jLabel2.setText("Booking ID search:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 693, -1, -1));
-        getContentPane().add(idTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 693, 100, -1));
+        getContentPane().add(idTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 693, 100, -1));
 
         delBookingBtn.setBackground(new java.awt.Color(236, 108, 108));
         delBookingBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -193,11 +193,11 @@ public class BookingView extends javax.swing.JFrame {
         getContentPane().add(addBookingBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 662, 70, 20));
         getContentPane().add(ckinDateTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 490, 235, 30));
 
-        cusIdTF.setBorder(null);
-        getContentPane().add(cusIdTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 315, 235, 30));
+        cusPhoneTF.setBorder(null);
+        getContentPane().add(cusPhoneTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 315, 235, 30));
 
-        roomIdTF.setBorder(null);
-        getContentPane().add(roomIdTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 400, 235, 30));
+        roomNameTF.setBorder(null);
+        getContentPane().add(roomNameTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 400, 235, 30));
 
         bookingsTB.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -207,7 +207,7 @@ public class BookingView extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Booking ID", "Customer ID", "Room ID", "Booking date", "Check in date", "Check out date"
+                "Booking ID", "Customer Phone", "Room Name", "Booking date", "Check in date", "Check out date"
             }
         ));
         jScrollPane2.setViewportView(bookingsTB);
@@ -224,8 +224,8 @@ public class BookingView extends javax.swing.JFrame {
         String data[][] = new String[bookings.size()][6];
         for(Booking booking : bookings){
             data[i][0] = String.valueOf(booking.getBookingId());
-            data[i][1] = String.valueOf(booking.getCusId());
-            data[i][2] = String.valueOf(booking.getRoomId());
+            data[i][1] = String.valueOf(booking.getCusPhone());
+            data[i][2] = String.valueOf(booking.getRoomName());
             data[i][3] = booking.getBookingDate();
             data[i][4] = booking.getCheckInDate();
             data[i][5] = booking.getCheckOutDate();
@@ -236,7 +236,7 @@ public class BookingView extends javax.swing.JFrame {
     
     public void displayBookings(ArrayList<Booking> bookings, ArrayList<Room> rooms) {
         String[][] data1 = dataTransfer(bookings);
-        String[] column1 = {"Booking ID", "Customer ID", "Room ID", "Booking date", "Check in date", "Check out date"};
+        String[] column1 = {"Booking ID", "Customer Phone", "Room Name", "Booking date", "Check in date", "Check out date"};
         DefaultTableModel dataModel1 = new DefaultTableModel(data1, column1);
         bookingsTB.setModel(dataModel1);
         
@@ -388,7 +388,7 @@ public class BookingView extends javax.swing.JFrame {
     private javax.swing.JTable bookingsTB;
     private com.toedter.calendar.JDateChooser ckinDateTF;
     private com.toedter.calendar.JDateChooser ckoutDateTF;
-    private javax.swing.JTextField cusIdTF;
+    private javax.swing.JTextField cusPhoneTF;
     private javax.swing.JButton customerViewBtn;
     private javax.swing.JButton delBookingBtn;
     private javax.swing.JTextField idTF;
@@ -397,7 +397,7 @@ public class BookingView extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton logoutViewBtn;
-    private javax.swing.JTextField roomIdTF;
+    private javax.swing.JTextField roomNameTF;
     private javax.swing.JButton roomViewBtn;
     private javax.swing.JButton serviceViewBtn;
     private javax.swing.JButton updBookingBtn;

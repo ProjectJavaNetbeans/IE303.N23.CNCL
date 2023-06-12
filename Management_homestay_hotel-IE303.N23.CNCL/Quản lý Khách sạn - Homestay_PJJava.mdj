@@ -49,7 +49,7 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": -112,
-											"top": 1952,
+											"top": 2032,
 											"height": 13
 										},
 										{
@@ -60,7 +60,7 @@
 											},
 											"font": "Arial;13;1",
 											"left": 37,
-											"top": 1079,
+											"top": 1119,
 											"width": 775,
 											"height": 13,
 											"text": "Customer"
@@ -74,7 +74,7 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": -112,
-											"top": 1952,
+											"top": 2032,
 											"width": 73.67724609375,
 											"height": 13,
 											"text": "(from Model)"
@@ -88,14 +88,14 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": -112,
-											"top": 1952,
+											"top": 2032,
 											"height": 13,
 											"horizontalAlignment": 1
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 32,
-									"top": 1072,
+									"top": 1112,
 									"width": 785,
 									"height": 25,
 									"stereotypeLabel": {
@@ -132,7 +132,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 1102,
+											"top": 1142,
 											"width": 775,
 											"height": 13,
 											"text": "-cusId: int",
@@ -149,7 +149,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 1117,
+											"top": 1157,
 											"width": 775,
 											"height": 13,
 											"text": "-cusName: String",
@@ -166,7 +166,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 1132,
+											"top": 1172,
 											"width": 775,
 											"height": 13,
 											"text": "-cusEmail: String",
@@ -183,7 +183,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 1147,
+											"top": 1187,
 											"width": 775,
 											"height": 13,
 											"text": "-cusPhone: String",
@@ -200,7 +200,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 1162,
+											"top": 1202,
 											"width": 775,
 											"height": 13,
 											"text": "-cusAddress: String",
@@ -209,7 +209,7 @@
 									],
 									"font": "Arial;13;0",
 									"left": 32,
-									"top": 1097,
+									"top": 1137,
 									"width": 785,
 									"height": 83
 								},
@@ -234,7 +234,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 1185,
+											"top": 1225,
 											"width": 775,
 											"height": 13,
 											"text": "+Customer(cusId: int, cusName: String, cusEmail: String, cusPhone: String, cusAddress: String)",
@@ -251,7 +251,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 1200,
+											"top": 1240,
 											"width": 775,
 											"height": 13,
 											"text": "+getCustomers(): List<Customer>",
@@ -268,7 +268,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 1215,
+											"top": 1255,
 											"width": 775,
 											"height": 13,
 											"text": "+addCustomer(cusId: int, cusName: String, cusEmail: String, cusPhone: String, cusAddress: String): void",
@@ -285,10 +285,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 1230,
+											"top": 1270,
 											"width": 775,
 											"height": 13,
-											"text": "+deleteCustomer(cusId: int): void",
+											"text": "+deleteCustomer(cusPhone: String): void",
 											"horizontalAlignment": 0
 										},
 										{
@@ -302,16 +302,16 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 1245,
+											"top": 1285,
 											"width": 775,
 											"height": 13,
-											"text": "+updateCustomer(cusId: int, cusName: String, cusEmail: String, cusPhone: String, cusAddress: String): void",
+											"text": "+updateCustomer(cusPhoneSearch: String, cusName: String, cusEmail: String, cusPhone: String, cusAddress: String): void",
 											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 32,
-									"top": 1180,
+									"top": 1220,
 									"width": 785,
 									"height": 83
 								},
@@ -327,7 +327,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": -56,
-									"top": 976,
+									"top": 1016,
 									"width": 10,
 									"height": 10
 								},
@@ -343,7 +343,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": -56,
-									"top": 976,
+									"top": 1016,
 									"width": 10,
 									"height": 10
 								}
@@ -351,7 +351,7 @@
 							"font": "Arial;13;0",
 							"containerChangeable": true,
 							"left": 32,
-							"top": 1072,
+							"top": 1112,
 							"width": 785,
 							"height": 191,
 							"nameCompartment": {
@@ -411,7 +411,7 @@
 											"font": "Arial;13;1",
 											"left": 37,
 											"top": 375,
-											"width": 775.65185546875,
+											"width": 846.4853515625,
 											"height": 13,
 											"text": "Employee"
 										},
@@ -446,7 +446,7 @@
 									"font": "Arial;13;0",
 									"left": 32,
 									"top": 368,
-									"width": 785.65185546875,
+									"width": 856.4853515625,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGIGotTOKmgK1U="
@@ -483,7 +483,7 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 398,
-											"width": 775.65185546875,
+											"width": 846.4853515625,
 											"height": 13,
 											"text": "-empId: int",
 											"horizontalAlignment": 0
@@ -500,7 +500,7 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 413,
-											"width": 775.65185546875,
+											"width": 846.4853515625,
 											"height": 13,
 											"text": "-empName: String",
 											"horizontalAlignment": 0
@@ -517,7 +517,7 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 428,
-											"width": 775.65185546875,
+											"width": 846.4853515625,
 											"height": 13,
 											"text": "-shift: int",
 											"horizontalAlignment": 0
@@ -534,7 +534,7 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 443,
-											"width": 775.65185546875,
+											"width": 846.4853515625,
 											"height": 13,
 											"text": "-empPhone: String",
 											"horizontalAlignment": 0
@@ -551,7 +551,7 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 458,
-											"width": 775.65185546875,
+											"width": 846.4853515625,
 											"height": 13,
 											"text": "-empAddress: String",
 											"horizontalAlignment": 0
@@ -568,7 +568,7 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 473,
-											"width": 775.65185546875,
+											"width": 846.4853515625,
 											"height": 13,
 											"text": "-empAccount: String",
 											"horizontalAlignment": 0
@@ -585,7 +585,7 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 488,
-											"width": 775.65185546875,
+											"width": 846.4853515625,
 											"height": 13,
 											"text": "-empPassword: String",
 											"horizontalAlignment": 0
@@ -594,7 +594,7 @@
 									"font": "Arial;13;0",
 									"left": 32,
 									"top": 393,
-									"width": 785.65185546875,
+									"width": 856.4853515625,
 									"height": 113
 								},
 								{
@@ -619,7 +619,7 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 511,
-											"width": 775.65185546875,
+											"width": 846.4853515625,
 											"height": 13,
 											"text": "+Employee(empId: int, empName: String, shift: int, empPhone: String, empAddress: String, empAccount: String, empPassword: String)",
 											"horizontalAlignment": 0
@@ -636,7 +636,7 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 526,
-											"width": 775.65185546875,
+											"width": 846.4853515625,
 											"height": 13,
 											"text": "+getEmployees(): ArrayList<Employee>",
 											"horizontalAlignment": 0
@@ -653,9 +653,9 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 541,
-											"width": 775.65185546875,
+											"width": 846.4853515625,
 											"height": 13,
-											"text": "+addEmployee(): void",
+											"text": "+addEmployee(empId: int, empName: String, shift: int, empPhone: String, empAddress: String, empAccount: String, empPassword: String): void",
 											"horizontalAlignment": 0
 										},
 										{
@@ -670,9 +670,9 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 556,
-											"width": 775.65185546875,
+											"width": 846.4853515625,
 											"height": 13,
-											"text": "+deleteEmployee(): void",
+											"text": "+deleteEmployee(empId: int): void",
 											"horizontalAlignment": 0
 										},
 										{
@@ -687,16 +687,16 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 571,
-											"width": 775.65185546875,
+											"width": 846.4853515625,
 											"height": 13,
-											"text": "+updateEmployee(): void",
+											"text": "+updateEmployee(empId: int, empName: String, shift: int, empPhone: String, empAddress: String, empAccount: String, empPassword: String): void",
 											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 32,
 									"top": 506,
-									"width": 785.65185546875,
+									"width": 856.4853515625,
 									"height": 83
 								},
 								{
@@ -736,7 +736,7 @@
 							"containerChangeable": true,
 							"left": 32,
 							"top": 368,
-							"width": 785.65185546875,
+							"width": 856.4853515625,
 							"height": 221,
 							"nameCompartment": {
 								"$ref": "AAAAAAGIGotTOKmft0Q="
@@ -795,7 +795,7 @@
 											"font": "Arial;13;1",
 											"left": 517,
 											"top": 7,
-											"width": 296.58154296875,
+											"width": 367.4150390625,
 											"height": 13,
 											"text": "Service"
 										},
@@ -829,7 +829,7 @@
 									],
 									"font": "Arial;13;0",
 									"left": 512,
-									"width": 306.58154296875,
+									"width": 377.4150390625,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGIGotsYanKIo8="
@@ -866,7 +866,7 @@
 											"font": "Arial;13;0",
 											"left": 517,
 											"top": 30,
-											"width": 296.58154296875,
+											"width": 367.4150390625,
 											"height": 13,
 											"text": "-svId: int",
 											"horizontalAlignment": 0
@@ -883,7 +883,7 @@
 											"font": "Arial;13;0",
 											"left": 517,
 											"top": 45,
-											"width": 296.58154296875,
+											"width": 367.4150390625,
 											"height": 13,
 											"text": "-svName: String",
 											"horizontalAlignment": 0
@@ -900,7 +900,7 @@
 											"font": "Arial;13;0",
 											"left": 517,
 											"top": 60,
-											"width": 296.58154296875,
+											"width": 367.4150390625,
 											"height": 13,
 											"text": "-svPrice: double",
 											"horizontalAlignment": 0
@@ -909,7 +909,7 @@
 									"font": "Arial;13;0",
 									"left": 512,
 									"top": 25,
-									"width": 306.58154296875,
+									"width": 377.4150390625,
 									"height": 53
 								},
 								{
@@ -934,43 +934,9 @@
 											"font": "Arial;13;0",
 											"left": 517,
 											"top": 83,
-											"width": 296.58154296875,
+											"width": 367.4150390625,
 											"height": 13,
 											"text": "+Service(svId: int, svName: String, svPrice: double)",
-											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLOperationView",
-											"_id": "AAAAAAGIMsRLUJiGaMc=",
-											"_parent": {
-												"$ref": "AAAAAAGIGotsYanPCZo="
-											},
-											"model": {
-												"$ref": "AAAAAAGIMsRLMZiDA1A="
-											},
-											"font": "Arial;13;0",
-											"left": 517,
-											"top": 98,
-											"width": 296.58154296875,
-											"height": 13,
-											"text": "+updateService(): void",
-											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLOperationView",
-											"_id": "AAAAAAGIMsTsmZiPCjE=",
-											"_parent": {
-												"$ref": "AAAAAAGIGotsYanPCZo="
-											},
-											"model": {
-												"$ref": "AAAAAAGIMsTshpiM9L8="
-											},
-											"font": "Arial;13;0",
-											"left": 517,
-											"top": 113,
-											"width": 296.58154296875,
-											"height": 13,
-											"text": "+deleteService(): void",
 											"horizontalAlignment": 0
 										},
 										{
@@ -984,10 +950,44 @@
 											},
 											"font": "Arial;13;0",
 											"left": 517,
-											"top": 128,
-											"width": 296.58154296875,
+											"top": 98,
+											"width": 367.4150390625,
 											"height": 13,
-											"text": "+addService(): void",
+											"text": "+addService(svId: int, svName: String, svPrice: double): void",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGIMsRLUJiGaMc=",
+											"_parent": {
+												"$ref": "AAAAAAGIGotsYanPCZo="
+											},
+											"model": {
+												"$ref": "AAAAAAGIMsRLMZiDA1A="
+											},
+											"font": "Arial;13;0",
+											"left": 517,
+											"top": 113,
+											"width": 367.4150390625,
+											"height": 13,
+											"text": "+updateService(svId: int, svName: String, svPrice: double): void",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGIMsTsmZiPCjE=",
+											"_parent": {
+												"$ref": "AAAAAAGIGotsYanPCZo="
+											},
+											"model": {
+												"$ref": "AAAAAAGIMsTshpiM9L8="
+											},
+											"font": "Arial;13;0",
+											"left": 517,
+											"top": 128,
+											"width": 367.4150390625,
+											"height": 13,
+											"text": "+deleteService(svId: int): void",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1002,7 +1002,7 @@
 											"font": "Arial;13;0",
 											"left": 517,
 											"top": 143,
-											"width": 296.58154296875,
+											"width": 367.4150390625,
 											"height": 13,
 											"text": "+getServices(): void",
 											"horizontalAlignment": 0
@@ -1011,7 +1011,7 @@
 									"font": "Arial;13;0",
 									"left": 512,
 									"top": 78,
-									"width": 306.58154296875,
+									"width": 377.4150390625,
 									"height": 83
 								},
 								{
@@ -1050,7 +1050,7 @@
 							"font": "Arial;13;0",
 							"containerChangeable": true,
 							"left": 512,
-							"width": 306.58154296875,
+							"width": 377.4150390625,
 							"height": 161,
 							"nameCompartment": {
 								"$ref": "AAAAAAGIGotsYanJDK4="
@@ -1302,7 +1302,7 @@
 											"top": 296,
 											"width": 775,
 											"height": 13,
-											"text": "+addRoom(): void",
+											"text": "+addRoom(roomId: int, roomName: String, roomType: String, roomRates: double, roomStatus: boolean): void",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1319,7 +1319,7 @@
 											"top": 311,
 											"width": 775,
 											"height": 13,
-											"text": "+deleteRoom(): void",
+											"text": "+deleteRoom(roomId: int): void",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1336,7 +1336,7 @@
 											"top": 326,
 											"width": 775,
 											"height": 13,
-											"text": "+updateRoom(): void",
+											"text": "+updateRoom(roomId: int, roomName: String, roomType: String, roomRates: double, roomStatus: boolean): void",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1459,7 +1459,7 @@
 											"font": "Arial;13;1",
 											"left": 37,
 											"top": 607,
-											"width": 775,
+											"width": 859.54248046875,
 											"height": 13,
 											"text": "Booking"
 										},
@@ -1494,7 +1494,7 @@
 									"font": "Arial;13;0",
 									"left": 32,
 									"top": 600,
-									"width": 785,
+									"width": 869.54248046875,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGIHgjQR3J1EZI="
@@ -1531,7 +1531,7 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 630,
-											"width": 775,
+											"width": 859.54248046875,
 											"height": 13,
 											"text": "-bookingId: int",
 											"horizontalAlignment": 0
@@ -1548,9 +1548,9 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 645,
-											"width": 775,
+											"width": 859.54248046875,
 											"height": 13,
-											"text": "-cusId: int",
+											"text": "-cusPhone: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1565,9 +1565,9 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 660,
-											"width": 775,
+											"width": 859.54248046875,
 											"height": 13,
-											"text": "-roomId: int",
+											"text": "-roomName: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1582,7 +1582,7 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 675,
-											"width": 775,
+											"width": 859.54248046875,
 											"height": 13,
 											"text": "-bookingDate: String",
 											"horizontalAlignment": 0
@@ -1599,7 +1599,7 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 690,
-											"width": 775,
+											"width": 859.54248046875,
 											"height": 13,
 											"text": "-checkInDate: String",
 											"horizontalAlignment": 0
@@ -1616,7 +1616,7 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 705,
-											"width": 775,
+											"width": 859.54248046875,
 											"height": 13,
 											"text": "-checkOutDate: String",
 											"horizontalAlignment": 0
@@ -1625,7 +1625,7 @@
 									"font": "Arial;13;0",
 									"left": 32,
 									"top": 625,
-									"width": 785,
+									"width": 869.54248046875,
 									"height": 98
 								},
 								{
@@ -1650,9 +1650,9 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 728,
-											"width": 775,
+											"width": 859.54248046875,
 											"height": 13,
-											"text": "+Booking(bookingId: int, cusId: int, roomId: int, bookingDate: String, checInDate: String, checkOutDate: String)",
+											"text": "+Booking(bookingId: int, cusPhone: String, roomName: String, bookingDate: String, checInDate: String, checkOutDate: String)",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1667,9 +1667,9 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 743,
-											"width": 775,
+											"width": 859.54248046875,
 											"height": 13,
-											"text": "+addBooking(): void",
+											"text": "+addBooking(bookingId: int, cusPhone: String, roomName: String, bookingDate: String, checInDate: String, checkOutDate: String): void",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1684,9 +1684,9 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 758,
-											"width": 775,
+											"width": 859.54248046875,
 											"height": 13,
-											"text": "+deleteBooking(): void",
+											"text": "+deleteBooking(bookingId: int): void",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1701,9 +1701,9 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 773,
-											"width": 775,
+											"width": 859.54248046875,
 											"height": 13,
-											"text": "+updateBooking(): void",
+											"text": "+updateBooking(bookingId: int, cusPhone: String, roomName: String, bookingDate: String, checInDate: String, checkOutDate: String): void",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1718,17 +1718,34 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 788,
-											"width": 775,
+											"width": 859.54248046875,
 											"height": 13,
 											"text": "+getBookings(): ArrayList<Booking>",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGIqLXWjNCC9og=",
+											"_parent": {
+												"$ref": "AAAAAAGIHgjQR3J6Q48="
+											},
+											"model": {
+												"$ref": "AAAAAAGIqLXWV9B/qyA="
+											},
+											"font": "Arial;13;0",
+											"left": 37,
+											"top": 803,
+											"width": 859.54248046875,
+											"height": 13,
+											"text": "+updateRoomStatus(roomName: String): void",
 											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 32,
 									"top": 723,
-									"width": 785,
-									"height": 83
+									"width": 869.54248046875,
+									"height": 98
 								},
 								{
 									"_type": "UMLReceptionCompartmentView",
@@ -1767,8 +1784,8 @@
 							"containerChangeable": true,
 							"left": 32,
 							"top": 600,
-							"width": 785,
-							"height": 206,
+							"width": 869.54248046875,
+							"height": 221,
 							"nameCompartment": {
 								"$ref": "AAAAAAGIHgjQR3J0Om8="
 							},
@@ -1814,7 +1831,7 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": -192,
-											"top": 880,
+											"top": 928,
 											"height": 13
 										},
 										{
@@ -1825,8 +1842,8 @@
 											},
 											"font": "Arial;13;1",
 											"left": 37,
-											"top": 823,
-											"width": 775,
+											"top": 847,
+											"width": 824.12890625,
 											"height": 13,
 											"text": "Bill"
 										},
@@ -1839,7 +1856,7 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": -192,
-											"top": 880,
+											"top": 928,
 											"width": 73.67724609375,
 											"height": 13,
 											"text": "(from Model)"
@@ -1853,15 +1870,15 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": -192,
-											"top": 880,
+											"top": 928,
 											"height": 13,
 											"horizontalAlignment": 1
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 32,
-									"top": 816,
-									"width": 785,
+									"top": 840,
+									"width": 834.12890625,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGIIoCp+wpQd2o="
@@ -1897,8 +1914,8 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 846,
-											"width": 775,
+											"top": 870,
+											"width": 824.12890625,
 											"height": 13,
 											"text": "-billId: int",
 											"horizontalAlignment": 0
@@ -1914,10 +1931,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 861,
-											"width": 775,
+											"top": 885,
+											"width": 824.12890625,
 											"height": 13,
-											"text": "-cusId: int",
+											"text": "-cusPhone: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1931,10 +1948,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 876,
-											"width": 775,
+											"top": 900,
+											"width": 824.12890625,
 											"height": 13,
-											"text": "-roomId: int",
+											"text": "-roomName: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1948,10 +1965,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 891,
-											"width": 775,
+											"top": 915,
+											"width": 824.12890625,
 											"height": 13,
-											"text": "-svId: int",
+											"text": "-svName: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1965,8 +1982,8 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 906,
-											"width": 775,
+											"top": 930,
+											"width": 824.12890625,
 											"height": 13,
 											"text": "-createDate: String",
 											"horizontalAlignment": 0
@@ -1982,8 +1999,8 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 921,
-											"width": 775,
+											"top": 945,
+											"width": 824.12890625,
 											"height": 13,
 											"text": "-totalAmount: double",
 											"horizontalAlignment": 0
@@ -1999,8 +2016,8 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 936,
-											"width": 775,
+											"top": 960,
+											"width": 824.12890625,
 											"height": 13,
 											"text": "-paidStatus: boolean",
 											"horizontalAlignment": 0
@@ -2008,8 +2025,8 @@
 									],
 									"font": "Arial;13;0",
 									"left": 32,
-									"top": 841,
-									"width": 785,
+									"top": 865,
+									"width": 834.12890625,
 									"height": 113
 								},
 								{
@@ -2033,10 +2050,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 959,
-											"width": 775,
+											"top": 983,
+											"width": 824.12890625,
 											"height": 13,
-											"text": "+Bill(billId: int, cusId: int, roomId: int, svId: int, createDate: String, totalAmount: double, paidStatus: boolean)",
+											"text": "+Bill(billId: int, cusPhone: String, roomName: String, svName: String, createDate: String, totalAmount: double, paidStatus: boolean)",
 											"horizontalAlignment": 0
 										},
 										{
@@ -2050,8 +2067,8 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 974,
-											"width": 775,
+											"top": 998,
+											"width": 824.12890625,
 											"height": 13,
 											"text": "+calcTotalAmount(): double",
 											"horizontalAlignment": 0
@@ -2067,8 +2084,8 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 989,
-											"width": 775,
+											"top": 1013,
+											"width": 824.12890625,
 											"height": 13,
 											"text": "+getBills(): List<Bill>",
 											"horizontalAlignment": 0
@@ -2084,10 +2101,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 1004,
-											"width": 775,
+											"top": 1028,
+											"width": 824.12890625,
 											"height": 13,
-											"text": "+addBill(billId: int, cusId: int, roomId: int, svId: int, createDate: String, totalAmount: double, paidStatus: boolean): void",
+											"text": "+addBill(billId: int, cusPhone: String, roomName: String, svName: String, createDate: String, totalAmount: double, paidStatus: boolean): void",
 											"horizontalAlignment": 0
 										},
 										{
@@ -2101,8 +2118,8 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 1019,
-											"width": 775,
+											"top": 1043,
+											"width": 824.12890625,
 											"height": 13,
 											"text": "+deleteBill(billId: int): void",
 											"horizontalAlignment": 0
@@ -2118,10 +2135,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 1034,
-											"width": 775,
+											"top": 1058,
+											"width": 824.12890625,
 											"height": 13,
-											"text": "+updateBill(billId: int, cusId: int, roomId: int, svId: int, createDate: String, totalAmount: double, paidStatus: boolean): void",
+											"text": "+updateBill(billId: int, cusPhone: String, roomName: String, svName: String, createDate: String, totalAmount: double, paidStatus: boolean): void",
 											"horizontalAlignment": 0
 										},
 										{
@@ -2135,18 +2152,35 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 1049,
-											"width": 775,
+											"top": 1073,
+											"width": 824.12890625,
 											"height": 13,
-											"text": "+priBill(cusId: int): void",
+											"text": "+priBill(cusPhone: String): void",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGIqLCWddB0QOc=",
+											"_parent": {
+												"$ref": "AAAAAAGIIoCp+wpVcTw="
+											},
+											"model": {
+												"$ref": "AAAAAAGIqLCWIdBxNnE="
+											},
+											"font": "Arial;13;0",
+											"left": 37,
+											"top": 1088,
+											"width": 824.12890625,
+											"height": 13,
+											"text": "+getServicePrice(svName: String): double",
 											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 32,
-									"top": 954,
-									"width": 785,
-									"height": 113
+									"top": 978,
+									"width": 834.12890625,
+									"height": 128
 								},
 								{
 									"_type": "UMLReceptionCompartmentView",
@@ -2160,7 +2194,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": -96,
-									"top": 440,
+									"top": 464,
 									"width": 10,
 									"height": 10
 								},
@@ -2176,7 +2210,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": -96,
-									"top": 440,
+									"top": 464,
 									"width": 10,
 									"height": 10
 								}
@@ -2184,9 +2218,9 @@
 							"font": "Arial;13;0",
 							"containerChangeable": true,
 							"left": 32,
-							"top": 816,
-							"width": 785,
-							"height": 251,
+							"top": 840,
+							"width": 834.12890625,
+							"height": 266,
 							"nameCompartment": {
 								"$ref": "AAAAAAGIIoCp+wpPaSU="
 							},
@@ -2709,8 +2743,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGIcBCHodxBF6Y="
 									},
-									"name": "cusId",
-									"type": "int"
+									"name": "cusPhone",
+									"type": "String"
 								},
 								{
 									"_type": "UMLParameter",
@@ -2737,8 +2771,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGIcBC0PdxMpC4="
 									},
-									"name": "cusId",
-									"type": "int"
+									"name": "cusPhoneSearch",
+									"type": "String"
 								},
 								{
 									"_type": "UMLParameter",
@@ -2977,6 +3011,69 @@
 									},
 									"type": "void",
 									"direction": "return"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqMIuM9CMQLk=",
+									"_parent": {
+										"$ref": "AAAAAAGIdyavrLfQQp0="
+									},
+									"name": "empId",
+									"type": "int"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqMIuNdCNpkA=",
+									"_parent": {
+										"$ref": "AAAAAAGIdyavrLfQQp0="
+									},
+									"name": "empName",
+									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqMIuNdCOpk4=",
+									"_parent": {
+										"$ref": "AAAAAAGIdyavrLfQQp0="
+									},
+									"name": "shift",
+									"type": "int"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqMIuNtCPh2U=",
+									"_parent": {
+										"$ref": "AAAAAAGIdyavrLfQQp0="
+									},
+									"name": "empPhone",
+									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqMIuNtCQOw4=",
+									"_parent": {
+										"$ref": "AAAAAAGIdyavrLfQQp0="
+									},
+									"name": "empAddress",
+									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqMIuN9CRDh4=",
+									"_parent": {
+										"$ref": "AAAAAAGIdyavrLfQQp0="
+									},
+									"name": "empAccount",
+									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqMIuN9CSk2k=",
+									"_parent": {
+										"$ref": "AAAAAAGIdyavrLfQQp0="
+									},
+									"name": "empPassword",
+									"type": "String"
 								}
 							]
 						},
@@ -2996,6 +3093,15 @@
 									},
 									"type": "void",
 									"direction": "return"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqMJmxdCqa6M=",
+									"_parent": {
+										"$ref": "AAAAAAGIdyb3QbfZh1A="
+									},
+									"name": "empId",
+									"type": "int"
 								}
 							]
 						},
@@ -3015,6 +3121,69 @@
 									},
 									"type": "void",
 									"direction": "return"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqMJTUNCboQk=",
+									"_parent": {
+										"$ref": "AAAAAAGIdycXA7fiuK8="
+									},
+									"name": "empId",
+									"type": "int"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqMJTUtCcI3g=",
+									"_parent": {
+										"$ref": "AAAAAAGIdycXA7fiuK8="
+									},
+									"name": "empName",
+									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqMJTUtCdZno=",
+									"_parent": {
+										"$ref": "AAAAAAGIdycXA7fiuK8="
+									},
+									"name": "shift",
+									"type": "int"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqMJTU9CeG3U=",
+									"_parent": {
+										"$ref": "AAAAAAGIdycXA7fiuK8="
+									},
+									"name": "empPhone",
+									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqMJTVNCf7BM=",
+									"_parent": {
+										"$ref": "AAAAAAGIdycXA7fiuK8="
+									},
+									"name": "empAddress",
+									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqMJTVdCgL3g=",
+									"_parent": {
+										"$ref": "AAAAAAGIdycXA7fiuK8="
+									},
+									"name": "empAccount",
+									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqMJTVdChXlA=",
+									"_parent": {
+										"$ref": "AAAAAAGIdycXA7fiuK8="
+									},
+									"name": "empPassword",
+									"type": "String"
 								}
 							]
 						}
@@ -3099,6 +3268,52 @@
 						},
 						{
 							"_type": "UMLOperation",
+							"_id": "AAAAAAGIdyIy97d8cq0=",
+							"_parent": {
+								"$ref": "AAAAAAGIGotsYKnG31A="
+							},
+							"name": "addService",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIdyKLILeDVc4=",
+									"_parent": {
+										"$ref": "AAAAAAGIdyIy97d8cq0="
+									},
+									"type": "void",
+									"direction": "return"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqMNtzNDPXkE=",
+									"_parent": {
+										"$ref": "AAAAAAGIdyIy97d8cq0="
+									},
+									"name": "svId",
+									"type": "int"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqMNtztDQO8Q=",
+									"_parent": {
+										"$ref": "AAAAAAGIdyIy97d8cq0="
+									},
+									"name": "svName",
+									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqMNt09DRTwM=",
+									"_parent": {
+										"$ref": "AAAAAAGIdyIy97d8cq0="
+									},
+									"name": "svPrice",
+									"type": "double"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
 							"_id": "AAAAAAGIMsRLMZiDA1A=",
 							"_parent": {
 								"$ref": "AAAAAAGIGotsYKnG31A="
@@ -3113,6 +3328,33 @@
 									},
 									"type": "void",
 									"direction": "return"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqMM5ddDGd/o=",
+									"_parent": {
+										"$ref": "AAAAAAGIMsRLMZiDA1A="
+									},
+									"name": "svId",
+									"type": "int"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqMM5dtDHrMo=",
+									"_parent": {
+										"$ref": "AAAAAAGIMsRLMZiDA1A="
+									},
+									"name": "svName",
+									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqMM5eNDIaFs=",
+									"_parent": {
+										"$ref": "AAAAAAGIMsRLMZiDA1A="
+									},
+									"name": "svPrice",
+									"type": "double"
 								}
 							]
 						},
@@ -3132,25 +3374,15 @@
 									},
 									"type": "void",
 									"direction": "return"
-								}
-							]
-						},
-						{
-							"_type": "UMLOperation",
-							"_id": "AAAAAAGIdyIy97d8cq0=",
-							"_parent": {
-								"$ref": "AAAAAAGIGotsYKnG31A="
-							},
-							"name": "addService",
-							"parameters": [
+								},
 								{
 									"_type": "UMLParameter",
-									"_id": "AAAAAAGIdyKLILeDVc4=",
+									"_id": "AAAAAAGIqMOa+9DWMi4=",
 									"_parent": {
-										"$ref": "AAAAAAGIdyIy97d8cq0="
+										"$ref": "AAAAAAGIMsTshpiM9L8="
 									},
-									"type": "void",
-									"direction": "return"
+									"name": "svId",
+									"type": "int"
 								}
 							]
 						},
@@ -3306,6 +3538,51 @@
 									},
 									"type": "void",
 									"direction": "return"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqMLKU9CthHQ=",
+									"_parent": {
+										"$ref": "AAAAAAGIdyNZm7eHgXw="
+									},
+									"name": "roomId",
+									"type": "int"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqMLKU9Cu23c=",
+									"_parent": {
+										"$ref": "AAAAAAGIdyNZm7eHgXw="
+									},
+									"name": "roomName",
+									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqMLKVNCvLpg=",
+									"_parent": {
+										"$ref": "AAAAAAGIdyNZm7eHgXw="
+									},
+									"name": "roomType",
+									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqMLKVdCwcgU=",
+									"_parent": {
+										"$ref": "AAAAAAGIdyNZm7eHgXw="
+									},
+									"name": "roomRates",
+									"type": "double"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqMLKVdCxQRk=",
+									"_parent": {
+										"$ref": "AAAAAAGIdyNZm7eHgXw="
+									},
+									"name": "roomStatus",
+									"type": "boolean"
 								}
 							]
 						},
@@ -3325,6 +3602,15 @@
 									},
 									"type": "void",
 									"direction": "return"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqMMK+dDDENw=",
+									"_parent": {
+										"$ref": "AAAAAAGIdyN9g7eQ71E="
+									},
+									"name": "roomId",
+									"type": "int"
 								}
 							]
 						},
@@ -3344,6 +3630,51 @@
 									},
 									"type": "void",
 									"direction": "return"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqMLyt9C4tVI=",
+									"_parent": {
+										"$ref": "AAAAAAGIdyOi+reZUXE="
+									},
+									"name": "roomId",
+									"type": "int"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqMLyuNC52Uk=",
+									"_parent": {
+										"$ref": "AAAAAAGIdyOi+reZUXE="
+									},
+									"name": "roomName",
+									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqMLyudC6g2E=",
+									"_parent": {
+										"$ref": "AAAAAAGIdyOi+reZUXE="
+									},
+									"name": "roomType",
+									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqMLyutC7xQw=",
+									"_parent": {
+										"$ref": "AAAAAAGIdyOi+reZUXE="
+									},
+									"name": "roomRates",
+									"type": "double"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqMLyu9C8SLY=",
+									"_parent": {
+										"$ref": "AAAAAAGIdyOi+reZUXE="
+									},
+									"name": "roomStatus",
+									"type": "boolean"
 								}
 							]
 						},
@@ -3392,9 +3723,9 @@
 							"_parent": {
 								"$ref": "AAAAAAGIHgjQRHJxB1Y="
 							},
-							"name": "cusId",
+							"name": "cusPhone",
 							"visibility": "private",
-							"type": "int"
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3402,9 +3733,9 @@
 							"_parent": {
 								"$ref": "AAAAAAGIHgjQRHJxB1Y="
 							},
-							"name": "roomId",
+							"name": "roomName",
 							"visibility": "private",
-							"type": "int"
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3461,8 +3792,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGIMefNAtOllPE="
 									},
-									"name": "cusId",
-									"type": "int"
+									"name": "cusPhone",
+									"type": "String"
 								},
 								{
 									"_type": "UMLParameter",
@@ -3470,8 +3801,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGIMefNAtOllPE="
 									},
-									"name": "roomId",
-									"type": "int"
+									"name": "roomName",
+									"type": "String"
 								},
 								{
 									"_type": "UMLParameter",
@@ -3518,6 +3849,60 @@
 									},
 									"type": "void",
 									"direction": "return"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqKzQRtBRSSY=",
+									"_parent": {
+										"$ref": "AAAAAAGIdykcSLfubuE="
+									},
+									"name": "bookingId",
+									"type": "int"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqKzQStBSMek=",
+									"_parent": {
+										"$ref": "AAAAAAGIdykcSLfubuE="
+									},
+									"name": "cusPhone",
+									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqKzQS9BTHS4=",
+									"_parent": {
+										"$ref": "AAAAAAGIdykcSLfubuE="
+									},
+									"name": "roomName",
+									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqKzQTdBUDFY=",
+									"_parent": {
+										"$ref": "AAAAAAGIdykcSLfubuE="
+									},
+									"name": "bookingDate",
+									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqKzQT9BV3yc=",
+									"_parent": {
+										"$ref": "AAAAAAGIdykcSLfubuE="
+									},
+									"name": "checInDate",
+									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqKzQUNBWJFE=",
+									"_parent": {
+										"$ref": "AAAAAAGIdykcSLfubuE="
+									},
+									"name": "checkOutDate",
+									"type": "String"
 								}
 							]
 						},
@@ -3537,6 +3922,15 @@
 									},
 									"type": "void",
 									"direction": "return"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqK0i7tBee30=",
+									"_parent": {
+										"$ref": "AAAAAAGIdyk5hrf3Pi0="
+									},
+									"name": "bookingId",
+									"type": "int"
 								}
 							]
 						},
@@ -3556,6 +3950,60 @@
 									},
 									"type": "void",
 									"direction": "return"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqK2bWdBhABs=",
+									"_parent": {
+										"$ref": "AAAAAAGIdylanrgA3JU="
+									},
+									"name": "bookingId",
+									"type": "int"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqK2bWtBieLI=",
+									"_parent": {
+										"$ref": "AAAAAAGIdylanrgA3JU="
+									},
+									"name": "cusPhone",
+									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqK2bW9BjEww=",
+									"_parent": {
+										"$ref": "AAAAAAGIdylanrgA3JU="
+									},
+									"name": "roomName",
+									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqK2bXNBkEjA=",
+									"_parent": {
+										"$ref": "AAAAAAGIdylanrgA3JU="
+									},
+									"name": "bookingDate",
+									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqK2bXNBlodY=",
+									"_parent": {
+										"$ref": "AAAAAAGIdylanrgA3JU="
+									},
+									"name": "checInDate",
+									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqK2bXdBmupU=",
+									"_parent": {
+										"$ref": "AAAAAAGIdylanrgA3JU="
+									},
+									"name": "checkOutDate",
+									"type": "String"
 								}
 							]
 						},
@@ -3574,6 +4022,34 @@
 										"$ref": "AAAAAAGIdyl+qLgJK/w="
 									},
 									"type": "ArrayList<Booking>",
+									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAGIqLXWV9B/qyA=",
+							"_parent": {
+								"$ref": "AAAAAAGIHgjQRHJxB1Y="
+							},
+							"name": "updateRoomStatus",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqLYSuNCGj5w=",
+									"_parent": {
+										"$ref": "AAAAAAGIqLXWV9B/qyA="
+									},
+									"name": "roomName",
+									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqLYSutCHynA=",
+									"_parent": {
+										"$ref": "AAAAAAGIqLXWV9B/qyA="
+									},
+									"type": "void",
 									"direction": "return"
 								}
 							]
@@ -3641,9 +4117,9 @@
 							"_parent": {
 								"$ref": "AAAAAAGIIoCp+gpM/5M="
 							},
-							"name": "cusId",
+							"name": "cusPhone",
 							"visibility": "private",
-							"type": "int"
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3651,9 +4127,9 @@
 							"_parent": {
 								"$ref": "AAAAAAGIIoCp+gpM/5M="
 							},
-							"name": "roomId",
+							"name": "roomName",
 							"visibility": "private",
-							"type": "int"
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3661,9 +4137,9 @@
 							"_parent": {
 								"$ref": "AAAAAAGIIoCp+gpM/5M="
 							},
-							"name": "svId",
+							"name": "svName",
 							"visibility": "private",
-							"type": "int"
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3720,8 +4196,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGIMe6cstPMjwY="
 									},
-									"name": "cusId",
-									"type": "int"
+									"name": "cusPhone",
+									"type": "String"
 								},
 								{
 									"_type": "UMLParameter",
@@ -3729,8 +4205,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGIMe6cstPMjwY="
 									},
-									"name": "roomId",
-									"type": "int"
+									"name": "roomName",
+									"type": "String"
 								},
 								{
 									"_type": "UMLParameter",
@@ -3738,8 +4214,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGIMe6cstPMjwY="
 									},
-									"name": "svId",
-									"type": "int"
+									"name": "svName",
+									"type": "String"
 								},
 								{
 									"_type": "UMLParameter",
@@ -3831,8 +4307,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGIcAyro9vhzVE="
 									},
-									"name": "cusId",
-									"type": "int"
+									"name": "cusPhone",
+									"type": "String"
 								},
 								{
 									"_type": "UMLParameter",
@@ -3840,8 +4316,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGIcAyro9vhzVE="
 									},
-									"name": "roomId",
-									"type": "int"
+									"name": "roomName",
+									"type": "String"
 								},
 								{
 									"_type": "UMLParameter",
@@ -3849,8 +4325,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGIcAyro9vhzVE="
 									},
-									"name": "svId",
-									"type": "int"
+									"name": "svName",
+									"type": "String"
 								},
 								{
 									"_type": "UMLParameter",
@@ -3941,8 +4417,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGIcA2TNNwExhg="
 									},
-									"name": "cusId",
-									"type": "int"
+									"name": "cusPhone",
+									"type": "String"
 								},
 								{
 									"_type": "UMLParameter",
@@ -3950,8 +4426,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGIcA2TNNwExhg="
 									},
-									"name": "roomId",
-									"type": "int"
+									"name": "roomName",
+									"type": "String"
 								},
 								{
 									"_type": "UMLParameter",
@@ -3959,8 +4435,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGIcA2TNNwExhg="
 									},
-									"name": "svId",
-									"type": "int"
+									"name": "svName",
+									"type": "String"
 								},
 								{
 									"_type": "UMLParameter",
@@ -4014,8 +4490,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGIcA3+RdwZcao="
 									},
-									"name": "cusId",
-									"type": "int"
+									"name": "cusPhone",
+									"type": "String"
 								},
 								{
 									"_type": "UMLParameter",
@@ -4024,6 +4500,34 @@
 										"$ref": "AAAAAAGIcA3+RdwZcao="
 									},
 									"type": "void",
+									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAGIqLCWIdBxNnE=",
+							"_parent": {
+								"$ref": "AAAAAAGIIoCp+gpM/5M="
+							},
+							"name": "getServicePrice",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqLDh09B4fKo=",
+									"_parent": {
+										"$ref": "AAAAAAGIqLCWIdBxNnE="
+									},
+									"name": "svName",
+									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIqLDh1dB5IEk=",
+									"_parent": {
+										"$ref": "AAAAAAGIqLCWIdBxNnE="
+									},
+									"type": "double",
 									"direction": "return"
 								}
 							]

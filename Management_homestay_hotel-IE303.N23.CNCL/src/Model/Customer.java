@@ -162,15 +162,15 @@ public class Customer {
     }
     
     // Xoa khach hang
-    public void deleteCustomer(int cusId){
+    public void deleteCustomer(String cusPhoneNumSearch){
         Connection cn = DataConnection.Connect();
         PreparedStatement ps = null;
         
         try {
-            String sqlDelete = "DELETE FROM CUSTOMER WHERE cus_id = ?";
+            String sqlDelete = "DELETE FROM CUSTOMER WHERE cus_phone = ?";
 
             ps = cn.prepareStatement(sqlDelete);
-            ps.setInt(1, cusId);
+            ps.setString(1, cusPhoneNumSearch);
 
             int rowsAffected = ps.executeUpdate();
 
@@ -189,24 +189,24 @@ public class Customer {
     }
     
     // Sua khach hang
-    public void updateCustomer(int cusId, String cusName, String cusEmail, String cusPhone, String cusAddress){
+    public void updateCustomer(String cusPhoneNumSearch, String cusName, String cusEmail, String cusPhone, String cusAddress){
         Connection cn = DataConnection.Connect();
         PreparedStatement ps = null;
         
         try {
-            String sqlUpdate = "UPDATE CUSTOMER SET cus_name = ?, cus_email = ?, cus_phone = ?, cus_address = ? WHERE cus_id = ?";
+            String sqlUpdate = "UPDATE CUSTOMER SET cus_name = ?, cus_email = ?, cus_phone = ?, cus_address = ? WHERE cus_phone = ?";
 
             ps = cn.prepareStatement(sqlUpdate);
             ps.setString(1, cusName);
             ps.setString(2, cusEmail);
             ps.setString(3, cusPhone);
             ps.setString(4, cusAddress);
-            ps.setInt(5, cusId);
+            ps.setString(5, cusPhoneNumSearch);
 
             int rowsAffected = ps.executeUpdate();
 
             if (rowsAffected > 0) {
-                JOptionPane.showMessageDialog(null, "Successful update!");
+                JOptionPane.showMessageDialog(null, "Successful update customer!");
             } else {
                 JOptionPane.showMessageDialog(null, "No matching record found!");
             }
