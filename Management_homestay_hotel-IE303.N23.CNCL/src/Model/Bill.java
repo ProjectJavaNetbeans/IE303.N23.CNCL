@@ -3,6 +3,7 @@ package Model;
 
 import java.util.*;
 import View.BillView;
+import View.StatisticView;
 import java.sql.*;
 import javax.swing.*;
 import java.time.LocalDateTime;
@@ -114,7 +115,7 @@ public class Bill {
                 bills.add(bill);
             }
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Data download failed!");
+            JOptionPane.showMessageDialog(null, "Data download failed!" + ex);
         } finally {
             try {
                 if (rs != null) {
