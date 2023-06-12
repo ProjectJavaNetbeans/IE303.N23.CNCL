@@ -190,7 +190,7 @@ public class Booking {
             if (rowsAffected > 0) {
                 JOptionPane.showMessageDialog(null, "Successful delete!");
             } else {
-                JOptionPane.showMessageDialog(null, "No matching record found!");
+                JOptionPane.showMessageDialog(null, "Booking ID not found!");
             }
             ps.close();
             cn.close();
@@ -221,7 +221,7 @@ public class Booking {
             if (rowsAffected > 0) {
                 JOptionPane.showMessageDialog(null, "Successful update!");
             } else {
-                JOptionPane.showMessageDialog(null, "No matching record found!");
+                JOptionPane.showMessageDialog(null, "Booking ID not found!");
             }
             ps.close();
             cn.close();
@@ -248,7 +248,7 @@ public class Booking {
             if (rowsAffected > 0) {
                 JOptionPane.showMessageDialog(null, "Successful update room status!");
             } else {
-                JOptionPane.showMessageDialog(null, "No matching record found!");
+                JOptionPane.showMessageDialog(null, "Room Name not found!");
             }
             ps.close();
             cn.close();

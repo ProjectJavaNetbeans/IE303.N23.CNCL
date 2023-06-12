@@ -61,29 +61,6 @@ CREATE TABLE BILL (
 	paid_status BOOLEAN DEFAULT FALSE
 );
 
-ALTER TABLE BOOKING
-ADD CONSTRAINT date_check CHECK (check_in_date<=check_out_date);
-
-DELIMITER //
-
-CREATE TRIGGER before_booking_insert
-BEFORE INSERT ON BOOKING
-FOR EACH ROW
-BEGIN
-    DECLARE roomstatus BOOL;
-
-    SELECT room_status INTO roomstatus
-    FROM ROOM
-    WHERE room_name = NEW.room_name;
-
-    IF roomstatus = true THEN
-        SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'Cannot book a room with status true';
-    END IF;
-END //
-
-DELIMITER ;
-
 INSERT INTO HOTELHOMESTAY (ht_id, ht_name, ht_address, room_count)
 VALUES 
 (111, 'Graden Hotel', 'Quan 1, TP Ho Chi Minh', 10),
@@ -134,6 +111,30 @@ VALUES
 INSERT INTO BILL (bill_id, cus_phone, room_name, sv_name, create_date, total_amount, paid_status)
 VALUES 
 (121, '0339145368', 'P02', 'Bua an', '2023-02-12 10:30:00', 140000, true);
+
+ALTER TABLE BOOKING
+ADD CONSTRAINT date_check CHECK (check_in_date<=check_out_date);
+
+DELIMITER //
+
+CREATE TRIGGER before_booking_insert
+BEFORE INSERT ON BOOKING
+FOR EACH ROW
+BEGIN
+    DECLARE roomstatus BOOL;
+
+    SELECT room_status INTO roomstatus
+    FROM ROOM
+    WHERE room_name = NEW.room_name;
+
+    IF roomstatus = true THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Cannot book a room with status true';
+    END IF;
+END //
+
+DELIMITER ;
+
 
 CREATE USER 'admin'@'localhost' IDENTIFIED BY '123456';
 GRANT ALL PRIVILEGES ON QLKSHS.* TO 'admin'@'localhost';

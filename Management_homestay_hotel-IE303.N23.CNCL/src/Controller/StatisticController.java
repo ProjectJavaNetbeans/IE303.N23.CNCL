@@ -41,9 +41,11 @@ public class StatisticController {
     private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {
         view.setVisible(false);
 
-        LoginView liview = new LoginView();
-        LoginController controller = new LoginController(liview);
-        controller.displayLoginView();
+        BillView billView = new BillView();
+        Bill billModel = new Bill();
+        BillController controller = new BillController(billModel,billView);
+
+        controller.displayBillView();
     }
     private void confirmBtnActionPerformed(java.awt.event.ActionEvent evt) {
         double result = 0 ;

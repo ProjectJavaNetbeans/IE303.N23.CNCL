@@ -49,7 +49,7 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": -112,
-											"top": 2032,
+											"top": 2016,
 											"height": 13
 										},
 										{
@@ -60,8 +60,8 @@
 											},
 											"font": "Arial;13;1",
 											"left": 37,
-											"top": 1119,
-											"width": 775,
+											"top": 1111,
+											"width": 847,
 											"height": 13,
 											"text": "Customer"
 										},
@@ -74,7 +74,7 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": -112,
-											"top": 2032,
+											"top": 2016,
 											"width": 73.67724609375,
 											"height": 13,
 											"text": "(from Model)"
@@ -88,15 +88,15 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": -112,
-											"top": 2032,
+											"top": 2016,
 											"height": 13,
 											"horizontalAlignment": 1
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 32,
-									"top": 1112,
-									"width": 785,
+									"top": 1104,
+									"width": 857,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGIGokz8Kl2cBs="
@@ -132,8 +132,8 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 1142,
-											"width": 775,
+											"top": 1134,
+											"width": 847,
 											"height": 13,
 											"text": "-cusId: int",
 											"horizontalAlignment": 0
@@ -149,8 +149,8 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 1157,
-											"width": 775,
+											"top": 1149,
+											"width": 847,
 											"height": 13,
 											"text": "-cusName: String",
 											"horizontalAlignment": 0
@@ -166,8 +166,8 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 1172,
-											"width": 775,
+											"top": 1164,
+											"width": 847,
 											"height": 13,
 											"text": "-cusEmail: String",
 											"horizontalAlignment": 0
@@ -183,8 +183,8 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 1187,
-											"width": 775,
+											"top": 1179,
+											"width": 847,
 											"height": 13,
 											"text": "-cusPhone: String",
 											"horizontalAlignment": 0
@@ -200,8 +200,8 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 1202,
-											"width": 775,
+											"top": 1194,
+											"width": 847,
 											"height": 13,
 											"text": "-cusAddress: String",
 											"horizontalAlignment": 0
@@ -209,8 +209,8 @@
 									],
 									"font": "Arial;13;0",
 									"left": 32,
-									"top": 1137,
-									"width": 785,
+									"top": 1129,
+									"width": 857,
 									"height": 83
 								},
 								{
@@ -234,8 +234,8 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 1225,
-											"width": 775,
+											"top": 1217,
+											"width": 847,
 											"height": 13,
 											"text": "+Customer(cusId: int, cusName: String, cusEmail: String, cusPhone: String, cusAddress: String)",
 											"horizontalAlignment": 0
@@ -251,8 +251,8 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 1240,
-											"width": 775,
+											"top": 1232,
+											"width": 847,
 											"height": 13,
 											"text": "+getCustomers(): List<Customer>",
 											"horizontalAlignment": 0
@@ -268,8 +268,8 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 1255,
-											"width": 775,
+											"top": 1247,
+											"width": 847,
 											"height": 13,
 											"text": "+addCustomer(cusId: int, cusName: String, cusEmail: String, cusPhone: String, cusAddress: String): void",
 											"horizontalAlignment": 0
@@ -285,8 +285,8 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 1270,
-											"width": 775,
+											"top": 1262,
+											"width": 847,
 											"height": 13,
 											"text": "+deleteCustomer(cusPhone: String): void",
 											"horizontalAlignment": 0
@@ -302,8 +302,8 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 1285,
-											"width": 775,
+											"top": 1277,
+											"width": 847,
 											"height": 13,
 											"text": "+updateCustomer(cusPhoneSearch: String, cusName: String, cusEmail: String, cusPhone: String, cusAddress: String): void",
 											"horizontalAlignment": 0
@@ -311,8 +311,8 @@
 									],
 									"font": "Arial;13;0",
 									"left": 32,
-									"top": 1220,
-									"width": 785,
+									"top": 1212,
+									"width": 857,
 									"height": 83
 								},
 								{
@@ -327,7 +327,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": -56,
-									"top": 1016,
+									"top": 1008,
 									"width": 10,
 									"height": 10
 								},
@@ -343,7 +343,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": -56,
-									"top": 1016,
+									"top": 1008,
 									"width": 10,
 									"height": 10
 								}
@@ -351,8 +351,8 @@
 							"font": "Arial;13;0",
 							"containerChangeable": true,
 							"left": 32,
-							"top": 1112,
-							"width": 785,
+							"top": 1104,
+							"width": 857,
 							"height": 191,
 							"nameCompartment": {
 								"$ref": "AAAAAAGIGokz8Kl1vFM="
@@ -1109,7 +1109,7 @@
 											"font": "Arial;13;1",
 											"left": 37,
 											"top": 175,
-											"width": 775,
+											"width": 847,
 											"height": 13,
 											"text": "Room"
 										},
@@ -1144,7 +1144,7 @@
 									"font": "Arial;13;0",
 									"left": 32,
 									"top": 168,
-									"width": 785,
+									"width": 857,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGIGtQotKn14XI="
@@ -1181,7 +1181,7 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 198,
-											"width": 775,
+											"width": 847,
 											"height": 13,
 											"text": "-roomId: int",
 											"horizontalAlignment": 0
@@ -1198,7 +1198,7 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 213,
-											"width": 775,
+											"width": 847,
 											"height": 13,
 											"text": "-roomName: String",
 											"horizontalAlignment": 0
@@ -1215,7 +1215,7 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 228,
-											"width": 775,
+											"width": 847,
 											"height": 13,
 											"text": "-roomType: String",
 											"horizontalAlignment": 0
@@ -1232,7 +1232,7 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 243,
-											"width": 775,
+											"width": 847,
 											"height": 13,
 											"text": "-roomRates: double",
 											"horizontalAlignment": 0
@@ -1249,7 +1249,7 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 258,
-											"width": 775,
+											"width": 847,
 											"height": 13,
 											"text": "-roomStatus: boolean",
 											"horizontalAlignment": 0
@@ -1258,7 +1258,7 @@
 									"font": "Arial;13;0",
 									"left": 32,
 									"top": 193,
-									"width": 785,
+									"width": 857,
 									"height": 83
 								},
 								{
@@ -1283,7 +1283,7 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 281,
-											"width": 775,
+											"width": 847,
 											"height": 13,
 											"text": "+Room(roomId: int, roomName: String, roomType: String, roomRates: double, roomStatus: boolean)",
 											"horizontalAlignment": 0
@@ -1300,7 +1300,7 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 296,
-											"width": 775,
+											"width": 847,
 											"height": 13,
 											"text": "+addRoom(roomId: int, roomName: String, roomType: String, roomRates: double, roomStatus: boolean): void",
 											"horizontalAlignment": 0
@@ -1317,7 +1317,7 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 311,
-											"width": 775,
+											"width": 847,
 											"height": 13,
 											"text": "+deleteRoom(roomId: int): void",
 											"horizontalAlignment": 0
@@ -1334,7 +1334,7 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 326,
-											"width": 775,
+											"width": 847,
 											"height": 13,
 											"text": "+updateRoom(roomId: int, roomName: String, roomType: String, roomRates: double, roomStatus: boolean): void",
 											"horizontalAlignment": 0
@@ -1351,7 +1351,7 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 341,
-											"width": 775,
+											"width": 847,
 											"height": 13,
 											"text": "+getRooms(): ArrayList<Room>",
 											"horizontalAlignment": 0
@@ -1360,7 +1360,7 @@
 									"font": "Arial;13;0",
 									"left": 32,
 									"top": 276,
-									"width": 785,
+									"width": 857,
 									"height": 83
 								},
 								{
@@ -1400,7 +1400,7 @@
 							"containerChangeable": true,
 							"left": 32,
 							"top": 168,
-							"width": 785,
+							"width": 857,
 							"height": 191,
 							"nameCompartment": {
 								"$ref": "AAAAAAGIGtQotKn06z8="
@@ -1459,7 +1459,7 @@
 											"font": "Arial;13;1",
 											"left": 37,
 											"top": 607,
-											"width": 859.54248046875,
+											"width": 847,
 											"height": 13,
 											"text": "Booking"
 										},
@@ -1494,7 +1494,7 @@
 									"font": "Arial;13;0",
 									"left": 32,
 									"top": 600,
-									"width": 869.54248046875,
+									"width": 857,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGIHgjQR3J1EZI="
@@ -1531,7 +1531,7 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 630,
-											"width": 859.54248046875,
+											"width": 847,
 											"height": 13,
 											"text": "-bookingId: int",
 											"horizontalAlignment": 0
@@ -1548,7 +1548,7 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 645,
-											"width": 859.54248046875,
+											"width": 847,
 											"height": 13,
 											"text": "-cusPhone: String",
 											"horizontalAlignment": 0
@@ -1565,7 +1565,7 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 660,
-											"width": 859.54248046875,
+											"width": 847,
 											"height": 13,
 											"text": "-roomName: String",
 											"horizontalAlignment": 0
@@ -1582,7 +1582,7 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 675,
-											"width": 859.54248046875,
+											"width": 847,
 											"height": 13,
 											"text": "-bookingDate: String",
 											"horizontalAlignment": 0
@@ -1599,7 +1599,7 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 690,
-											"width": 859.54248046875,
+											"width": 847,
 											"height": 13,
 											"text": "-checkInDate: String",
 											"horizontalAlignment": 0
@@ -1616,7 +1616,7 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 705,
-											"width": 859.54248046875,
+											"width": 847,
 											"height": 13,
 											"text": "-checkOutDate: String",
 											"horizontalAlignment": 0
@@ -1625,7 +1625,7 @@
 									"font": "Arial;13;0",
 									"left": 32,
 									"top": 625,
-									"width": 869.54248046875,
+									"width": 857,
 									"height": 98
 								},
 								{
@@ -1650,7 +1650,7 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 728,
-											"width": 859.54248046875,
+											"width": 847,
 											"height": 13,
 											"text": "+Booking(bookingId: int, cusPhone: String, roomName: String, bookingDate: String, checInDate: String, checkOutDate: String)",
 											"horizontalAlignment": 0
@@ -1667,7 +1667,7 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 743,
-											"width": 859.54248046875,
+											"width": 847,
 											"height": 13,
 											"text": "+addBooking(bookingId: int, cusPhone: String, roomName: String, bookingDate: String, checInDate: String, checkOutDate: String): void",
 											"horizontalAlignment": 0
@@ -1684,7 +1684,7 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 758,
-											"width": 859.54248046875,
+											"width": 847,
 											"height": 13,
 											"text": "+deleteBooking(bookingId: int): void",
 											"horizontalAlignment": 0
@@ -1701,7 +1701,7 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 773,
-											"width": 859.54248046875,
+											"width": 847,
 											"height": 13,
 											"text": "+updateBooking(bookingId: int, cusPhone: String, roomName: String, bookingDate: String, checInDate: String, checkOutDate: String): void",
 											"horizontalAlignment": 0
@@ -1718,7 +1718,7 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 788,
-											"width": 859.54248046875,
+											"width": 847,
 											"height": 13,
 											"text": "+getBookings(): ArrayList<Booking>",
 											"horizontalAlignment": 0
@@ -1735,7 +1735,7 @@
 											"font": "Arial;13;0",
 											"left": 37,
 											"top": 803,
-											"width": 859.54248046875,
+											"width": 847,
 											"height": 13,
 											"text": "+updateRoomStatus(roomName: String): void",
 											"horizontalAlignment": 0
@@ -1744,7 +1744,7 @@
 									"font": "Arial;13;0",
 									"left": 32,
 									"top": 723,
-									"width": 869.54248046875,
+									"width": 857,
 									"height": 98
 								},
 								{
@@ -1784,7 +1784,7 @@
 							"containerChangeable": true,
 							"left": 32,
 							"top": 600,
-							"width": 869.54248046875,
+							"width": 857,
 							"height": 221,
 							"nameCompartment": {
 								"$ref": "AAAAAAGIHgjQR3J0Om8="
@@ -1831,7 +1831,7 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": -192,
-											"top": 928,
+											"top": 912,
 											"height": 13
 										},
 										{
@@ -1842,8 +1842,8 @@
 											},
 											"font": "Arial;13;1",
 											"left": 37,
-											"top": 847,
-											"width": 824.12890625,
+											"top": 839,
+											"width": 847,
 											"height": 13,
 											"text": "Bill"
 										},
@@ -1856,7 +1856,7 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": -192,
-											"top": 928,
+											"top": 912,
 											"width": 73.67724609375,
 											"height": 13,
 											"text": "(from Model)"
@@ -1870,15 +1870,15 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": -192,
-											"top": 928,
+											"top": 912,
 											"height": 13,
 											"horizontalAlignment": 1
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 32,
-									"top": 840,
-									"width": 834.12890625,
+									"top": 832,
+									"width": 857,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGIIoCp+wpQd2o="
@@ -1914,8 +1914,8 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 870,
-											"width": 824.12890625,
+											"top": 862,
+											"width": 847,
 											"height": 13,
 											"text": "-billId: int",
 											"horizontalAlignment": 0
@@ -1931,8 +1931,8 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 885,
-											"width": 824.12890625,
+											"top": 877,
+											"width": 847,
 											"height": 13,
 											"text": "-cusPhone: String",
 											"horizontalAlignment": 0
@@ -1948,8 +1948,8 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 900,
-											"width": 824.12890625,
+											"top": 892,
+											"width": 847,
 											"height": 13,
 											"text": "-roomName: String",
 											"horizontalAlignment": 0
@@ -1965,8 +1965,8 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 915,
-											"width": 824.12890625,
+											"top": 907,
+											"width": 847,
 											"height": 13,
 											"text": "-svName: String",
 											"horizontalAlignment": 0
@@ -1982,8 +1982,8 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 930,
-											"width": 824.12890625,
+											"top": 922,
+											"width": 847,
 											"height": 13,
 											"text": "-createDate: String",
 											"horizontalAlignment": 0
@@ -1999,8 +1999,8 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 945,
-											"width": 824.12890625,
+											"top": 937,
+											"width": 847,
 											"height": 13,
 											"text": "-totalAmount: double",
 											"horizontalAlignment": 0
@@ -2016,8 +2016,8 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 960,
-											"width": 824.12890625,
+											"top": 952,
+											"width": 847,
 											"height": 13,
 											"text": "-paidStatus: boolean",
 											"horizontalAlignment": 0
@@ -2025,8 +2025,8 @@
 									],
 									"font": "Arial;13;0",
 									"left": 32,
-									"top": 865,
-									"width": 834.12890625,
+									"top": 857,
+									"width": 857,
 									"height": 113
 								},
 								{
@@ -2050,8 +2050,8 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 983,
-											"width": 824.12890625,
+											"top": 975,
+											"width": 847,
 											"height": 13,
 											"text": "+Bill(billId: int, cusPhone: String, roomName: String, svName: String, createDate: String, totalAmount: double, paidStatus: boolean)",
 											"horizontalAlignment": 0
@@ -2067,8 +2067,8 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 998,
-											"width": 824.12890625,
+											"top": 990,
+											"width": 847,
 											"height": 13,
 											"text": "+calcTotalAmount(): double",
 											"horizontalAlignment": 0
@@ -2084,8 +2084,8 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 1013,
-											"width": 824.12890625,
+											"top": 1005,
+											"width": 847,
 											"height": 13,
 											"text": "+getBills(): List<Bill>",
 											"horizontalAlignment": 0
@@ -2101,8 +2101,8 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 1028,
-											"width": 824.12890625,
+											"top": 1020,
+											"width": 847,
 											"height": 13,
 											"text": "+addBill(billId: int, cusPhone: String, roomName: String, svName: String, createDate: String, totalAmount: double, paidStatus: boolean): void",
 											"horizontalAlignment": 0
@@ -2118,8 +2118,8 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 1043,
-											"width": 824.12890625,
+											"top": 1035,
+											"width": 847,
 											"height": 13,
 											"text": "+deleteBill(billId: int): void",
 											"horizontalAlignment": 0
@@ -2135,8 +2135,8 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 1058,
-											"width": 824.12890625,
+											"top": 1050,
+											"width": 847,
 											"height": 13,
 											"text": "+updateBill(billId: int, cusPhone: String, roomName: String, svName: String, createDate: String, totalAmount: double, paidStatus: boolean): void",
 											"horizontalAlignment": 0
@@ -2152,8 +2152,8 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 1073,
-											"width": 824.12890625,
+											"top": 1065,
+											"width": 847,
 											"height": 13,
 											"text": "+priBill(cusPhone: String): void",
 											"horizontalAlignment": 0
@@ -2169,8 +2169,8 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 1088,
-											"width": 824.12890625,
+											"top": 1080,
+											"width": 847,
 											"height": 13,
 											"text": "+getServicePrice(svName: String): double",
 											"horizontalAlignment": 0
@@ -2178,8 +2178,8 @@
 									],
 									"font": "Arial;13;0",
 									"left": 32,
-									"top": 978,
-									"width": 834.12890625,
+									"top": 970,
+									"width": 857,
 									"height": 128
 								},
 								{
@@ -2194,7 +2194,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": -96,
-									"top": 464,
+									"top": 456,
 									"width": 10,
 									"height": 10
 								},
@@ -2210,7 +2210,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": -96,
-									"top": 464,
+									"top": 456,
 									"width": 10,
 									"height": 10
 								}
@@ -2218,8 +2218,8 @@
 							"font": "Arial;13;0",
 							"containerChangeable": true,
 							"left": 32,
-							"top": 840,
-							"width": 834.12890625,
+							"top": 832,
+							"width": 857,
 							"height": 266,
 							"nameCompartment": {
 								"$ref": "AAAAAAGIIoCp+wpPaSU="

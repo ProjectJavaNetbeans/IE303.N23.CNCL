@@ -212,7 +212,7 @@ public class Room {
             if (rowsAffected > 0) {
                 JOptionPane.showMessageDialog(null, "Successful delete room!");
             } else {
-                JOptionPane.showMessageDialog(null, "No matching record found!");
+                JOptionPane.showMessageDialog(null, "Room Name not found!");
             }
             ps.close();
             cn.close();

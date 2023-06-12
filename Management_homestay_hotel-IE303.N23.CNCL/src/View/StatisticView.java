@@ -59,7 +59,7 @@ public class StatisticView extends javax.swing.JFrame {
     
     public void displayBills(List<Bill> bills) {
         String[][] data = dataTransfer(bills);
-        String[] column = {"Bill ID", "Customer ID", "Room ID", "Service ID", "Create Date", "Total Amount", "Paid Status"};
+        String[] column = {"Bill ID", "Customer Phone", "Room Name", "Service Name", "Create Date", "Total Amount", "Paid Status"};
         DefaultTableModel dataModel = new DefaultTableModel(data, column);
         BillTable.setModel(dataModel);
         frame.setVisible(true);
@@ -103,9 +103,9 @@ public class StatisticView extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("Nhập năm");
+        jLabel2.setText("Enter year:");
 
-        jLabel3.setText("Tổng doanh thu của năm");
+        jLabel3.setText("Total revenue of the year:");
 
         BillTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -115,7 +115,7 @@ public class StatisticView extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Bill ID", "Customer ID", "Room ID", "Service ID", "Create date", "Total Amount", "Paid Status"
+                "Bill ID", "Customer Phone", "Room Name", "Service Name", "Create date", "Total Amount", "Paid Status"
             }
         ));
         jScrollPane1.setViewportView(BillTable);

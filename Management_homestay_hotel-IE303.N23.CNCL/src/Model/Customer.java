@@ -177,7 +177,7 @@ public class Customer {
             if (rowsAffected > 0) {
                 JOptionPane.showMessageDialog(null, "Successful delete!");
             } else {
-                JOptionPane.showMessageDialog(null, "No matching record found!");
+                JOptionPane.showMessageDialog(null, "Phone Number not found!");
             }
             ps.close();
             cn.close();
@@ -208,7 +208,7 @@ public class Customer {
             if (rowsAffected > 0) {
                 JOptionPane.showMessageDialog(null, "Successful update customer!");
             } else {
-                JOptionPane.showMessageDialog(null, "No matching record found!");
+                JOptionPane.showMessageDialog(null, "Phone Number not found!");
             }
             ps.close();
             cn.close();

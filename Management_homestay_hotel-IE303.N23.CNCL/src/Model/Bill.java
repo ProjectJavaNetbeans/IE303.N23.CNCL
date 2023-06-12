@@ -185,7 +185,7 @@ public class Bill {
             if (rowsAffected > 0) {
                 JOptionPane.showMessageDialog(null, "Successful delete!");
             } else {
-                JOptionPane.showMessageDialog(null, "No matching record found!");
+                JOptionPane.showMessageDialog(null, "Bill ID not found!");
             }
             ps.close();
             cn.close();
@@ -217,7 +217,7 @@ public class Bill {
             if (rowsAffected > 0) {
                 JOptionPane.showMessageDialog(null, "Successful update!");
             } else {
-                JOptionPane.showMessageDialog(null, "No matching record found!");
+                JOptionPane.showMessageDialog(null, "Bill ID not found!");
             }
             ps.close();
             cn.close();
