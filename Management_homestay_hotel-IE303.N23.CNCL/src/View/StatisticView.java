@@ -46,9 +46,9 @@ public class StatisticView extends javax.swing.JFrame {
         String data[][] = new String[bills.size()][7];
         for(Bill bill : bills){
             data[i][0] = String.valueOf(bill.getBillId());
-            data[i][1] = String.valueOf(bill.getCusId());
-            data[i][2] = String.valueOf(bill.getRoomId());
-            data[i][3] = String.valueOf(bill.getSvId());
+            data[i][1] = String.valueOf(bill.getCusPhone());
+            data[i][2] = String.valueOf(bill.getRoomName());
+            data[i][3] = String.valueOf(bill.getSvName());
             data[i][4] = bill.getCreateDate();
             data[i][5] = String.valueOf(bill.getTotalAmount());
             data[i][6] = String.valueOf(bill.getPaidStatus());
