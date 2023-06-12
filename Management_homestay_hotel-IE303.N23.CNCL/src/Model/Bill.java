@@ -115,7 +115,7 @@ public class Bill {
                 bills.add(bill);
             }
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Data download failed!");
+            JOptionPane.showMessageDialog(null, "Data download failed!" + ex);
         } finally {
             try {
                 if (rs != null) {
